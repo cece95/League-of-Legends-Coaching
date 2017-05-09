@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">League of Legends Coaching</string>
+    <string name="title">LEAGUE OF LEGENDS \nCOACHING</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="login">LOGIN</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="repeatPassword">Repeat Password</string>
+    <string name="inGame">In Game Name</string>
+    <string name="checkCoach">I am a Coach</string>
+</resources>
