@@ -105,7 +105,7 @@
                 android:inputType="text" />
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/coach_checkBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding"
