@@ -35,7 +35,7 @@
             android:textSize="@dimen/title_text" />
 
         <Button
-            android:id="@+id/login_button"
+            android:id="@+id/signupSubmit_button"
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:text="@string/login"
@@ -52,9 +52,9 @@
             android:textSize="@dimen/button_text"
             tools:layout_editor_absoluteX="136dp"
             tools:layout_editor_absoluteY="119dp"
-            android:layout_below="@+id/login_button"
-            android:layout_alignLeft="@+id/login_button"
-            android:layout_alignStart="@+id/login_button"
+            android:layout_below="@+id/signupSubmit_button"
+            android:layout_alignLeft="@+id/signupSubmit_button"
+            android:layout_alignStart="@+id/signupSubmit_button"
             android:layout_marginTop="74dp" />
     </RelativeLayout>
 

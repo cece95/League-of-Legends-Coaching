@@ -8,4 +8,21 @@
     <string name="repeatPassword">Repeat Password</string>
     <string name="inGame">In Game Name</string>
     <string name="checkCoach">I am a Coach</string>
+    <string name="coachRegistration">COACH REGISTRATION</string>
+    <string name="elo">Elo</string>
+    <string name="language">Language</string>
+    <string name="roles">Roles</string>
+    <string name="cost">Cost</string>
+    <string name="schedule">Schedule</string>
+
+    <string-array name="elo_list">
+        <item>Bronze</item>
+        <item>Silver</item>
+        <item>Gold</item>
+        <item>Platinum</item>
+        <item>Diamond</item>
+        <item>Master</item>
+        <item>Challenger</item>
+    </string-array>
+
 </resources>

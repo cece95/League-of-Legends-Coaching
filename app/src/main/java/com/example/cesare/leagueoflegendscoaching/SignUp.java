@@ -17,8 +17,9 @@ public class SignUp extends Activity {
 
         final CheckBox coachCheckBox = (CheckBox) findViewById(R.id.coach_checkBox);
 
+
         //add listener for signup button
-        Button signupButton = (Button) findViewById(R.id.signup_button);
+        final Button signupButton = (Button) findViewById(R.id.signupSubmit_button);
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,6 +27,7 @@ public class SignUp extends Activity {
                 startActivity(signup);
             }
         });
+
     }
 
     Intent coachIntent(Context context, CheckBox coach) {
@@ -38,4 +40,6 @@ public class SignUp extends Activity {
         }
         return risIntent;
     }
+
+
 }

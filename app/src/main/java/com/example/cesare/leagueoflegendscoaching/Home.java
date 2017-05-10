@@ -14,7 +14,7 @@ public class Home extends Activity {
         setContentView(R.layout.activity_home);
 
         //add listener for login button
-        Button loginButton = (Button) findViewById(R.id.login_button);
+        final Button loginButton = (Button) findViewById(R.id.signupSubmit_button);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -24,7 +24,7 @@ public class Home extends Activity {
         });
 
         //add listener for signUp button
-        Button signUpButton = (Button) findViewById(R.id.signup_button);
+        final Button signUpButton = (Button) findViewById(R.id.signup_button);
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
