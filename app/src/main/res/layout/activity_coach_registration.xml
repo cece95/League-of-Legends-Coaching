@@ -62,55 +62,131 @@
                 android:text="@string/language"
                 android:textSize="@dimen/label" />
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="horizontal">
 
+
+                <ImageButton
+                    android:id="@+id/flag_UnitedKingdom_ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:src="@mipmap/flag_unitedkingdom" />
+
+                <ImageButton
+                    android:id="@+id/flag_Italy_ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:src="@mipmap/flag_italy" />
+
+                <ImageButton
+                    android:id="@+id/flag_Germany_ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:src="@mipmap/flag_germany" />
+
+                <ImageButton
+                    android:id="@+id/flag_France_ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:src="@mipmap/flag_france" />
+
+                <ImageButton
+                    android:id="@+id/flag_Spain_ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:src="@mipmap/flag_spain" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/password_label"
+                android:id="@id/roles_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding"
-
-                android:text="@string/password"
+                android:text="@string/roles"
                 android:textSize="@dimen/label" />
 
-            <EditText
-                android:id="@+id/password_input"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPassword" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/role1_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:id="@+id/role2_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cost_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:padding="@dimen/padding"
+                    android:text="@string/cost"
+                    android:textSize="@dimen/label" />
+
+                <EditText
+                    android:id="@+id/cost_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/repeatPassword_label"
+                android:id="@+id/schedule_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding"
 
-                android:text="@string/repeatPassword"
-                android:textSize="@dimen/label" />
+                android:text="@string/schedule"
+                android:textSize="@dimen/label"/>
 
-            <EditText
-                android:id="@+id/repeatPassword_input"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
+                android:layout_height="match_parent">
 
-            <CheckBox
-                android:id="@+id/coach_checkBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/padding"
-                android:text="@string/checkCoach"
-                android:textSize="@dimen/label" />
+                <ImageButton
+                    android:id="@+id/schedule_ImageButton"
+                    android:layout_width="87dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+
+                    android:background="@android:color/background_light"
+                    android:src="@mipmap/ic_date_range_black_48dp"/>
+            </RelativeLayout>
 
 
         </LinearLayout>
-
         <Button
             android:id="@+id/signupSubmit_button"
             android:layout_width="@dimen/button_width"
@@ -118,7 +194,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/linear_registration"
             android:layout_marginTop="@dimen/margin"
-            android:text="@string/sign_up"
+            android:text="@string/coach_signup"
             android:textSize="@dimen/button_text" />
 
     </RelativeLayout>
