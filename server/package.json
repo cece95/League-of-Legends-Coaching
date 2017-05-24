@@ -1,0 +1,16 @@
+{
+  "name": "server_lol",
+  "version": "1.0.0",
+  "description": "server REST",
+  "main": "server_cece.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cesare_grigoletto luca_bazzanella",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mysql": "^2.13.0"
+  }
+}
