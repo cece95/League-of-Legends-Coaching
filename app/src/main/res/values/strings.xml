@@ -3,17 +3,20 @@
     <string name="title">LEAGUE OF LEGENDS \nCOACHING</string>
     <string name="sign_up">SIGN UP</string>
     <string name="login">LOGIN</string>
+
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="repeatPassword">Repeat Password</string>
     <string name="inGame">In Game Name</string>
     <string name="checkCoach">I am a Coach</string>
+
     <string name="coachRegistration">COACH REGISTRATION</string>
     <string name="elo">Elo</string>
     <string name="language">Language</string>
     <string name="roles">Roles</string>
     <string name="cost">Cost</string>
     <string name="schedule">Schedule</string>
+    <string name="coach_signup">SIGN UP AS COACH</string>
 
     <string-array name="elo_list">
         <item>Bronze</item>
@@ -23,6 +26,23 @@
         <item>Diamond</item>
         <item>Master</item>
         <item>Challenger</item>
+    </string-array>
+
+    <string-array name="role1_list">
+        <item>Top</item>
+        <item>Jungle</item>
+        <item>Mid</item>
+        <item>Adc</item>
+        <item>Support</item>
+    </string-array>
+
+    <string-array name="role2_list">
+        <item>None</item>
+        <item>Top</item>
+        <item>Jungle</item>
+        <item>Mid</item>
+        <item>Adc</item>
+        <item>Support</item>
     </string-array>
 
 </resources>
