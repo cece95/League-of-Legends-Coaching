@@ -18,6 +18,8 @@
     <string name="schedule">Schedule</string>
     <string name="coach_signup">SIGN UP AS COACH</string>
 
+    <string name="studentArea">STUDENT AREA</string>
+
     <string-array name="elo_list">
         <item>Bronze</item>
         <item>Silver</item>
