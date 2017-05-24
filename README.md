@@ -1,1 +1,1 @@
-# League-of-Legends-Coaching
+# LegueOfLegendsServer
