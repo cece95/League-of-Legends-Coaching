@@ -37,10 +37,10 @@ public class SignUp extends Activity {
             risIntent = new Intent(context, CoachRegistration.class);
         }
         else {
-            EditText name_input = findViewById(R.id.name_input);
-            EditText inGame_input = findViewById(R.id.inGame_input);
-            EditText password_input = findViewById(R.id.password_input);
-            EditText repeatPassword_input = findViewById(R.id.repeatPassword_input);
+            EditText name_input = (EditText) findViewById(R.id.name_input);
+            EditText inGame_input = (EditText) findViewById(R.id.inGame_input);
+            EditText password_input = (EditText) findViewById(R.id.password_input);
+            EditText repeatPassword_input = (EditText) findViewById(R.id.repeatPassword_input);
 
             String name = name_input.getText().toString();
             String ign = inGame_input.getText().toString();
