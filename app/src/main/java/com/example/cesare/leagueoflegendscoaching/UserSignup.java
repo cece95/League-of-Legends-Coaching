@@ -1,5 +1,8 @@
 package com.example.cesare.leagueoflegendscoaching;
 
+import android.os.AsyncTask;
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -10,27 +13,35 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.security.NoSuchAlgorithmException;
-
 
 /**
  * Created by cesare on 24/05/2017.
  */
 
-public class ServerConnection {
+public class UserSignup extends AsyncTask<RegistrationParams, Integer, Integer>{
     //Domain url
     final static String domain = "https://league-of-legends-coaching.herokuapp.com/";
 
-    public static int userRegistration(String name, String ign, String password) {
+    @Override
+    protected Integer doInBackground(RegistrationParams... params) {
         int control = 0;
         String sha1_password = null;
+
+        if(!Security.isNetworkAvailable(params[0].context)){
+            control = 404;
+            return control;
+        }
+
+        Log.d("NETWORK", "Network available");
 
         //request url creation
         String route = "userRegistration/";
         String complete_url = domain + route;
+
+        Log.d("URL", "complete_url: "+complete_url);
+
         URL url = null;
 
         try {
@@ -41,7 +52,7 @@ public class ServerConnection {
         }
 
         try {
-            sha1_password = Security.SHA1(password);
+            sha1_password = Security.SHA1(params[0].password);
         } catch (NoSuchAlgorithmException e) {
             control = 1;
             e.printStackTrace();
@@ -49,6 +60,8 @@ public class ServerConnection {
             control = 2;
             e.printStackTrace();
         }
+
+        Log.d("SHA1", "Sha1 password: "+sha1_password);
 
         if (url != null) {
             try {
@@ -63,14 +76,18 @@ public class ServerConnection {
                 urlConnection.connect();
 
                 JSONObject jsonParam = new JSONObject();
-                jsonParam.put("name", name);
-                jsonParam.put("ign", ign);
+                jsonParam.put("ign", params[0].ign);
                 jsonParam.put("password", sha1_password);
+
+                Log.d("JSON", "Json: "+jsonParam);
+
                 OutputStreamWriter out = new OutputStreamWriter(urlConnection.getOutputStream());
                 out.write(jsonParam.toString());
                 out.close();
 
                 int HttpResult = urlConnection.getResponseCode();
+                Log.d("RESPONSE CODE", Integer.toString(HttpResult));
+
                 if (HttpResult == HttpURLConnection.HTTP_OK) {
                     StringBuilder sb = new StringBuilder();
 
@@ -82,9 +99,12 @@ public class ServerConnection {
                     }
                     br.close();
 
-                    if (sb.toString().equals("ok")) {
-                        control = 200;
-                    }
+                    Log.d("RESPONSE", sb.toString());
+                    JSONObject jObject = new JSONObject(sb.toString());
+
+                    int code = jObject.getInt("code");
+                    control = code;
+
                 }
             } catch (UnsupportedEncodingException e) {
                 control = 4;
@@ -100,5 +120,4 @@ public class ServerConnection {
 
         return control;
     }
-
 }

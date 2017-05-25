@@ -4,6 +4,10 @@ package com.example.cesare.leagueoflegendscoaching;
  * Created by cesare on 24/05/2017.
  */
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -30,4 +34,10 @@ public class Security {
             byte[] sha1hash = md.digest();
             return convertToHex(sha1hash);
         }
+
+    public static boolean isNetworkAvailable(Context c) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) c.getSystemService(c.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
     }
