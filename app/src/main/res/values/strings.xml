@@ -19,6 +19,9 @@
     <string name="coach_signup">SIGN UP AS COACH</string>
 
     <string name="studentArea">STUDENT AREA</string>
+    <string name="findCoach">FIND COACH</string>
+    <string name="booking">BOOKING</string>
+    <string name="favoriteCoaches">FAVORITE COACHES</string>
 
     <string-array name="elo_list">
         <item>Bronze</item>
