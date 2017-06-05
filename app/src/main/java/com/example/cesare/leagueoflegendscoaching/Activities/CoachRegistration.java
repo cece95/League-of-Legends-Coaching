@@ -5,12 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -26,9 +26,9 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.ExecutionException;
 
-import javax.xml.datatype.Duration;
-
 public class CoachRegistration extends Activity {
+
+    PopupWindow popup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +65,15 @@ public class CoachRegistration extends Activity {
         calendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    Toast myToast = Toast.makeText(getApplicationContext(), "prova", Toast.LENGTH_SHORT);
-                    myToast.show();
-                    // Button btn_closepopup=(Button) findViewById(R.id.btn_closePoppup);
+                Toast myToast = Toast.makeText(CoachRegistration.this, "prova", Toast.LENGTH_SHORT);
+                myToast.show();
+                LayoutInflater inflater = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                View popup_view = inflater.inflate(R.layout.popup_date, null);
+
+                popup = new PopupWindow(popup_view, RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                RelativeLayout popup_position = (RelativeLayout) findViewById(R.id.schedule_layout);
+
+                popup.showAtLocation(popup_position, Gravity.CENTER, 0,0);
 
             }
         });
