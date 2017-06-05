@@ -83,6 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/flag_button"
 
                     android:src="@mipmap/flag_unitedkingdom" />
 
@@ -100,6 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/flag_button"
 
                     android:src="@mipmap/flag_germany" />
 
@@ -108,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-
+                    android:background="@drawable/flag_button"
                     android:src="@mipmap/flag_france" />
 
                 <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
@@ -116,6 +118,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/flag_button"
 
                     android:src="@mipmap/flag_spain" />
             </LinearLayout>
