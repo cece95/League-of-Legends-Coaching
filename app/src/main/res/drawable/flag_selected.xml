@@ -3,4 +3,5 @@
     <solid android:color="#00FFFF"/>
     <padding/>
     <stroke android:color="#0000FF" android:width="5sp"/>
+    <size android:width="@dimen/flag_width" android:height="@dimen/flag_height" />
 </shape>

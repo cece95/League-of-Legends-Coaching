@@ -13,6 +13,6 @@
     <dimen name="padding">8sp</dimen>
     <dimen name="margin">10sp</dimen>
 
-    <dimen name="flag_width">10sp</dimen>
-    <dimen name="flag_height">10sp</dimen>
+    <dimen name="flag_width">30sp</dimen>
+    <dimen name="flag_height">35sp</dimen>
 </resources>
