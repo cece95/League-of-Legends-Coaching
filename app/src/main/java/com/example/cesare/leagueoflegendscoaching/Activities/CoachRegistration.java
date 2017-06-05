@@ -4,10 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,6 +25,8 @@ import com.example.cesare.leagueoflegendscoaching.ToggleImageButton;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.ExecutionException;
+
+import javax.xml.datatype.Duration;
 
 public class CoachRegistration extends Activity {
 
@@ -52,6 +59,18 @@ public class CoachRegistration extends Activity {
         ToggleImageButton fr_flag = (ToggleImageButton) findViewById(R.id.flag_France_ImageButton);
         ToggleImageButton sp_flag = (ToggleImageButton) findViewById(R.id.flag_Spain_ImageButton);
         ToggleImageButton ger_flag = (ToggleImageButton) findViewById(R.id.flag_Germany_ImageButton);
+
+        // Date Popup window
+        ImageButton calendarButton = (ImageButton) findViewById(R.id.schedule_ImageButton);
+        calendarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Toast myToast = Toast.makeText(getApplicationContext(), "prova", Toast.LENGTH_SHORT);
+                    myToast.show();
+                    // Button btn_closepopup=(Button) findViewById(R.id.btn_closePoppup);
+
+            }
+        });
 
         //Set signupListener
         Button signupCoach = (Button) findViewById(R.id.signupCoachSubmit_button);
