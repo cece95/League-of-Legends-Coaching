@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Home"
+            android:name=".Activities.Home"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,16 +21,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".Activities.Login"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SignUp"
+            android:name=".Activities.SignUp"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CoachRegistration"
+            android:name=".Activities.CoachRegistration"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".StudentArea"
+            android:name=".Activities.StudentArea"
             android:screenOrientation="portrait" />
     </application>
 </manifest>

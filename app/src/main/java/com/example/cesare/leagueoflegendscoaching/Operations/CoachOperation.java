@@ -1,7 +1,10 @@
-package com.example.cesare.leagueoflegendscoaching;
+package com.example.cesare.leagueoflegendscoaching.Operations;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.example.cesare.leagueoflegendscoaching.Params.CoachParams;
+import com.example.cesare.leagueoflegendscoaching.Security;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,22 +17,20 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by cesare on 24/05/2017.
+ * Created by cesare on 05/06/2017.
  */
 
-public class UserSignup extends AsyncTask<RegistrationParams, Integer, Integer>{
+public class CoachOperation extends AsyncTask<CoachParams, Integer, Integer> {
     //Domain url
     final static String domain = "https://league-of-legends-coaching.herokuapp.com/";
 
     @Override
-    protected Integer doInBackground(RegistrationParams... params) {
+    protected Integer doInBackground(CoachParams... params) {
         int control = 0;
-        String sha1_password = null;
 
-        if(!Security.isNetworkAvailable(params[0].context)){
+        if(!Security.isNetworkAvailable(params[0].getContext())){
             control = 404;
             return control;
         }
@@ -37,7 +38,12 @@ public class UserSignup extends AsyncTask<RegistrationParams, Integer, Integer>{
         Log.d("NETWORK", "Network available");
 
         //request url creation
-        String route = "userRegistration/";
+        String route = null;
+        String requestType = params[0].getRequestType();
+        if (requestType == "register") {
+            route = "coachRegistration/";
+        }
+
         String complete_url = domain + route;
 
         Log.d("URL", "complete_url: "+complete_url);
@@ -51,17 +57,7 @@ public class UserSignup extends AsyncTask<RegistrationParams, Integer, Integer>{
             e.printStackTrace();
         }
 
-        try {
-            sha1_password = Security.SHA1(params[0].password);
-        } catch (NoSuchAlgorithmException e) {
-            control = 1;
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            control = 2;
-            e.printStackTrace();
-        }
-
-        Log.d("SHA1", "Sha1 password: "+sha1_password);
+        Log.d("SHA1", "Sha1 password: "+params[0].getPassword());
 
         if (url != null) {
             try {
@@ -76,8 +72,13 @@ public class UserSignup extends AsyncTask<RegistrationParams, Integer, Integer>{
                 urlConnection.connect();
 
                 JSONObject jsonParam = new JSONObject();
-                jsonParam.put("ign", params[0].ign);
-                jsonParam.put("password", sha1_password);
+                jsonParam.put("ign", params[0].getIgn());
+                jsonParam.put("password", params[0].getPassword());
+                jsonParam.put("elo", params[0].getElo());
+                jsonParam.put("languages", params[0].getLanguages());
+                jsonParam.put("role1", params[0].getRole1());
+                jsonParam.put("role2", params[0].getRole2());
+                jsonParam.put("cost", params[0].getCost());
 
                 Log.d("JSON", "Json: "+jsonParam);
 

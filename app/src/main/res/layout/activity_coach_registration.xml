@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cesare.leagueoflegendscoaching.SignUp">
+    tools:context="com.example.cesare.leagueoflegendscoaching.Activities.SignUp">
 
     <RelativeLayout
         android:id="@+id/relative_signup"
@@ -37,21 +36,31 @@
             android:layout_marginTop="31dp"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/elo_label"
+            <LinearLayout
+                android:id="@+id/elo_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/padding"
-                android:paddingLeft="@dimen/padding"
-                android:paddingRight="@dimen/padding"
-                android:paddingTop="@dimen/padding"
-                android:text="@string/elo"
-                android:textSize="@dimen/label" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <Spinner
-                android:id="@+id/elo_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/elo_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingBottom="@dimen/padding"
+                    android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
+                    android:paddingTop="@dimen/padding"
+                    android:text="@string/elo"
+                    android:textSize="@dimen/label" />
+
+                <Spinner
+                    android:id="@+id/elo_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/language_label"
@@ -69,7 +78,7 @@
                 android:orientation="horizontal">
 
 
-                <ImageButton
+                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
                     android:id="@+id/flag_UnitedKingdom_ImageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -77,15 +86,16 @@
 
                     android:src="@mipmap/flag_unitedkingdom" />
 
-                <ImageButton
+                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
                     android:id="@+id/flag_Italy_ImageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    style="@style/Widget.AppCompat.Button"
 
                     android:src="@mipmap/flag_italy" />
 
-                <ImageButton
+                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
                     android:id="@+id/flag_Germany_ImageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -93,7 +103,7 @@
 
                     android:src="@mipmap/flag_germany" />
 
-                <ImageButton
+                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
                     android:id="@+id/flag_France_ImageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -101,7 +111,7 @@
 
                     android:src="@mipmap/flag_france" />
 
-                <ImageButton
+                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
                     android:id="@+id/flag_Spain_ImageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -188,7 +198,7 @@
 
         </LinearLayout>
         <Button
-            android:id="@+id/signupSubmit_button"
+            android:id="@+id/signupCoachSubmit_button"
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:layout_alignParentRight="true"

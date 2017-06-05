@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.example.cesare.leagueoflegendscoaching.Login">
+    tools:context="com.example.cesare.leagueoflegendscoaching.Activities.Login">
 
     <RelativeLayout
         android:id="@+id/relative_login"
@@ -44,11 +43,11 @@
                 android:paddingLeft="@dimen/padding"
                 android:paddingRight="@dimen/padding"
                 android:paddingTop="@dimen/padding"
-                android:text="@string/name"
+                android:text="@string/inGame"
                 android:textSize="@dimen/label" />
 
             <EditText
-                android:id="@+id/name_input"
+                android:id="@+id/user_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -56,7 +55,7 @@
                 android:padding="@dimen/padding" />
 
             <TextView
-                android:id="@+id/password_label"
+                android:id="@+id/passwordLogin_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding"
@@ -65,7 +64,7 @@
                 android:textSize="@dimen/label" />
 
             <EditText
-                android:id="@+id/password_input"
+                android:id="@+id/passwordLogin_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -74,7 +73,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/signupSubmit_button"
+            android:id="@+id/loginSubmit_button"
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:layout_marginTop="@dimen/margin"
