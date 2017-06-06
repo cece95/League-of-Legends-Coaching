@@ -15,14 +15,16 @@ public class CoachParams extends UserParams {
     String role1;
     String role2;
     int cost;
+    boolean upgrade;
 
-    public CoachParams(String ign, String password, Context context, String requestType, int elo, boolean[] languages, String role1, String role2, int cost) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public CoachParams(String ign, String password, Context context, String requestType, int elo, boolean[] languages, String role1, String role2, int cost, boolean upgrade) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         super(ign, password, context, requestType);
         this.elo = elo;
         this.languages = languages;
         this.role1 = role1;
         this.role2 = role2;
         this.cost = cost;
+        this.upgrade = upgrade;
     }
 
     public int getElo() {
@@ -44,4 +46,6 @@ public class CoachParams extends UserParams {
     public int getCost() {
         return cost;
     }
+
+    public boolean getUpgrade() { return upgrade; }
 }

@@ -104,6 +104,7 @@ public class CoachRegistration extends Activity {
         //ottengo i parametri
         String ign = intent.getStringExtra("ign");
         String password = intent.getStringExtra("password");
+        boolean upgrade = intent.getBooleanExtra("upgrade", false);
         String elo = (String) eloSpinner.getSelectedItem();
         int elo_int = Miscellaneous.eloMap.get(elo);
         boolean languages[] = checkLanguages();
@@ -114,7 +115,7 @@ public class CoachRegistration extends Activity {
         //procedo alla registrazione
         int coachRegistration;
         try {
-            CoachParams coachParams = new CoachParams(ign, password, context, "register", elo_int, languages, role1, role2, cost);
+            CoachParams coachParams = new CoachParams(ign, password, context, "register", elo_int, languages, role1, role2, cost, upgrade);
             coachRegistration = new CoachOperation().execute(coachParams).get();
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException | InterruptedException | ExecutionException e) {
             Toast toast = Toast.makeText(context, "Registration Error", Toast.LENGTH_SHORT);
@@ -125,8 +126,9 @@ public class CoachRegistration extends Activity {
         //modifica da qui in poi(+aggiungere parte server)
         switch (coachRegistration) {
             case 10: {
-                risIntent = new Intent(context, StudentArea.class);
+                risIntent = new Intent(context, CoachArea.class);
                 risIntent.putExtra("user", ign);
+                risIntent.putExtra("isCoach", true);
             }
             break;
 

@@ -79,6 +79,7 @@ public class CoachOperation extends AsyncTask<CoachParams, Integer, Integer> {
                 jsonParam.put("role1", params[0].getRole1());
                 jsonParam.put("role2", params[0].getRole2());
                 jsonParam.put("cost", params[0].getCost());
+                jsonParam.put("upgrade", params[0].getUpgrade());
 
                 Log.d("JSON", "Json: "+jsonParam);
 

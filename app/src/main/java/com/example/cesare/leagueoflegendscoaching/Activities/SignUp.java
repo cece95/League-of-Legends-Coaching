@@ -86,6 +86,7 @@ public class SignUp extends Activity {
                 case 10:{
                     risIntent = new Intent(context, StudentArea.class);
                     risIntent.putExtra("user", ign);
+                    risIntent.putExtra("isCoach", false);
                 }
                 break;
 

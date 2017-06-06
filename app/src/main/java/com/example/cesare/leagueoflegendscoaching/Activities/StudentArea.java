@@ -16,6 +16,7 @@ public class StudentArea extends Activity {
 
         Intent intent = getIntent();
         String user = intent.getStringExtra("user");
+        boolean isCoach = intent.getBooleanExtra("isCoach", false);
 
         final TextView welcome = (TextView) findViewById(R.id.welcomeMessage);
         welcome.setText("Welcome "+user);
