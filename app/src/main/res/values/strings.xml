@@ -23,13 +23,13 @@
     <string name="booking">BOOKING</string>
     <string name="favoriteCoaches">FAVORITE COACHES</string>
 
-    <string name="monday">Monday</string>
-    <string name="tuesday">Tuesday</string>
-    <string name="wednesday">Wednesday</string>
-    <string name="Thursday">Thursday</string>
-    <string name="Friday">Friday</string>
-    <string name="Saturday">Saturday</string>
-    <string name="Sunday">Sunday</string>
+    <string name="monday">Mon</string>
+    <string name="tuesday">Tue</string>
+    <string name="wednesday">Wed</string>
+    <string name="Thursday">Thu</string>
+    <string name="Friday">Fri</string>
+    <string name="Saturday">Sat</string>
+    <string name="Sunday">Sun</string>
     <string name="change_schedule">Change Schedule</string>
 
     <string-array name="elo_list">
