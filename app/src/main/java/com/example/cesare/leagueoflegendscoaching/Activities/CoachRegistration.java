@@ -16,14 +16,17 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.cesare.leagueoflegendscoaching.Miscellaneous;
+import com.example.cesare.leagueoflegendscoaching.Elo;
+import com.example.cesare.leagueoflegendscoaching.Language;
 import com.example.cesare.leagueoflegendscoaching.Operations.CoachOperation;
 import com.example.cesare.leagueoflegendscoaching.Params.CoachParams;
 import com.example.cesare.leagueoflegendscoaching.R;
+import com.example.cesare.leagueoflegendscoaching.Role;
 import com.example.cesare.leagueoflegendscoaching.ToggleImageButton;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashSet;
 import java.util.concurrent.ExecutionException;
 
 public class CoachRegistration extends Activity {
@@ -68,7 +71,7 @@ public class CoachRegistration extends Activity {
                 Toast myToast = Toast.makeText(CoachRegistration.this, "prova", Toast.LENGTH_SHORT);
                 myToast.show();
                 LayoutInflater inflater = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popup_view = inflater.inflate(R.layout.popup_date, null);
+                View popup_view = inflater.inflate(R.layout.test, null);
 
                 popup = new PopupWindow(popup_view, RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                 RelativeLayout popup_position = (RelativeLayout) findViewById(R.id.schedule_layout);
@@ -105,17 +108,22 @@ public class CoachRegistration extends Activity {
         String ign = intent.getStringExtra("ign");
         String password = intent.getStringExtra("password");
         boolean upgrade = intent.getBooleanExtra("upgrade", false);
-        String elo = (String) eloSpinner.getSelectedItem();
-        int elo_int = Miscellaneous.eloMap.get(elo);
-        boolean languages[] = checkLanguages();
-        String role1 = (String) role1Spinner.getSelectedItem();
-        String role2 = (String) role2Spinner.getSelectedItem();
-        int cost = Integer.getInteger(cost_input.getText().toString());
+        Elo elo = Elo.valueOf((String) eloSpinner.getSelectedItem());
+        HashSet<Language> languages = checkLanguages();
+        Role role1 = Role.valueOf((String) role1Spinner.getSelectedItem());
+        Role role2 = Role.valueOf((String) role2Spinner.getSelectedItem());
+        int cost = Integer.parseInt(cost_input.getText().toString());
+
+        if (languages.isEmpty()){
+            Toast toast = Toast.makeText(context, "Select at least one language", Toast.LENGTH_SHORT);
+            toast.show();
+            return null;
+        }
 
         //procedo alla registrazione
         int coachRegistration;
         try {
-            CoachParams coachParams = new CoachParams(ign, password, context, "register", elo_int, languages, role1, role2, cost, upgrade);
+            CoachParams coachParams = new CoachParams(ign, password, context, "register", elo, languages, role1, role2, cost, upgrade);
             coachRegistration = new CoachOperation().execute(coachParams).get();
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException | InterruptedException | ExecutionException e) {
             Toast toast = Toast.makeText(context, "Registration Error", Toast.LENGTH_SHORT);
@@ -156,8 +164,8 @@ public class CoachRegistration extends Activity {
         return risIntent;
     }
 
-    private boolean[] checkLanguages(){
-        boolean[] languages = new boolean[5];
+    private HashSet<Language> checkLanguages(){
+        HashSet<Language> languages = new HashSet<>();
 
         ToggleImageButton eng_flag = (ToggleImageButton) findViewById(R.id.flag_UnitedKingdom_ImageButton);
         ToggleImageButton it_flag = (ToggleImageButton) findViewById(R.id.flag_Italy_ImageButton);
@@ -166,29 +174,19 @@ public class CoachRegistration extends Activity {
         ToggleImageButton sp_flag = (ToggleImageButton) findViewById(R.id.flag_Spain_ImageButton);
 
         if (eng_flag.isChecked())
-            languages[0] = true;
-        else
-            languages[0] = false;
+            languages.add(Language.English);
 
         if (it_flag.isChecked())
-            languages[1] = true;
-        else
-            languages[1] = false;
+            languages.add(Language.Italian);
 
         if (ger_flag.isChecked())
-            languages[2] = true;
-        else
-            languages[2] = false;
+            languages.add(Language.German);
 
         if (fr_flag.isChecked())
-            languages[3] = true;
-        else
-            languages[3] = false;
+            languages.add(Language.French);
 
         if (sp_flag.isChecked())
-            languages[4] = true;
-        else
-            languages[4] = false;
+            languages.add(Language.Spanish);
 
         return languages;
     }

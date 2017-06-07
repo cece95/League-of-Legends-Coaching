@@ -2,22 +2,27 @@ package com.example.cesare.leagueoflegendscoaching.Params;
 
 import android.content.Context;
 
+import com.example.cesare.leagueoflegendscoaching.Elo;
+import com.example.cesare.leagueoflegendscoaching.Language;
+import com.example.cesare.leagueoflegendscoaching.Role;
+
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashSet;
 
 /**
  * Created by cesare on 05/06/2017.
  */
 
 public class CoachParams extends UserParams {
-    int elo;
-    boolean[] languages;
-    String role1;
-    String role2;
+    Elo elo;
+    HashSet<Language> languages;
+    Role role1;
+    Role role2;
     int cost;
     boolean upgrade;
 
-    public CoachParams(String ign, String password, Context context, String requestType, int elo, boolean[] languages, String role1, String role2, int cost, boolean upgrade) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public CoachParams(String ign, String password, Context context, String requestType, Elo elo, HashSet<Language> languages, Role role1, Role role2, int cost, boolean upgrade) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         super(ign, password, context, requestType);
         this.elo = elo;
         this.languages = languages;
@@ -27,19 +32,19 @@ public class CoachParams extends UserParams {
         this.upgrade = upgrade;
     }
 
-    public int getElo() {
+    public Elo getElo() {
         return elo;
     }
 
-    public boolean[] getLanguages() {
+    public HashSet<Language> getLanguages() {
         return languages;
     }
 
-    public String getRole1() {
+    public Role getRole1() {
         return role1;
     }
 
-    public String getRole2() {
+    public Role getRole2() {
         return role2;
     }
 
