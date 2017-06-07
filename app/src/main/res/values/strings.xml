@@ -22,6 +22,7 @@
     <string name="findCoach">FIND COACH</string>
     <string name="booking">BOOKING</string>
     <string name="favoriteCoaches">FAVORITE COACHES</string>
+    <string name="switchCoach">Coach</string>
 
     <string name="monday">Monday</string>
     <string name="tuesday">Tuesday</string>

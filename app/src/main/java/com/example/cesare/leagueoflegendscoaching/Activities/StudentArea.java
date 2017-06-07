@@ -3,9 +3,11 @@ package com.example.cesare.leagueoflegendscoaching.Activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.cesare.leagueoflegendscoaching.R;
+import com.example.cesare.leagueoflegendscoaching.SwipeListener;
 
 public class StudentArea extends Activity {
 
@@ -21,5 +23,17 @@ public class StudentArea extends Activity {
         final TextView welcome = (TextView) findViewById(R.id.welcomeMessage);
         welcome.setText("Welcome "+user);
 
+        RelativeLayout finestra = (RelativeLayout) findViewById(R.id.relative_studentArea);
+        if (isCoach){
+            finestra.setOnTouchListener(new SwipeListener(StudentArea.this, user, isCoach){
+                @Override
+                public void onSwipeLeft() {
+                    Intent coachArea = new Intent(StudentArea.this, CoachArea.class);
+                    coachArea.putExtra("user", user);
+                    coachArea.putExtra("isCoach", isCoach);
+                    startActivity(coachArea);
+                }
+            });
+        }
     }
 }

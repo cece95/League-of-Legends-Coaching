@@ -65,6 +65,7 @@ public class Login extends Activity {
             case 20: {
                 risIntent = new Intent(context, StudentArea.class);
                 risIntent.putExtra("user", ign);
+                risIntent.putExtra("isCoach", false);
             }
             break;
 
@@ -72,6 +73,13 @@ public class Login extends Activity {
                 Toast toast = Toast.makeText(context, "Incorrect username/password", Toast.LENGTH_SHORT);
                 toast.show();
                 risIntent = null;
+            }
+            break;
+
+            case 22:{
+                risIntent = new Intent(context, StudentArea.class);
+                risIntent.putExtra("user", ign);
+                risIntent.putExtra("isCoach", true);
             }
             break;
 

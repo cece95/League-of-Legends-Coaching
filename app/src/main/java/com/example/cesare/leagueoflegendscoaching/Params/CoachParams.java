@@ -2,9 +2,9 @@ package com.example.cesare.leagueoflegendscoaching.Params;
 
 import android.content.Context;
 
-import com.example.cesare.leagueoflegendscoaching.Elo;
-import com.example.cesare.leagueoflegendscoaching.Language;
-import com.example.cesare.leagueoflegendscoaching.Role;
+import com.example.cesare.leagueoflegendscoaching.Types.Elo;
+import com.example.cesare.leagueoflegendscoaching.Types.Language;
+import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;

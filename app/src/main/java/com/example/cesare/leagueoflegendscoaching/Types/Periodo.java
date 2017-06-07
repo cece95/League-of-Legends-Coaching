@@ -1,4 +1,4 @@
-package com.example.cesare.leagueoflegendscoaching;
+package com.example.cesare.leagueoflegendscoaching.Types;
 
 /**
  * Created by cesare on 06/06/2017.

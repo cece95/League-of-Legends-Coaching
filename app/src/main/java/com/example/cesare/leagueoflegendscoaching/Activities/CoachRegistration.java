@@ -16,13 +16,13 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.cesare.leagueoflegendscoaching.Elo;
-import com.example.cesare.leagueoflegendscoaching.Language;
 import com.example.cesare.leagueoflegendscoaching.Operations.CoachOperation;
 import com.example.cesare.leagueoflegendscoaching.Params.CoachParams;
 import com.example.cesare.leagueoflegendscoaching.R;
-import com.example.cesare.leagueoflegendscoaching.Role;
 import com.example.cesare.leagueoflegendscoaching.ToggleImageButton;
+import com.example.cesare.leagueoflegendscoaching.Types.Elo;
+import com.example.cesare.leagueoflegendscoaching.Types.Language;
+import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
