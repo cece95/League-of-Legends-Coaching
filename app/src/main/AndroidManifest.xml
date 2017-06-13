@@ -32,7 +32,10 @@
         <activity
             android:name=".Activities.StudentArea"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activities.CoachArea"></activity>
+        <activity android:name=".Activities.CoachArea" />
+        <activity
+            android:name=".Activities.SearchCoach"
+            android:label="@string/title_activity_search_coach"></activity>
     </application>
 
 </manifest>

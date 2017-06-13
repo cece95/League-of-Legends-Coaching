@@ -1,15 +1,18 @@
 <resources>
+    <!--home-->
     <string name="app_name">League of Legends Coaching</string>
     <string name="title">LEAGUE OF LEGENDS \nCOACHING</string>
     <string name="sign_up">SIGN UP</string>
     <string name="login">LOGIN</string>
 
+    <!--signup-->
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="repeatPassword">Repeat Password</string>
     <string name="inGame">In Game Name</string>
     <string name="checkCoach">I am a Coach</string>
 
+    <!--coachRegistration-->
     <string name="coachRegistration">COACH REGISTRATION</string>
     <string name="elo">Elo</string>
     <string name="language">Language</string>
@@ -18,12 +21,14 @@
     <string name="schedule">Schedule</string>
     <string name="coach_signup">SIGN UP AS COACH</string>
 
+    <!--studentArea-->
     <string name="studentArea">STUDENT AREA</string>
     <string name="findCoach">FIND COACH</string>
     <string name="booking">BOOKING</string>
     <string name="favoriteCoaches">FAVORITE COACHES</string>
     <string name="switchCoach">Coach</string>
 
+    <!--schedule-->
     <string name="monday">Monday</string>
     <string name="tuesday">Tuesday</string>
     <string name="wednesday">Wednesday</string>
@@ -33,6 +38,12 @@
     <string name="Sunday">Sunday</string>
     <string name="change_schedule">Change Schedule</string>
 
+    <!--coachArea-->
+    <string name="coachArea">COACH AREA</string>
+    <string name="appointments">APPOINTMENTS</string>
+    <string name="modify">MODIFY PERSONAL INFO</string>
+
+    <!--eloSpinner-->
     <string-array name="elo_list">
         <item>Bronze</item>
         <item>Silver</item>
@@ -43,6 +54,7 @@
         <item>Challenger</item>
     </string-array>
 
+    <!--roleSpinner-->
     <string-array name="role1_list">
         <item>Top</item>
         <item>Jungle</item>
@@ -59,5 +71,9 @@
         <item>Adc</item>
         <item>Support</item>
     </string-array>
+
+    <string name="title_activity_search_coach">SearchCoach</string>
+
+
 
 </resources>

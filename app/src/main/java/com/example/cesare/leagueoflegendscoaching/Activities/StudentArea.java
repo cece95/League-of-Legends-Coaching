@@ -3,6 +3,8 @@ package com.example.cesare.leagueoflegendscoaching.Activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -35,5 +37,13 @@ public class StudentArea extends Activity {
                 }
             });
         }
+
+        Button findCoach = (Button) findViewById(R.id.findCoach_button);
+        findCoach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudentArea.this, SearchCoach.class);
+            }
+        });
     }
 }
