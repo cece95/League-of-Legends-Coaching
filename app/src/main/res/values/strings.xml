@@ -21,6 +21,10 @@
     <string name="schedule">Schedule</string>
     <string name="coach_signup">SIGN UP AS COACH</string>
 
+    <!--searchCoach-->
+    <string name="role">Role</string>
+    <string name="champions">Champions</string>
+
     <!--studentArea-->
     <string name="studentArea">STUDENT AREA</string>
     <string name="findCoach">FIND COACH</string>

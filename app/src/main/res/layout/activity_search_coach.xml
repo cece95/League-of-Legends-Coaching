@@ -3,33 +3,259 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cesare.leagueoflegendscoaching.Activities.SearchCoach">
+    tools:context="com.example.cesare.leagueoflegendscoaching.Activities.SignUp">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/relative_findCoach"
         android:layout_width="368dp"
         android:layout_height="503dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/findCoach_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="18dp"
+            android:text="@string/findCoach"
+            android:textAlignment="center"
+            android:textSize="@dimen/title_text"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="38dp" />
 
         <LinearLayout
+            android:id="@+id/linear_registration"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/findCoach_title"
+            android:layout_marginTop="31dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/name_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingBottom="@dimen/padding"
+                    android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
+                    android:paddingTop="@dimen/padding"
+                    android:text="@string/name"
+                    android:textSize="@dimen/label" />
+
+                <EditText
+                    android:id="@+id/name_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/elo_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/elo_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingBottom="@dimen/padding"
+                    android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
+                    android:paddingTop="@dimen/padding"
+                    android:text="@string/elo"
+                    android:textSize="@dimen/label" />
+
+                <Spinner
+                    android:id="@+id/elo_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/language_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name" />
+                android:padding="@dimen/padding"
 
-            <EditText
-                android:id="@+id/editText"
+                android:text="@string/language"
+                android:textSize="@dimen/label" />
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
+                    android:id="@+id/flag_UnitedKingdom_ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    android:background="@drawable/flag_button"
+
+                    android:src="@mipmap/flag_unitedkingdom" />
+
+                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
+                    android:id="@+id/flag_Italy_ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    android:background="@drawable/flag_button"
+
+                    android:src="@mipmap/flag_italy" />
+
+                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
+                    android:id="@+id/flag_Germany_ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    android:background="@drawable/flag_button"
+
+                    android:src="@mipmap/flag_germany" />
+
+                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
+                    android:id="@+id/flag_France_ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    android:background="@drawable/flag_button"
+                    android:src="@mipmap/flag_france" />
+
+                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
+                    android:id="@+id/flag_Spain_ImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5sp"
+                    android:background="@drawable/flag_button"
+
+                    android:src="@mipmap/flag_spain" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/role_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/role_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingBottom="@dimen/padding"
+                    android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
+                    android:paddingTop="@dimen/padding"
+                    android:text="@string/role"
+                    android:textSize="@dimen/label" />
+
+                <Spinner
+                    android:id="@+id/role_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/champions_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/champions_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingBottom="@dimen/padding"
+                    android:paddingLeft="@dimen/padding"
+                    android:paddingRight="@dimen/padding"
+                    android:paddingTop="@dimen/padding"
+                    android:text="@string/champions"
+                    android:textSize="@dimen/label" />
+
+                <Spinner
+                    android:id="@+id/champions1_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:id="@+id/champions2_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+                <Spinner
+                    android:id="@+id/champions3_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cost_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:padding="@dimen/padding"
+                    android:text="@string/cost"
+                    android:textSize="@dimen/label" />
+
+                <EditText
+                    android:id="@+id/cost_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:text="0"
+                    android:inputType="number" />
+            </LinearLayout>
+
         </LinearLayout>
-    </LinearLayout>
+
+        <Button
+            android:id="@+id/findCoach_button"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/linear_registration"
+            android:layout_marginTop="@dimen/margin"
+            android:text="@string/findCoach"
+            android:textSize="@dimen/button_text" />
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
+
