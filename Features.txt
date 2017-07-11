@@ -1,4 +1,4 @@
--Rimanere aggiornati sul gioco
+﻿-Rimanere aggiornati sul gioco
 -Divisione coaching a pagamento / gratuito
 -Collegamento paypal/pagamenti online
 -Rating coach/alievi
@@ -11,3 +11,4 @@
 -avviso su mainare yasuo
 -un coach può settare il proprio ts preferito
 -conoscere gente?
+-per verificare l'identità verificare che una delle pagine di rune si chiami in un modo particolare (stringa generata)
