@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.cesare.leagueoflegendscoaching.Activities.SignUp">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
     <RelativeLayout
         android:id="@+id/relative_coachRegistration"
         android:layout_width="368dp"
@@ -218,5 +225,6 @@
             android:textSize="@dimen/button_text" />
 
     </RelativeLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
 

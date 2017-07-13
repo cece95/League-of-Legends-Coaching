@@ -24,6 +24,10 @@
     <!--searchCoach-->
     <string name="role">Role</string>
     <string name="champions">Champions</string>
+    <string name="maxCost">Max Cost</string>
+
+    <!--coachesList-->
+    <string name="coachesList">COACHES LIST</string>
 
     <!--studentArea-->
     <string name="studentArea">STUDENT AREA</string>
@@ -77,7 +81,6 @@
     </string-array>
 
     <string name="title_activity_search_coach">SearchCoach</string>
-
 
 
 </resources>

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.cesare.leagueoflegendscoaching.Activities.CoachArea">
 
+
     <RelativeLayout
         android:id="@+id/relative_coachArea"
         android:layout_width="368dp"
