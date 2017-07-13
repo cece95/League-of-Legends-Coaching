@@ -2,7 +2,6 @@ package com.example.cesare.leagueoflegendscoaching.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -15,7 +14,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class SearchCoach extends Activity {
 
@@ -37,33 +38,37 @@ public class SearchCoach extends Activity {
         role1Spinner.setAdapter(r1Adapter);
 
         // create a spinner for champions
-        HashMap<Integer, String> spinnerMap = new HashMap<Integer, String>();
-
-
         InputStream championsList = getResources().openRawResource(R.raw.champions);
         String championsString = convertStreamToString(championsList);
-        Log.d("champions", championsString);
+
+        JSONObject json = null;
+        HashMap<String, Integer> spinnerMap = null;
+
         try {
-            JSONObject json = new JSONObject(championsString);
+            json = new JSONObject(championsString);
+            spinnerMap = getChampionsMap(json);
+            ArrayList<String> spinnerList = new ArrayList<String>(spinnerMap.keySet());
+
+            Spinner champion1Spinner = (Spinner) findViewById(R.id.champions1_spinner);
+            ArrayAdapter<String> c1Adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerList);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            champion1Spinner.setAdapter(c1Adapter);
+
+            Spinner champion2Spinner = (Spinner) findViewById(R.id.champions2_spinner);
+            ArrayAdapter<String> c2Adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerList);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            champion2Spinner.setAdapter(c2Adapter);
+
+            Spinner champion3Spinner = (Spinner) findViewById(R.id.champions3_spinner);
+            ArrayAdapter<String> c3Adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerList);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            champion3Spinner.setAdapter(c3Adapter);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        /*
-        if (json != null) {
-            // prova
-            for (int i = 0; i < json.length(); i++) {
-                String championIndexName = null;
-                try {
-                    championIndexName = json.getString(Integer.toString(i));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                Log.d("CHAMP", championIndexName);
-            }
-        }*/
-
     }
+
 
     private String convertStreamToString(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -85,4 +90,21 @@ public class SearchCoach extends Activity {
         }
         return sb.toString();
     }
+
+    private HashMap<String, Integer> getChampionsMap(JSONObject json) throws JSONException {
+        HashMap<String, Integer> res = new HashMap<>();
+        Iterator<String> keys = json.keys();
+
+        while (keys.hasNext()) {
+            Integer value = Integer.parseInt(keys.next());
+            String key = null;
+            key = json.getString(Integer.toString(value));
+
+            res.put(key, value);
+        }
+
+        return res;
+    }
 }
+
+
