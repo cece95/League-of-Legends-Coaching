@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -48,6 +49,7 @@ public class SearchCoach extends Activity {
             json = new JSONObject(championsString);
             spinnerMap = getChampionsMap(json);
             ArrayList<String> spinnerList = new ArrayList<String>(spinnerMap.keySet());
+            Collections.sort(spinnerList);
 
             Spinner champion1Spinner = (Spinner) findViewById(R.id.champions1_spinner);
             ArrayAdapter<String> c1Adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerList);
