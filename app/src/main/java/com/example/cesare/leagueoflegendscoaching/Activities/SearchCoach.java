@@ -8,12 +8,10 @@ import android.widget.Spinner;
 
 import com.example.cesare.leagueoflegendscoaching.R;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.Console;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -33,7 +31,7 @@ public class SearchCoach extends Activity {
         eloSpinner.setAdapter(adapter);
 
         //create roles spinner
-        Spinner role1Spinner = (Spinner) findViewById(R.id.role1_spinner);
+        Spinner role1Spinner = (Spinner) findViewById(R.id.role_spinner);
         ArrayAdapter<CharSequence> r1Adapter = ArrayAdapter.createFromResource(this, R.array.role1_list, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         role1Spinner.setAdapter(r1Adapter);
@@ -44,25 +42,26 @@ public class SearchCoach extends Activity {
 
         InputStream championsList = getResources().openRawResource(R.raw.champions);
         String championsString = convertStreamToString(championsList);
-        JSONArray json = null;
+        Log.d("champions", championsString);
         try {
-            json = new JSONArray(championsString);
+            JSONObject json = new JSONObject(championsString);
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        /*
         if (json != null) {
             // prova
             for (int i = 0; i < json.length(); i++) {
                 String championIndexName = null;
                 try {
-                    championIndexName = json.getString(i);
+                    championIndexName = json.getString(Integer.toString(i));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 Log.d("CHAMP", championIndexName);
             }
-        }
+        }*/
 
     }
 

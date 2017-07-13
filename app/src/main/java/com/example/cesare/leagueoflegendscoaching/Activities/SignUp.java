@@ -104,6 +104,13 @@ public class SignUp extends Activity {
                 }
                 break;
 
+                case 13: {
+                    Toast toast = Toast.makeText(context, "Username not valid", Toast.LENGTH_SHORT);
+                    toast.show();
+                    risIntent = null;
+                }
+                break;
+
                 case 404:{
                     Toast toast = Toast.makeText(context, "No Internet Connection", Toast.LENGTH_SHORT);
                     toast.show();
