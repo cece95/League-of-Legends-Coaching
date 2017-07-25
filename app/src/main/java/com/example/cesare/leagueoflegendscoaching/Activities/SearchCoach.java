@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.ChampionsMap;
 import com.example.cesare.leagueoflegendscoaching.Params.SearchParams;
 import com.example.cesare.leagueoflegendscoaching.R;
 import com.example.cesare.leagueoflegendscoaching.ToggleImageButton;
@@ -55,14 +56,11 @@ public class SearchCoach extends Activity {
 
         // create a spinner for champions
         InputStream championsList = getResources().openRawResource(R.raw.champions);
-        String championsString = convertStreamToString(championsList);
-
-        JSONObject json = null;
+        JSONObject json = ChampionsMap.readJson(championsList);
 
 
         try {
-            json = new JSONObject(championsString);
-            spinnerMap = getChampionsMap(json);
+            spinnerMap = ChampionsMap.getChampionsMap(json);
             ArrayList<String> spinnerList = new ArrayList<String>(spinnerMap.keySet());
             Collections.sort(spinnerList);
 
@@ -121,45 +119,9 @@ public class SearchCoach extends Activity {
 
 
         risIntent = new Intent(context, CoachesList.class);
-        SearchParams sParams = new SearchParams(nameCoach, elo, idChampion1, idChampion2, idChampion3, cost, languages);
+        SearchParams sParams = new SearchParams(nameCoach, elo.EloToInt(), idChampion1, idChampion2, idChampion3, cost, languages);
         risIntent.putExtra("sParams", (Parcelable) sParams);
         return risIntent;
-    }
-
-    private String convertStreamToString(InputStream is) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder sb = new StringBuilder();
-
-        String line = null;
-        try {
-            while ((line = reader.readLine()) != null) {
-                sb.append(line).append('\n');
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                is.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return sb.toString();
-    }
-
-    private HashMap<String, Integer> getChampionsMap(JSONObject json) throws JSONException {
-        HashMap<String, Integer> res = new HashMap<>();
-        Iterator<String> keys = json.keys();
-
-        while (keys.hasNext()) {
-            Integer value = Integer.parseInt(keys.next());
-            String key = null;
-            key = json.getString(Integer.toString(value));
-
-            res.put(key, value);
-        }
-
-        return res;
     }
 
     // Per gestire le lingue

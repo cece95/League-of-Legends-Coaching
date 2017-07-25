@@ -13,7 +13,7 @@ import java.util.HashSet;
 
 public class SearchParams {
     String nameCoach;
-    Elo elo;
+    int elo;
     int idChampion1;
     int idChampion2;
     int idChampion3;
@@ -21,7 +21,7 @@ public class SearchParams {
     HashSet<Language> languages;
     Context context;
 
-    public SearchParams(String nameCoach, Elo elo, int idChampion1, int idChampion2, int idChampion3, int cost, HashSet<Language> languages) {
+    public SearchParams(String nameCoach, int elo, int idChampion1, int idChampion2, int idChampion3, int cost, HashSet<Language> languages) {
         this.nameCoach = nameCoach;
         this.elo = elo;
         this.idChampion1 = idChampion1;
@@ -39,11 +39,11 @@ public class SearchParams {
         this.nameCoach = nameCoach;
     }
 
-    public Elo getElo() {
+    public int getElo() {
         return elo;
     }
 
-    public void setElo(Elo elo) {
+    public void setElo(int elo) {
         this.elo = elo;
     }
 

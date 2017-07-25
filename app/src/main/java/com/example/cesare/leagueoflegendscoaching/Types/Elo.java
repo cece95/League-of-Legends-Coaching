@@ -6,4 +6,8 @@ package com.example.cesare.leagueoflegendscoaching.Types;
 
 public enum Elo {
     Bronze, Silver, Gold, Platinum, Diamond, Master, Challenger;
+
+    public int EloToInt() {
+        return this.ordinal();
+    }
 }
