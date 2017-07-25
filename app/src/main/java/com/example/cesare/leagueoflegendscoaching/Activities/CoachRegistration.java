@@ -108,7 +108,7 @@ public class CoachRegistration extends Activity {
         String ign = intent.getStringExtra("ign");
         String password = intent.getStringExtra("password");
         boolean upgrade = intent.getBooleanExtra("upgrade", false);
-        Elo elo = Elo.valueOf((String) eloSpinner.getSelectedItem());
+        int elo = (Elo.valueOf((String) eloSpinner.getSelectedItem())).EloToInt();
         HashSet<Language> languages = checkLanguages();
         Role role1 = Role.valueOf((String) role1Spinner.getSelectedItem());
         Role role2 = Role.valueOf((String) role2Spinner.getSelectedItem());

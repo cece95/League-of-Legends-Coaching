@@ -15,14 +15,14 @@ import java.util.HashSet;
  */
 
 public class CoachParams extends UserParams {
-    Elo elo;
+    int elo;
     HashSet<Language> languages;
     Role role1;
     Role role2;
     int cost;
     boolean upgrade;
 
-    public CoachParams(String ign, String password, Context context, String requestType, Elo elo, HashSet<Language> languages, Role role1, Role role2, int cost, boolean upgrade) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public CoachParams(String ign, String password, Context context, String requestType, int elo, HashSet<Language> languages, Role role1, Role role2, int cost, boolean upgrade) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         super(ign, password, context, requestType);
         this.elo = elo;
         this.languages = languages;
@@ -32,7 +32,7 @@ public class CoachParams extends UserParams {
         this.upgrade = upgrade;
     }
 
-    public Elo getElo() {
+    public int getElo() {
         return elo;
     }
 
