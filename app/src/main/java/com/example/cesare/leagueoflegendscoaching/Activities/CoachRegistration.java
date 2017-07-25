@@ -86,8 +86,10 @@ public class CoachRegistration extends Activity {
         signupCoach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent coachSignup = createIntent(CoachRegistration.this, getIntent());
+                if (coachSignup != null){
+                    startActivity(coachSignup);
+                }
             }
         });
 

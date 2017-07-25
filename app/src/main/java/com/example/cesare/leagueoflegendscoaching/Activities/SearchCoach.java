@@ -4,16 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.ChampionsMap;
-import com.example.cesare.leagueoflegendscoaching.Params.SearchParams;
 import com.example.cesare.leagueoflegendscoaching.R;
 import com.example.cesare.leagueoflegendscoaching.ToggleImageButton;
 import com.example.cesare.leagueoflegendscoaching.Types.Elo;
@@ -22,16 +19,11 @@ import com.example.cesare.leagueoflegendscoaching.Types.Language;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.ServiceConfigurationError;
 
 public class SearchCoach extends Activity {
 
@@ -119,8 +111,15 @@ public class SearchCoach extends Activity {
 
 
         risIntent = new Intent(context, CoachesList.class);
-        SearchParams sParams = new SearchParams(nameCoach, elo.EloToInt(), idChampion1, idChampion2, idChampion3, cost, languages);
-        risIntent.putExtra("sParams", (Parcelable) sParams);
+
+        risIntent.putExtra("nameCoach", nameCoach);
+        risIntent.putExtra("elo", elo);
+        risIntent.putExtra("idChampion1", idChampion1);
+        risIntent.putExtra("idChampion2", idChampion2);
+        risIntent.putExtra("idChampion3", idChampion3);
+        risIntent.putExtra("cost", cost);
+        risIntent.putExtra("languages", languages);
+
         return risIntent;
     }
 

@@ -2,7 +2,6 @@ package com.example.cesare.leagueoflegendscoaching.Params;
 
 import android.content.Context;
 
-import com.example.cesare.leagueoflegendscoaching.Types.Elo;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 
 import java.util.HashSet;
@@ -21,7 +20,7 @@ public class SearchParams {
     HashSet<Language> languages;
     Context context;
 
-    public SearchParams(String nameCoach, int elo, int idChampion1, int idChampion2, int idChampion3, int cost, HashSet<Language> languages) {
+    public SearchParams(String nameCoach, int elo, int idChampion1, int idChampion2, int idChampion3, int cost, HashSet<Language> languages, Context context) {
         this.nameCoach = nameCoach;
         this.elo = elo;
         this.idChampion1 = idChampion1;
@@ -29,6 +28,7 @@ public class SearchParams {
         this.idChampion3 = idChampion3;
         this.cost = cost;
         this.languages = languages;
+        this.context = context;
     }
 
     public String getNameCoach() {

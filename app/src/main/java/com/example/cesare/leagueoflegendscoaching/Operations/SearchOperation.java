@@ -3,9 +3,7 @@ package com.example.cesare.leagueoflegendscoaching.Operations;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.cesare.leagueoflegendscoaching.Params.CoachParams;
 import com.example.cesare.leagueoflegendscoaching.Params.SearchParams;
-import com.example.cesare.leagueoflegendscoaching.Params.UserParams;
 import com.example.cesare.leagueoflegendscoaching.Security;
 
 import org.json.JSONArray;
@@ -46,7 +44,7 @@ public class SearchOperation  extends AsyncTask<SearchParams, Integer, JSONArray
 
         Log.d("NETWORK", "Network available");
 
-        String route = "/searchCoach";
+        String route = "searchCoach";
         String complete_url = domain + route;
 
         URL url = null;
