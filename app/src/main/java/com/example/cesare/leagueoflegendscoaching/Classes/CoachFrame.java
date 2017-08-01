@@ -1,7 +1,6 @@
 package com.example.cesare.leagueoflegendscoaching.Classes;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,7 +28,6 @@ public class CoachFrame {
     Role role2;
     int cost;
     HashSet<Language> languages;
-    Bitmap eloImage;
 
 
     public CoachFrame(JSONObject json) throws JSONException {
