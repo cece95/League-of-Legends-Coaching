@@ -2,9 +2,10 @@ package com.example.cesare.leagueoflegendscoaching.Params;
 
 import android.content.Context;
 
-import com.example.cesare.leagueoflegendscoaching.Types.Elo;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;
+
+import org.json.JSONArray;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -36,8 +37,12 @@ public class CoachParams extends UserParams {
         return elo;
     }
 
-    public HashSet<Language> getLanguages() {
-        return languages;
+    public JSONArray getLanguages() {
+        JSONArray res = new JSONArray();
+        for (Language language : this.languages) {
+            res.put(language);
+        }
+        return res;
     }
 
     public Role getRole1() {
