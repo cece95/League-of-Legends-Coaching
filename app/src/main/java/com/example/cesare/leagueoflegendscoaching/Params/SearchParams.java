@@ -3,6 +3,7 @@ package com.example.cesare.leagueoflegendscoaching.Params;
 import android.content.Context;
 
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
+import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
 import java.util.HashSet;
 
@@ -13,6 +14,7 @@ import java.util.HashSet;
 public class SearchParams {
     String nameCoach;
     int elo;
+    Role role;
     int idChampion1;
     int idChampion2;
     int idChampion3;
@@ -20,11 +22,13 @@ public class SearchParams {
     HashSet<Language> languages;
     Context context;
 
-    public SearchParams(String nameCoach, int elo, int idChampion1, int idChampion2, int idChampion3, int cost, HashSet<Language> languages, Context context) {
+    public SearchParams(String nameCoach, int elo, Role role, int idChampion1, int idChampion2, int idChampion3, int cost, HashSet<Language> languages, Context context) {
         this.nameCoach = nameCoach;
         this.elo = elo;
+        this.role = role;
         this.idChampion1 = idChampion1;
         this.idChampion2 = idChampion2;
+
         this.idChampion3 = idChampion3;
         this.cost = cost;
         this.languages = languages;
@@ -94,4 +98,8 @@ public class SearchParams {
     public void setContext(Context context) {
         this.context = context;
     }
+
+    public Role getRole() {return role;}
+
+    public void setRole(Role role) {this.role = role;}
 }

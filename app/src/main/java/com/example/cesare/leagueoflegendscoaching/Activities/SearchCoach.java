@@ -15,6 +15,7 @@ import com.example.cesare.leagueoflegendscoaching.R;
 import com.example.cesare.leagueoflegendscoaching.ToggleImageButton;
 import com.example.cesare.leagueoflegendscoaching.Types.Elo;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
+import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -100,9 +101,10 @@ public class SearchCoach extends Activity {
         // ottengo i parametri
         String nameCoach = nameCoachInput.getText().toString();
         Elo elo = Elo.valueOf((String) eloSpinner.getSelectedItem());
+        Role role = Role.valueOf((String) roleSpinner.getSelectedItem());
         String champion1 = firstChampionSpinner.getSelectedItem().toString();
         String champion2 = secondChampionSpinner.getSelectedItem().toString();
-        String champion3 = firstChampionSpinner.getSelectedItem().toString();
+        String champion3 = thirdChampionSpinner.getSelectedItem().toString();
         int idChampion1 = spinnerMap.get(champion1);
         int idChampion2 = spinnerMap.get(champion2);
         int idChampion3 = spinnerMap.get(champion3);
@@ -114,6 +116,7 @@ public class SearchCoach extends Activity {
 
         risIntent.putExtra("nameCoach", nameCoach);
         risIntent.putExtra("elo", elo);
+        risIntent.putExtra("role", role);
         risIntent.putExtra("idChampion1", idChampion1);
         risIntent.putExtra("idChampion2", idChampion2);
         risIntent.putExtra("idChampion3", idChampion3);

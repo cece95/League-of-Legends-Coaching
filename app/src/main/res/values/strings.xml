@@ -28,6 +28,7 @@
 
     <!--coachesList-->
     <string name="coachesList">COACHES LIST</string>
+    <string name="details">Details</string>
 
     <!--studentArea-->
     <string name="studentArea">STUDENT AREA</string>
