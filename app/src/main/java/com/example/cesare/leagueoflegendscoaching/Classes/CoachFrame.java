@@ -1,10 +1,10 @@
 package com.example.cesare.leagueoflegendscoaching.Classes;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -39,82 +39,37 @@ public class CoachFrame {
         this.languages = getLanguages(json);
     }
 
-    public LinearLayout createFrame(Context context){
-        //frame
-        LinearLayout frame = new LinearLayout(context);
-        frame.setOrientation(LinearLayout.HORIZONTAL);
-        frame.setWeightSum(3);
-        LayoutParams params = (LayoutParams) frame.getLayoutParams();
-        params.width = LayoutParams.MATCH_PARENT;
-        params.height = LayoutParams.WRAP_CONTENT;
-        frame.setLayoutParams(params);
+    public View createFrame(Context context){
+        //frame principale
+        View frame = LayoutInflater.from(context).inflate(R.layout.coach_frame, null);
 
-        // Elo Image Layout
-        LinearLayout imageLayout = new LinearLayout(context);
-        LayoutParams imageParams = (LayoutParams) imageLayout.getLayoutParams();
-        imageParams.weight = 1;
-        imageParams.height = LayoutParams.WRAP_CONTENT;
-        imageParams.width = 0;
-        // Elo Image
-        ImageView eloSymbol = getEloImage();
+        //eloImage
+        ImageView eloImageView = (ImageView) frame.findViewById(R.id.eloImage);
+        setEloImage(context, eloImageView);
 
-        imageLayout.setLayoutParams(imageParams);
-        imageLayout.addView(eloSymbol);
-
-        //info
-        LinearLayout infoBox = new LinearLayout(context);
-        infoBox.setWeightSum(2);
-        infoBox.setOrientation(LinearLayout.VERTICAL);
-        LayoutParams infoBoxParams = (LayoutParams) infoBox.getLayoutParams();
-        infoBoxParams.weight = 2;
-        infoBoxParams.width = 0;
-        infoBoxParams.height = LayoutParams.WRAP_CONTENT;
-        infoBox.setLayoutParams(infoBoxParams);
-        frame.addView(infoBox);
-
-        //name + cost
-        LinearLayout nameCost = new LinearLayout(context);
-        nameCost.setOrientation(LinearLayout.HORIZONTAL);
-        LayoutParams nameCostParams = (LayoutParams) nameCost.getLayoutParams();
-        nameCostParams.weight = 1;
-        nameCostParams.width = LayoutParams.WRAP_CONTENT;
-        nameCostParams.height = 0;
-        nameCost.setLayoutParams(nameCostParams);
-
-        TextView name = new TextView(context);
+        //nameCost
+        TextView name = (TextView) frame.findViewById(R.id.name);
         name.setText(this.name);
+        TextView cost = (TextView) frame.findViewById(R.id.cost);
+        cost.setText("Costo: "+this.cost+"€");
 
-        TextView cost = new TextView(context);
-        cost.setText(this.cost+" €");
-
-        nameCost.addView(name);
-        nameCost.addView(cost);
-
-        infoBox.addView(nameCost);
-
-        //role + detalils
-        LinearLayout roleDetails = new LinearLayout(context);
-        roleDetails.setOrientation(LinearLayout.HORIZONTAL);
-        LayoutParams roleDetailsParams =  (LayoutParams) roleDetails.getLayoutParams();
-        roleDetailsParams.weight = 1;
-        roleDetailsParams.width = LayoutParams.WRAP_CONTENT;
-        roleDetailsParams.height = 0;
-        roleDetails.setLayoutParams(roleDetailsParams);
-
-        TextView role = new TextView(context);
-        role.setText(role1+"/"+role2);
-
-        Button details = new Button(context);
-        details.setText(R.string.details);
-
-        roleDetails.addView(role);
-        roleDetails.addView(details);
+        //rolesDetails
+        TextView roles = (TextView) frame.findViewById(R.id.roles);
+        String rolesText;
+        if(this.role2 == Role.None){
+            rolesText = "Role: "+String.valueOf(this.role1);
+        }
+        else{
+            rolesText = "Roles: "+this.role1+"/"+this.role2;
+        }
+        roles.setText(rolesText);
+        Button details = (Button) frame.findViewById(R.id.details);
+        //set onclick listener
 
         return frame;
     }
 
-    private ImageView getEloImage() {
-        ImageView img = null;
+    private void setEloImage(Context context, ImageView img) {
         switch (this.elo) {
             case 0 : img.setBackgroundResource(R.mipmap.badge_bronze);
                 break;
@@ -131,7 +86,6 @@ public class CoachFrame {
             case 6 : img.setBackgroundResource(R.mipmap.badge_challenger);
                 break;
         }
-        return img;
     }
 
     private HashSet<Language> getLanguages(JSONObject json) throws JSONException {

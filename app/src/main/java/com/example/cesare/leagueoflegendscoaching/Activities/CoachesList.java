@@ -3,7 +3,7 @@ package com.example.cesare.leagueoflegendscoaching.Activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.LinearLayout;
+import android.view.View;
 import android.widget.ScrollView;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.CoachFrame;
@@ -45,7 +45,7 @@ public class CoachesList extends Activity {
             if (resultList != null){
                 for (int i = 0; i<resultList.length(); i++) {
                     CoachFrame coachFrame = new CoachFrame((JSONObject) resultList.get(i));
-                    LinearLayout frame = coachFrame.createFrame(CoachesList.this);
+                    View frame = coachFrame.createFrame(CoachesList.this);
                     frameList.addView(frame);
                 }
             }
