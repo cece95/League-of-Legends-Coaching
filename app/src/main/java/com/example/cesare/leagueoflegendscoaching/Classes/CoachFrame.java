@@ -11,6 +11,7 @@ import com.example.cesare.leagueoflegendscoaching.R;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -31,12 +32,12 @@ public class CoachFrame {
 
 
     public CoachFrame(JSONObject json) throws JSONException {
-        this.name = json.getString("nameCoach");
+        this.name = json.getString("ign");
         this.elo = json.getInt("elo");
-        this.role1 = (Role) json.get("role1");
-        this.role2 = (Role) json.get("role2");
+        this.role1 = Role.valueOf((String) json.get("role1"));
+        this.role2 = Role.valueOf((String) json.get("role2"));
         this.cost = json.getInt("cost");
-        this.languages = (HashSet<Language>) json.get("languages");
+        this.languages = getLanguages(json);
     }
 
     public LinearLayout createFrame(Context context){
@@ -83,6 +84,16 @@ public class CoachFrame {
         roleDetails.addView(details);
 
         return frame;
+    }
+
+    private HashSet<Language> getLanguages(JSONObject json) throws JSONException {
+        HashSet<Language> res = new HashSet<>();
+
+        JSONArray arrJson = json.getJSONArray("languages");
+        for(int i = 0; i < arrJson.length(); i++)
+            res.add(Language.valueOf(arrJson.getString(i)));
+
+        return res;
     }
 
 }

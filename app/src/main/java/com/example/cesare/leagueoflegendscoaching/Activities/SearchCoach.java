@@ -15,7 +15,6 @@ import com.example.cesare.leagueoflegendscoaching.R;
 import com.example.cesare.leagueoflegendscoaching.ToggleImageButton;
 import com.example.cesare.leagueoflegendscoaching.Types.Elo;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
-import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -101,7 +100,7 @@ public class SearchCoach extends Activity {
         // ottengo i parametri
         String nameCoach = nameCoachInput.getText().toString();
         Elo elo = Elo.valueOf((String) eloSpinner.getSelectedItem());
-        Role role = Role.valueOf((String) roleSpinner.getSelectedItem());
+        String role = (String) roleSpinner.getSelectedItem();
         String champion1 = firstChampionSpinner.getSelectedItem().toString();
         String champion2 = secondChampionSpinner.getSelectedItem().toString();
         String champion3 = thirdChampionSpinner.getSelectedItem().toString();
@@ -110,7 +109,6 @@ public class SearchCoach extends Activity {
         int idChampion3 = spinnerMap.get(champion3);
         int cost = Integer.parseInt(costInput.getText().toString());
         HashSet<Language> languages = checkLanguages();
-
 
         risIntent = new Intent(context, CoachesList.class);
 

@@ -42,10 +42,12 @@ public class CoachesList extends Activity {
 
         try {
             JSONArray resultList = new SearchOperation().execute(sParams).get();
-            for (int i = 0; i<resultList.length(); i++){
-                CoachFrame coachFrame = new CoachFrame((JSONObject) resultList.get(i));
-                LinearLayout frame = coachFrame.createFrame(CoachesList.this);
-                frameList.addView(frame);
+            if (resultList != null){
+                for (int i = 0; i<resultList.length(); i++) {
+                    CoachFrame coachFrame = new CoachFrame((JSONObject) resultList.get(i));
+                    LinearLayout frame = coachFrame.createFrame(CoachesList.this);
+                    frameList.addView(frame);
+                }
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -55,6 +57,4 @@ public class CoachesList extends Activity {
             e.printStackTrace();
         }
     }
-
-
 }
