@@ -36,7 +36,8 @@
         <activity
             android:name=".Activities.SearchCoach"
             android:label="@string/title_activity_search_coach" />
-        <activity android:name=".Activities.CoachesList"></activity>
+        <activity android:name=".Activities.CoachesList" />
+        <activity android:name=".Activities.CoachDetails"></activity>
     </application>
 
 </manifest>

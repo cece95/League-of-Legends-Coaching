@@ -1,6 +1,5 @@
 package com.example.cesare.leagueoflegendscoaching.Classes;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +27,7 @@ public class CoachFrame {
     Role role2;
     int cost;
     HashSet<Language> languages;
+    JSONObject extra;
 
 
     public CoachFrame(JSONObject json) throws JSONException {
@@ -37,15 +37,16 @@ public class CoachFrame {
         this.role2 = Role.valueOf((String) json.get("role2"));
         this.cost = json.getInt("cost");
         this.languages = getLanguages(json);
+        this.extra = json;
     }
 
-    public View createFrame(Context context){
+    public View createFrame(LayoutInflater inflater){
         //frame principale
-        View frame = LayoutInflater.from(context).inflate(R.layout.coach_frame, null);
-        frame.setBackgroundResource(R.drawable.coach_frame);
+        View frame = inflater.inflate(R.layout.coach_frame, null);
+
         //eloImage
         ImageView eloImageView = (ImageView) frame.findViewById(R.id.eloImage);
-        setEloImage(context, eloImageView);
+        setEloImage(eloImageView);
 
         //nameCost
         TextView name = (TextView) frame.findViewById(R.id.name);
@@ -64,12 +65,12 @@ public class CoachFrame {
         }
         roles.setText(rolesText);
         Button details = (Button) frame.findViewById(R.id.details);
-        //set onclick listener
+        details.setOnClickListener(new DetailsListener(this.extra));
 
         return frame;
     }
 
-    private void setEloImage(Context context, ImageView img) {
+    private void setEloImage(ImageView img) {
         switch (this.elo) {
             case 0 : img.setBackgroundResource(R.mipmap.badge_bronze);
                 break;

@@ -1,13 +1,12 @@
 package com.example.cesare.leagueoflegendscoaching.Activities;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
+import android.util.Log;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.CoachFrame;
+import com.example.cesare.leagueoflegendscoaching.Classes.FrameAdapter;
 import com.example.cesare.leagueoflegendscoaching.Operations.SearchOperation;
 import com.example.cesare.leagueoflegendscoaching.Params.SearchParams;
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -18,16 +17,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class CoachesList extends Activity {
+public class CoachesList extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coaches_list);
-        LinearLayout frameList = (LinearLayout) findViewById(R.id.frameList);
         Intent intent = this.getIntent();
         SearchParams sParams = new SearchParams(
                 intent.getStringExtra("nameCoach"),
@@ -43,12 +43,14 @@ public class CoachesList extends Activity {
 
         try {
             JSONArray resultList = new SearchOperation().execute(sParams).get();
+            List<CoachFrame> coachFrameList = new ArrayList<>();
             if (resultList != null){
                 for (int i = 0; i<resultList.length(); i++) {
                     CoachFrame coachFrame = new CoachFrame((JSONObject) resultList.get(i));
-                    View frame = coachFrame.createFrame(CoachesList.this);
-                    frameList.addView(frame);
+                    coachFrameList.add(coachFrame);
                 }
+                setListAdapter(new FrameAdapter(this, R.layout.coach_frame, coachFrameList));
+                Log.d("Context", CoachesList.this.toString());
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
