@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.CoachFrame;
@@ -26,7 +27,7 @@ public class CoachesList extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coaches_list);
-        ScrollView frameList = (ScrollView) findViewById(R.id.frameList);
+        LinearLayout frameList = (LinearLayout) findViewById(R.id.frameList);
         Intent intent = this.getIntent();
         SearchParams sParams = new SearchParams(
                 intent.getStringExtra("nameCoach"),

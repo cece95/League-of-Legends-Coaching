@@ -42,7 +42,7 @@ public class CoachFrame {
     public View createFrame(Context context){
         //frame principale
         View frame = LayoutInflater.from(context).inflate(R.layout.coach_frame, null);
-
+        frame.setBackgroundResource(R.drawable.coach_frame);
         //eloImage
         ImageView eloImageView = (ImageView) frame.findViewById(R.id.eloImage);
         setEloImage(context, eloImageView);
