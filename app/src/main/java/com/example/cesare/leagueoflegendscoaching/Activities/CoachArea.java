@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 public class CoachArea extends Activity {
-
+    //// ciao
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
