@@ -1,9 +1,5 @@
 package com.example.cesare.leagueoflegendscoaching.Classes;
 
-import android.app.Activity;
-
-import com.example.cesare.leagueoflegendscoaching.R;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,6 +15,9 @@ import java.util.Iterator;
  */
 
 public class ChampionsMap {
+
+    public static HashMap<String, Integer> spinnerMap;
+    public static HashMap<Integer, String> idToChamp;
 
     static public JSONObject readJson(InputStream is) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -60,6 +59,14 @@ public class ChampionsMap {
         }
 
         return res;
+    }
+
+    static public HashMap<Integer,String> getIdToChampMap(HashMap<String, Integer> map){
+        HashMap<Integer, String> reversedHashMap = new HashMap<>();
+        for (String key : map.keySet()){
+            reversedHashMap.put(map.get(key), key);
+        }
+        return reversedHashMap;
     }
 
 

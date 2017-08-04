@@ -5,4 +5,45 @@
     android:layout_height="match_parent"
     tools:context="com.example.cesare.leagueoflegendscoaching.Activities.CoachDetails">
 
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="503dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:id="@+id/relative_coachDetails">
+
+        <TextView
+            android:id="@+id/coach_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:textSize="@dimen/label"
+            android:text="@string/coachDetails" />
+
+        <LinearLayout
+            android:id="@+id/coachDetailsLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/coach_details">
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/champion_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/championsDetails"
+            android:textSize="@dimen/label"
+            android:layout_below="@+id/coachDetailsLayout"/>
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/champion_details">
+        </ListView>
+
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

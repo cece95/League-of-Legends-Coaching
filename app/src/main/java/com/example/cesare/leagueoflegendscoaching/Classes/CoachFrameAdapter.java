@@ -15,12 +15,12 @@ import java.util.List;
  * Created by cesare on 03/08/2017.
  */
 
-public class FrameAdapter extends ArrayAdapter<CoachFrame> {
+public class CoachFrameAdapter extends ArrayAdapter<CoachFrame> {
 
     private LayoutInflater frameInflater;
     private static  Context context;
 
-    public FrameAdapter(@NonNull Context context, @LayoutRes int textViewResourceId, @NonNull List<CoachFrame> frameList) {
+    public CoachFrameAdapter(@NonNull Context context, @LayoutRes int textViewResourceId, @NonNull List<CoachFrame> frameList) {
         super(context, textViewResourceId, frameList);
         frameInflater = LayoutInflater.from(context);
     }

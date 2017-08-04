@@ -22,12 +22,11 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 
-public class SearchCoach extends Activity {
+import static com.example.cesare.leagueoflegendscoaching.Classes.ChampionsMap.spinnerMap;
 
-    HashMap<String, Integer> spinnerMap = null;
+public class SearchCoach extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +52,8 @@ public class SearchCoach extends Activity {
 
         try {
             spinnerMap = ChampionsMap.getChampionsMap(json);
+            ChampionsMap.idToChamp = ChampionsMap.getIdToChampMap(spinnerMap);
+
             ArrayList<String> spinnerList = new ArrayList<String>(spinnerMap.keySet());
             Collections.sort(spinnerList);
 

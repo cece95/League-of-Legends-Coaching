@@ -52,6 +52,13 @@
     <string name="appointments">APPOINTMENTS</string>
     <string name="modify">MODIFY PERSONAL INFO</string>
 
+    <!--coachDetails-->
+    <string name="coachDetails">COACH DETAILS</string>
+    <string name="championsDetails">CHAMPIONS DETAILS</string>
+    <string name="opgg">OP.GG</string>
+    <string name="book">BOOK</string>
+    <string name="n_games">N Games</string>
+
     <!--eloSpinner-->
     <string-array name="elo_list">
         <item>Bronze</item>

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.CoachFrame;
-import com.example.cesare.leagueoflegendscoaching.Classes.FrameAdapter;
+import com.example.cesare.leagueoflegendscoaching.Classes.CoachFrameAdapter;
 import com.example.cesare.leagueoflegendscoaching.Operations.SearchOperation;
 import com.example.cesare.leagueoflegendscoaching.Params.SearchParams;
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -49,7 +49,7 @@ public class CoachesList extends ListActivity {
                     CoachFrame coachFrame = new CoachFrame((JSONObject) resultList.get(i));
                     coachFrameList.add(coachFrame);
                 }
-                setListAdapter(new FrameAdapter(this, R.layout.coach_frame, coachFrameList));
+                setListAdapter(new CoachFrameAdapter(this, R.layout.coach_frame, coachFrameList));
                 Log.d("Context", CoachesList.this.toString());
             }
         } catch (InterruptedException e) {
