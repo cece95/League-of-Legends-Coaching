@@ -38,13 +38,14 @@
     <string name="switchCoach">Coach</string>
 
     <!--schedule-->
+    <string name="registerSchedule">REGISTER SCHEDULE</string>
     <string name="monday">Monday</string>
     <string name="tuesday">Tuesday</string>
     <string name="wednesday">Wednesday</string>
-    <string name="Thursday">Thursday</string>
-    <string name="Friday">Friday</string>
-    <string name="Saturday">Saturday</string>
-    <string name="Sunday">Sunday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
     <string name="change_schedule">Change Schedule</string>
 
     <!--coachArea-->
@@ -58,6 +59,7 @@
     <string name="opgg">OP.GG</string>
     <string name="book">BOOK</string>
     <string name="n_games">N Games</string>
+
 
     <!--eloSpinner-->
     <string-array name="elo_list">
