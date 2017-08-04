@@ -15,19 +15,27 @@
         <TextView
             android:id="@+id/coach_details"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textSize="@dimen/label"
-            android:text="@string/coachDetails" />
+            android:textSize="@dimen/title_text"
+            android:text="@string/coachDetails"
+            android:layout_marginBottom="@dimen/margin"/>
+
+        <ViewStub
+            android:id="@+id/stub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inflatedId="@+id/coachDetailsLayout"
+            android:layout="@layout/single_coach_frame"
+            android:layout_below="@+id/coach_details"/>
 
         <LinearLayout
-            android:id="@+id/coachDetailsLayout"
             android:orientation="vertical"
+            android:id="@+id/listLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/coach_details">
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/coachDetailsLayout"
+            android:layout_marginBottom="@dimen/margin">
 
         <TextView
             android:id="@+id/champion_details"
@@ -35,35 +43,40 @@
             android:layout_height="match_parent"
             android:text="@string/championsDetails"
             android:textSize="@dimen/label"
-            android:layout_below="@+id/coachDetailsLayout"/>
+            android:layout_below="@+id/coachDetailsLayout"
+            android:layout_marginBottom="@dimen/margin"/>
 
         <ListView
             android:id="@android:id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/champion_details">
         </ListView>
-
+        </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/listLayout"
+            android:weightSum="2">
 
                 <Button
                     android:id="@+id/opggButton"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/opgg"
                     android:textAlignment="center"
-                    android:textSize="@dimen/label" />
+                    android:textSize="@dimen/label"
+                    android:layout_weight="1"/>
 
                 <Button
                     android:id="@+id/bookButton"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@string/book"
                     android:textAlignment="center"
-                    android:textSize="@dimen/label" />
+                    android:textSize="@dimen/label"
+                    android:layout_weight="1"/>
 
         </LinearLayout>
 

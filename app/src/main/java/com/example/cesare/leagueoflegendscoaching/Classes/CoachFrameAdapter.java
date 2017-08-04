@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import com.example.cesare.leagueoflegendscoaching.R;
+
 import java.util.List;
 
 /**
@@ -27,8 +29,9 @@ public class CoachFrameAdapter extends ArrayAdapter<CoachFrame> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         CoachFrame coachFrame = getItem(position);
-        View view = coachFrame.createFrame(frameInflater);
+        View frame = frameInflater.inflate(R.layout.coach_frame, null);
+        coachFrame.createFrame(frame, true);
 
-        return view;
+        return frame;
     }
 }

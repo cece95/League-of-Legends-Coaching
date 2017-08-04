@@ -1,6 +1,6 @@
 package com.example.cesare.leagueoflegendscoaching.Classes;
 
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -40,10 +40,7 @@ public class CoachFrame {
         this.extra = json;
     }
 
-    public View createFrame(LayoutInflater inflater){
-        //frame principale
-        View frame = inflater.inflate(R.layout.coach_frame, null);
-
+    public void createFrame(View frame, boolean forList){
         //eloImage
         ImageView eloImageView = (ImageView) frame.findViewById(R.id.eloImage);
         setEloImage(eloImageView);
@@ -52,7 +49,7 @@ public class CoachFrame {
         TextView name = (TextView) frame.findViewById(R.id.name);
         name.setText(this.name);
         TextView cost = (TextView) frame.findViewById(R.id.cost);
-        cost.setText("Costo: "+this.cost+"€");
+        cost.setText("Cost: "+this.cost+"€");
 
         //rolesDetails
         TextView roles = (TextView) frame.findViewById(R.id.roles);
@@ -64,10 +61,11 @@ public class CoachFrame {
             rolesText = "Roles: "+this.role1+"/"+this.role2;
         }
         roles.setText(rolesText);
-        Button details = (Button) frame.findViewById(R.id.details);
-        details.setOnClickListener(new DetailsListener(this.extra));
 
-        return frame;
+        if (forList) {
+            Button details = (Button) frame.findViewById(R.id.details);
+            details.setOnClickListener(new DetailsListener(this.extra));
+        }
     }
 
     private void setEloImage(ImageView img) {
@@ -101,5 +99,10 @@ public class CoachFrame {
 
     public String getName() {
         return name;
+    }
+
+    public void debug(){
+        Log.d("Costo", String.valueOf(this.cost));
+        Log.d("Roles", this.role1+"/"+this.role2);
     }
 }

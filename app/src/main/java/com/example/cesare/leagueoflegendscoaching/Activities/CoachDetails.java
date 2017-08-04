@@ -4,10 +4,10 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.ChampionFrame;
 import com.example.cesare.leagueoflegendscoaching.Classes.ChampionFrameAdapter;
@@ -30,6 +30,15 @@ public class CoachDetails extends ListActivity {
         Intent intent = this.getIntent();
         try {
             JSONObject json = new JSONObject(intent.getStringExtra("info"));
+            Log.d("INFO", json.toString());
+
+            //coachFrame
+            final CoachFrame coachFrame = new CoachFrame(json);
+            ViewStub stub = (ViewStub) findViewById(R.id.stub);
+            View frame = stub.inflate();
+            coachFrame.createFrame(frame, false);
+
+            //championList
             JSONArray champions = json.getJSONArray("champions");
             List<ChampionFrame> championFrameList = new ArrayList<>();
             if (champions != null) {
@@ -37,16 +46,7 @@ public class CoachDetails extends ListActivity {
                     ChampionFrame championFrame = new ChampionFrame((JSONObject) champions.get(i));
                     championFrameList.add(championFrame);
                 }
-                setListAdapter(new ChampionFrameAdapter(this, R.layout.coach_frame, championFrameList));
-
-                //coachFrame
-                final CoachFrame coachFrame = new CoachFrame(json);
-                LayoutInflater layoutInflater = LayoutInflater.from(CoachDetails.this);
-                View frame = coachFrame.createFrame(layoutInflater);
-                LinearLayout mainLayout = (LinearLayout) findViewById(R.id.coachDetailsLayout);
-                mainLayout.addView(frame);
-                Button cya = (Button) findViewById(R.id.details);
-                cya.setVisibility(View.GONE);
+                setListAdapter(new ChampionFrameAdapter(this, R.layout.champion_frame, championFrameList));
 
                 //opgg button
                 Button opggButton = (Button) findViewById(R.id.opggButton);
@@ -61,7 +61,7 @@ public class CoachDetails extends ListActivity {
                 });
 
                 //bookButton
-                
+
             }
         } catch (JSONException e) {
             e.printStackTrace();
