@@ -7,6 +7,7 @@ import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
 import org.json.JSONArray;
 
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
@@ -15,9 +16,9 @@ import java.util.HashSet;
  * Created by cesare on 05/06/2017.
  */
 
-public class CoachParams extends UserParams {
+public class CoachParams extends UserParams implements Serializable{
     int elo;
-    HashSet<Language> languages;
+    public HashSet<Language> languages;
     Role role1;
     Role role2;
     int cost;

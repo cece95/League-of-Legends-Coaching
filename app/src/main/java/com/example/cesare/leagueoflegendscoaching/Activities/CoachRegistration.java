@@ -4,15 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -30,8 +27,6 @@ import java.util.HashSet;
 import java.util.concurrent.ExecutionException;
 
 public class CoachRegistration extends Activity {
-
-    PopupWindow popup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +63,6 @@ public class CoachRegistration extends Activity {
         calendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast myToast = Toast.makeText(CoachRegistration.this, "prova", Toast.LENGTH_SHORT);
-                myToast.show();
-                LayoutInflater inflater = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                View popup_view = inflater.inflate(R.layout.test, null);
-
-                popup = new PopupWindow(popup_view, RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-                RelativeLayout popup_position = (RelativeLayout) findViewById(R.id.schedule_layout);
-
-                popup.showAtLocation(popup_position, Gravity.CENTER, 0,0);
 
             }
         });
@@ -98,46 +84,31 @@ public class CoachRegistration extends Activity {
     private Intent createIntent(Context context, Intent intent){
         Intent risIntent = null;
 
-        //Ottengo i campi
-        Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);
-        Spinner role1Spinner = (Spinner) findViewById(R.id.role1_spinner);
-        Spinner role2Spinner = (Spinner) findViewById(R.id.role2_spinner);
-        EditText cost_input = (EditText) findViewById(R.id.cost_input);
-
-        //schedule?
-
-        //ottengo i parametri
-        String ign = intent.getStringExtra("ign");
-        String password = intent.getStringExtra("password");
-        boolean upgrade = intent.getBooleanExtra("upgrade", false);
-        int elo = (Elo.valueOf((String) eloSpinner.getSelectedItem())).EloToInt();
-        HashSet<Language> languages = checkLanguages();
-        Role role1 = Role.valueOf((String) role1Spinner.getSelectedItem());
-        Role role2 = Role.valueOf((String) role2Spinner.getSelectedItem());
-        int cost = Integer.parseInt(cost_input.getText().toString());
-
-        if (languages.isEmpty()){
-            Toast toast = Toast.makeText(context, "Select at least one language", Toast.LENGTH_SHORT);
-            toast.show();
-            return null;
-        }
-
-        //procedo alla registrazione
+        CoachParams coachParams = null;
         int coachRegistration;
         try {
-            CoachParams coachParams = new CoachParams(ign, password, context, "register", elo, languages, role1, role2, cost, upgrade);
+            coachParams = getParams();
+            if (coachParams.languages.isEmpty()){
+                Toast toast = Toast.makeText(context, "Select at least one language", Toast.LENGTH_SHORT);
+                toast.show();
+                return null;
+            }
+
             coachRegistration = new CoachOperation().execute(coachParams).get();
-        } catch (NoSuchAlgorithmException | UnsupportedEncodingException | InterruptedException | ExecutionException e) {
+
+        } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InterruptedException |  ExecutionException e) {
+            e.printStackTrace();
             Toast toast = Toast.makeText(context, "Registration Error", Toast.LENGTH_SHORT);
             toast.show();
             return null;
         }
 
-        //modifica da qui in poi(+aggiungere parte server)
+
+        //procedo alla registrazione
         switch (coachRegistration) {
             case 10: {
                 risIntent = new Intent(context, CoachArea.class);
-                risIntent.putExtra("user", ign);
+                risIntent.putExtra("user", coachParams.getIgn());
                 risIntent.putExtra("isCoach", true);
             }
             break;
@@ -198,5 +169,100 @@ public class CoachRegistration extends Activity {
             languages.add(Language.Spanish);
 
         return languages;
+    }
+
+    private CoachParams getParams() throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        Intent intent = getIntent();
+        Context context = CoachRegistration.this;
+
+        //Ottengo i campi
+        Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);
+        Spinner role1Spinner = (Spinner) findViewById(R.id.role1_spinner);
+        Spinner role2Spinner = (Spinner) findViewById(R.id.role2_spinner);
+        EditText cost_input = (EditText) findViewById(R.id.cost_input);
+
+        //ottengo i parametri
+        String ign = intent.getStringExtra("ign");
+        String password = intent.getStringExtra("password");
+        boolean upgrade = intent.getBooleanExtra("upgrade", false);
+        int elo = (Elo.valueOf((String) eloSpinner.getSelectedItem())).EloToInt();
+        HashSet<Language> languages = checkLanguages();
+        Role role1 = Role.valueOf((String) role1Spinner.getSelectedItem());
+        Role role2 = Role.valueOf((String) role2Spinner.getSelectedItem());
+        int cost = Integer.parseInt(cost_input.getText().toString());
+
+        CoachParams coachParams = new CoachParams(ign, password, context, "register", elo, languages, role1, role2, cost, upgrade);
+
+        return coachParams;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+
+        Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);
+        Spinner role1Spinner = (Spinner) findViewById(R.id.role1_spinner);
+        Spinner role2Spinner = (Spinner) findViewById(R.id.role2_spinner);
+        EditText cost_input = (EditText) findViewById(R.id.cost_input);
+
+        int eloPos = eloSpinner.getSelectedItemPosition();
+        int role1Pos = role1Spinner.getSelectedItemPosition();
+        int role2Pos = role2Spinner.getSelectedItemPosition();
+        String cost = String.valueOf(cost_input.getText());
+        HashSet<Language> languages = checkLanguages();
+
+        savedInstanceState.putInt("eloPos", eloPos);
+        savedInstanceState.putInt("role1pos", role1Pos);
+        savedInstanceState.putInt("role2Pos", role2Pos);
+        savedInstanceState.putString("cost", cost);
+        savedInstanceState.putSerializable("languages", languages);
+    }
+
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onRestoreInstanceState(savedInstanceState, persistentState);
+
+        int eloPos = savedInstanceState.getInt("eloPos");
+        int role1Pos = savedInstanceState.getInt("role1Pos");
+        int role2Pos = savedInstanceState.getInt("role2Pos");
+        String cost = savedInstanceState.getString("cost");
+        HashSet<Language> languages = (HashSet<Language>) savedInstanceState.getSerializable("languages");
+
+        Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);
+        Spinner role1Spinner = (Spinner) findViewById(R.id.role1_spinner);
+        Spinner role2Spinner = (Spinner) findViewById(R.id.role2_spinner);
+        EditText cost_input = (EditText) findViewById(R.id.cost_input);
+
+        eloSpinner.setSelection(eloPos);
+        role1Spinner.setSelection(role1Pos);
+        role2Spinner.setSelection(role2Pos);
+        cost_input.setText(cost);
+        setLanguages(languages);
+
+    }
+
+    private void setLanguages(HashSet<Language> languages){
+
+        ToggleImageButton eng_flag = (ToggleImageButton) findViewById(R.id.flag_UnitedKingdom_ImageButton);
+        ToggleImageButton it_flag = (ToggleImageButton) findViewById(R.id.flag_Italy_ImageButton);
+        ToggleImageButton ger_flag = (ToggleImageButton) findViewById(R.id.flag_Germany_ImageButton);
+        ToggleImageButton fr_flag = (ToggleImageButton) findViewById(R.id.flag_France_ImageButton);
+        ToggleImageButton sp_flag = (ToggleImageButton) findViewById(R.id.flag_Spain_ImageButton);
+
+        if (languages.contains(Language.English))
+            eng_flag.setChecked(true);
+
+        if (languages.contains(Language.Italian))
+            it_flag.setChecked(true);
+
+        if (languages.contains(Language.German))
+            ger_flag.setChecked(true);
+
+        if (languages.contains(Language.French))
+            fr_flag.setChecked(true);
+
+        if (languages.contains(Language.Spanish))
+            sp_flag.setChecked(true);
     }
 }

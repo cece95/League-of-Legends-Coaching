@@ -33,6 +33,10 @@ public class SearchCoach extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_coach);
 
+        //eng flag preChecked
+        ToggleImageButton eng_flag = (ToggleImageButton) findViewById(R.id.flag_UnitedKingdom_ImageButton);
+        eng_flag.setChecked(true);
+
         // Create elo spinner
         Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.elo_list, android.R.layout.simple_spinner_item);
