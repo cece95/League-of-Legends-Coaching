@@ -98,4 +98,8 @@ public class CoachFrame {
 
         return res;
     }
+
+    public String getName() {
+        return name;
+    }
 }

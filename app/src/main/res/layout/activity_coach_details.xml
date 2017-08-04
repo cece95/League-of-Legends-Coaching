@@ -44,6 +44,28 @@
             android:layout_below="@+id/champion_details">
         </ListView>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/opggButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/opgg"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/label" />
+
+                <Button
+                    android:id="@+id/bookButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/book"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/label" />
+
+        </LinearLayout>
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

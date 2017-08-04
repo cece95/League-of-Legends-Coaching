@@ -2,6 +2,8 @@ package com.example.cesare.leagueoflegendscoaching.Classes;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.cesare.leagueoflegendscoaching.R;
 
@@ -25,6 +27,19 @@ public class ChampionFrame {
 
     public View createFrame(LayoutInflater inflater){
         View frame = inflater.inflate(R.layout.champion_frame, null);
+
+        //championImage
+        ImageView championImage = (ImageView) frame.findViewById(R.id.championImage);
+        int imgId = frame.getResources().getIdentifier("R.mipmap.champion_"+this.id, "mipmap", String.valueOf(this.getClass().getPackage()));
+        championImage.setBackgroundResource(imgId);
+
+        //championName
+        TextView championName = (TextView) frame.findViewById(R.id.championName);
+        championName.setText(this.name);
+
+        //n_games
+        TextView nGames = (TextView) frame.findViewById(R.id.n_games);
+        nGames.setText(this.n_games);
 
         return frame;
     }

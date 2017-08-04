@@ -3,7 +3,6 @@ package com.example.cesare.leagueoflegendscoaching.Activities;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.CoachFrame;
 import com.example.cesare.leagueoflegendscoaching.Classes.CoachFrameAdapter;
@@ -50,7 +49,6 @@ public class CoachesList extends ListActivity {
                     coachFrameList.add(coachFrame);
                 }
                 setListAdapter(new CoachFrameAdapter(this, R.layout.coach_frame, coachFrameList));
-                Log.d("Context", CoachesList.this.toString());
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

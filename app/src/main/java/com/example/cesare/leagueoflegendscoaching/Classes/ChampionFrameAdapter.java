@@ -12,23 +12,24 @@ import android.widget.ArrayAdapter;
 import java.util.List;
 
 /**
- * Created by cesare on 03/08/2017.
+ * Created by cesare on 04/08/2017.
  */
 
-public class CoachFrameAdapter extends ArrayAdapter<CoachFrame> {
+public class ChampionFrameAdapter extends ArrayAdapter<ChampionFrame> {
 
     private LayoutInflater frameInflater;
 
-    public CoachFrameAdapter(@NonNull Context context, @LayoutRes int textViewResourceId, @NonNull List<CoachFrame> frameList) {
+    public ChampionFrameAdapter(@NonNull Context context, @LayoutRes int textViewResourceId, @NonNull List<ChampionFrame> frameList) {
         super(context, textViewResourceId, frameList);
         frameInflater = LayoutInflater.from(context);
     }
 
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        CoachFrame coachFrame = getItem(position);
-        View view = coachFrame.createFrame(frameInflater);
+        ChampionFrame championFrame = getItem(position);
+        View view = championFrame.createFrame(frameInflater);
 
         return view;
     }
 }
+
