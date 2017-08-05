@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.SwipeListener;
+import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 public class StudentArea extends Activity {
@@ -18,22 +19,19 @@ public class StudentArea extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_area);
 
-        Intent intent = getIntent();
-        String user = intent.getStringExtra("user");
-        boolean isCoach = intent.getBooleanExtra("isCoach", false);
+        LoggedUser loggedUser = LoggedUser.getIstance(null, null, false);
 
         final TextView welcome = (TextView) findViewById(R.id.welcomeMessage);
-        welcome.setText("Welcome "+user);
+        welcome.setText("Welcome "+loggedUser.getIgn());
 
         RelativeLayout finestra = (RelativeLayout) findViewById(R.id.relative_studentArea);
-        if (isCoach){
-            finestra.setOnTouchListener(new SwipeListener(StudentArea.this, user, isCoach){
+        if (loggedUser.isCoach()){
+            finestra.setOnTouchListener(new SwipeListener(StudentArea.this){
                 @Override
                 public void onSwipeLeft() {
                     Intent coachArea = new Intent(StudentArea.this, CoachArea.class);
-                    coachArea.putExtra("user", user);
-                    coachArea.putExtra("isCoach", isCoach);
                     startActivity(coachArea);
+                    finish();
                 }
             });
         }

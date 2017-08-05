@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.UserParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.UserOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -36,6 +37,7 @@ public class SignUp extends Activity {
                 Intent signup = createIntent(SignUp.this, coachCheckBox);
                 if (signup != null) {
                     startActivity(signup);
+                    finish();
                 }
             }
         });
@@ -73,8 +75,9 @@ public class SignUp extends Activity {
 
             //altrimenti completo la registrazione
             int registration;
+            UserParams params;
             try {
-                UserParams params = new UserParams(ign, password, context, "register");
+                params = new UserParams(ign, password, context, "register");
                 registration = new UserOperation().execute(params).get();
             } catch (InterruptedException | ExecutionException | NoSuchAlgorithmException | UnsupportedEncodingException e) {
                 Toast toast = Toast.makeText(context, "Registration Error", Toast.LENGTH_SHORT);
@@ -85,8 +88,7 @@ public class SignUp extends Activity {
             switch (registration){
                 case 10:{
                     risIntent = new Intent(context, StudentArea.class);
-                    risIntent.putExtra("user", ign);
-                    risIntent.putExtra("isCoach", false);
+                    LoggedUser l = LoggedUser.getIstance(params.getIgn(), params.getPassword(), false);
                 }
                 break;
 

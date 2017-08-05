@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.UserParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.UserOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -31,6 +32,7 @@ public class Login extends Activity {
                 Intent login = createIntent(Login.this);
                 if (login != null) {
                     startActivity(login);
+                    finish();
                 }
             }
         });
@@ -52,8 +54,9 @@ public class Login extends Activity {
         }
 
         int login = 0;
+        UserParams params;
         try{
-            UserParams params = new UserParams(ign, password, context, "login");
+            params = new UserParams(ign, password, context, "login");
             login = new UserOperation().execute(params).get();
         } catch (InterruptedException | ExecutionException | NoSuchAlgorithmException | UnsupportedEncodingException e) {
             Toast toast = Toast.makeText(context, "Login Error", Toast.LENGTH_SHORT);
@@ -64,8 +67,7 @@ public class Login extends Activity {
         switch (login){
             case 20: {
                 risIntent = new Intent(context, StudentArea.class);
-                risIntent.putExtra("user", ign);
-                risIntent.putExtra("isCoach", false);
+                LoggedUser l = LoggedUser.getIstance(params.getIgn(), params.getPassword(), false);
             }
             break;
 
@@ -78,8 +80,7 @@ public class Login extends Activity {
 
             case 22:{
                 risIntent = new Intent(context, StudentArea.class);
-                risIntent.putExtra("user", ign);
-                risIntent.putExtra("isCoach", true);
+                LoggedUser l = LoggedUser.getIstance(params.getIgn(), params.getPassword(), true);
             }
             break;
 

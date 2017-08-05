@@ -1,11 +1,11 @@
 package com.example.cesare.leagueoflegendscoaching.Activities;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
 import com.example.cesare.leagueoflegendscoaching.R;
 
-public class DaySchedule extends AppCompatActivity {
+public class DaySchedule extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

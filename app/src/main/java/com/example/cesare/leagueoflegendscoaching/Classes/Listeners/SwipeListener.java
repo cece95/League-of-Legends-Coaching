@@ -12,15 +12,10 @@ import android.view.View;
 
 public class SwipeListener implements View.OnTouchListener {
 
-        public String user;
-        public boolean isCoach;
-
         private final GestureDetector gestureDetector;
 
-        public SwipeListener(Context context, String user, boolean isCoach) {
+        public SwipeListener(Context context) {
             gestureDetector = new GestureDetector(context, new GestureListener());
-            this.user = user;
-            this.isCoach = isCoach;
         }
 
         public void onSwipeLeft() {

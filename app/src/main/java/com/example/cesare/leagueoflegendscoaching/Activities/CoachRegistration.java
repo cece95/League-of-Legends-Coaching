@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton;
+import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.CoachOperation;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.CoachParams;
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -51,13 +52,6 @@ public class CoachRegistration extends Activity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         role2Spinner.setAdapter(r2Adapter);
 
-        //flags
-        ToggleImageButton it_flag = (ToggleImageButton) findViewById(R.id.flag_Italy_ImageButton);
-        ToggleImageButton eng_flag = (ToggleImageButton) findViewById(R.id.flag_UnitedKingdom_ImageButton);
-        ToggleImageButton fr_flag = (ToggleImageButton) findViewById(R.id.flag_France_ImageButton);
-        ToggleImageButton sp_flag = (ToggleImageButton) findViewById(R.id.flag_Spain_ImageButton);
-        ToggleImageButton ger_flag = (ToggleImageButton) findViewById(R.id.flag_Germany_ImageButton);
-
         // Date Popup window
         ImageButton calendarButton = (ImageButton) findViewById(R.id.schedule_ImageButton);
         calendarButton.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +70,7 @@ public class CoachRegistration extends Activity {
                 Intent coachSignup = createIntent(CoachRegistration.this, getIntent());
                 if (coachSignup != null){
                     startActivity(coachSignup);
+                    finish();
                 }
             }
         });
@@ -109,8 +104,7 @@ public class CoachRegistration extends Activity {
         switch (coachRegistration) {
             case 10: {
                 risIntent = new Intent(context, CoachArea.class);
-                risIntent.putExtra("user", coachParams.getIgn());
-                risIntent.putExtra("isCoach", true);
+                LoggedUser l = LoggedUser.getIstance(coachParams.getIgn(), coachParams.getPassword(), true);
             }
             break;
 
