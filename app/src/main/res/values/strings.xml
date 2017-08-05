@@ -25,6 +25,7 @@
     <string name="role">Role</string>
     <string name="champions">Champions</string>
     <string name="maxCost">Max Cost</string>
+    <string name="title_activity_search_coach">SearchCoach</string>
 
     <!--coachesList-->
     <string name="coachesList">COACHES LIST</string>
@@ -118,7 +119,7 @@
         <item>Support</item>
     </string-array>
 
-    <string name="title_activity_search_coach">SearchCoach</string>
+
 
 
 </resources>
