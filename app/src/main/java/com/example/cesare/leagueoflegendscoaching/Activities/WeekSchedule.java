@@ -20,6 +20,7 @@ public class WeekSchedule extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WeekSchedule.this, DaySchedule.class);
+                intent.putExtra("dayId", 0);
                 startActivity(intent);
             }
         });
