@@ -79,7 +79,7 @@ public class Login extends Activity {
             break;
 
             case 22:{
-                risIntent = new Intent(context, StudentArea.class);
+                risIntent = new Intent(context, CoachArea.class);
                 LoggedUser l = LoggedUser.getIstance(params.getIgn(), params.getPassword(), true);
             }
             break;

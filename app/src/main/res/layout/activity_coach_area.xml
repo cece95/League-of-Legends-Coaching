@@ -24,6 +24,16 @@
             android:textAlignment="center"
             android:textSize="@dimen/title_text" />
 
+        <TextView
+            android:id="@+id/welcomeMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/coachArea_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="27dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
         <Button
             android:id="@+id/apppointments_button"
             android:layout_width="200dp"
