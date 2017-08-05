@@ -1,4 +1,4 @@
-package com.example.cesare.leagueoflegendscoaching;
+package com.example.cesare.leagueoflegendscoaching.Classes;
 
 /**
  * Created by cesare on 24/05/2017.
@@ -36,7 +36,7 @@ public class Security {
         }
 
     public static boolean isNetworkAvailable(Context c) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) c.getSystemService(c.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) c.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }

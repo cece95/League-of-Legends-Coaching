@@ -1,10 +1,12 @@
-package com.example.cesare.leagueoflegendscoaching;
+package com.example.cesare.leagueoflegendscoaching.Classes.Components;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.Checkable;
 import android.widget.ImageButton;
+
+import com.example.cesare.leagueoflegendscoaching.R;
 
 /**
  * Created by cesare on 27/05/2017.
@@ -67,7 +69,7 @@ public class ToggleImageButton extends ImageButton implements Checkable {
         this.onCheckedChangeListener = onCheckedChangeListener;
     }
 
-    public static interface OnCheckedChangeListener {
-        public void onCheckedChanged(ToggleImageButton buttonView, boolean isChecked);
+    public interface OnCheckedChangeListener {
+        void onCheckedChanged(ToggleImageButton buttonView, boolean isChecked);
     }
 }

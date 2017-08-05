@@ -1,4 +1,4 @@
-package com.example.cesare.leagueoflegendscoaching.Classes;
+package com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Components.CoachFrame;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 import java.util.List;

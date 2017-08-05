@@ -1,4 +1,4 @@
-package com.example.cesare.leagueoflegendscoaching.Params;
+package com.example.cesare.leagueoflegendscoaching.Operations.Params;
 
 import android.content.Context;
 

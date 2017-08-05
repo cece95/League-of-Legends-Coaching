@@ -85,7 +85,7 @@
                 android:orientation="horizontal">
 
 
-                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
+                <com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton
                     android:id="@+id/flag_UnitedKingdom_ImageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
 
                     android:src="@mipmap/flag_unitedkingdom" />
 
-                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
+                <com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton
                     android:id="@+id/flag_Italy_ImageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
 
                     android:src="@mipmap/flag_italy" />
 
-                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
+                <com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton
                     android:id="@+id/flag_Germany_ImageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
 
                     android:src="@mipmap/flag_germany" />
 
-                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
+                <com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton
                     android:id="@+id/flag_France_ImageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
                     android:background="@drawable/flag_button"
                     android:src="@mipmap/flag_france" />
 
-                <com.example.cesare.leagueoflegendscoaching.ToggleImageButton
+                <com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton
                     android:id="@+id/flag_Spain_ImageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

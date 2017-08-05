@@ -1,4 +1,4 @@
-package com.example.cesare.leagueoflegendscoaching.Classes;
+package com.example.cesare.leagueoflegendscoaching.Classes.Components;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.ChampionsMap;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 import org.json.JSONException;

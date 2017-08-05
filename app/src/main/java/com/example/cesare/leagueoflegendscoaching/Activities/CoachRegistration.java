@@ -13,10 +13,10 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton;
 import com.example.cesare.leagueoflegendscoaching.Operations.CoachOperation;
-import com.example.cesare.leagueoflegendscoaching.Params.CoachParams;
+import com.example.cesare.leagueoflegendscoaching.Operations.Params.CoachParams;
 import com.example.cesare.leagueoflegendscoaching.R;
-import com.example.cesare.leagueoflegendscoaching.ToggleImageButton;
 import com.example.cesare.leagueoflegendscoaching.Types.Elo;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;

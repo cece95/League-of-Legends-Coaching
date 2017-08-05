@@ -1,4 +1,4 @@
-package com.example.cesare.leagueoflegendscoaching.Classes;
+package com.example.cesare.leagueoflegendscoaching.Classes.Singletons;
 
 /**
  * Created by cesare on 04/08/2017.

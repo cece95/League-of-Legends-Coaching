@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.Button;
 
-import com.example.cesare.leagueoflegendscoaching.Classes.ChampionFrame;
-import com.example.cesare.leagueoflegendscoaching.Classes.ChampionFrameAdapter;
-import com.example.cesare.leagueoflegendscoaching.Classes.CoachFrame;
+import com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters.ChampionFrameAdapter;
+import com.example.cesare.leagueoflegendscoaching.Classes.Components.ChampionFrame;
+import com.example.cesare.leagueoflegendscoaching.Classes.Components.CoachFrame;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 import org.json.JSONArray;

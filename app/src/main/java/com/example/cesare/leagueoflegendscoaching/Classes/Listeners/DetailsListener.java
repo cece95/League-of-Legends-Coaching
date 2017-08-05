@@ -1,4 +1,4 @@
-package com.example.cesare.leagueoflegendscoaching.Classes;
+package com.example.cesare.leagueoflegendscoaching.Classes.Listeners;
 
 import android.content.Intent;
 import android.util.Log;

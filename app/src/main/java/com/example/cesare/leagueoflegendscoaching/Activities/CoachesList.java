@@ -4,10 +4,10 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.cesare.leagueoflegendscoaching.Classes.CoachFrame;
-import com.example.cesare.leagueoflegendscoaching.Classes.CoachFrameAdapter;
+import com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters.CoachFrameAdapter;
+import com.example.cesare.leagueoflegendscoaching.Classes.Components.CoachFrame;
+import com.example.cesare.leagueoflegendscoaching.Operations.Params.SearchParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.SearchOperation;
-import com.example.cesare.leagueoflegendscoaching.Params.SearchParams;
 import com.example.cesare.leagueoflegendscoaching.R;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;

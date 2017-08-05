@@ -10,8 +10,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.cesare.leagueoflegendscoaching.Operations.Params.UserParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.UserOperation;
-import com.example.cesare.leagueoflegendscoaching.Params.UserParams;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 import java.io.UnsupportedEncodingException;

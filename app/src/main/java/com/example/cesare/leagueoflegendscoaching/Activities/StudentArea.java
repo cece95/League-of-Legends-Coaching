@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.SwipeListener;
 import com.example.cesare.leagueoflegendscoaching.R;
-import com.example.cesare.leagueoflegendscoaching.SwipeListener;
 
 public class StudentArea extends Activity {
 

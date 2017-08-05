@@ -1,8 +1,8 @@
-package com.example.cesare.leagueoflegendscoaching.Params;
+package com.example.cesare.leagueoflegendscoaching.Operations.Params;
 
 import android.content.Context;
 
-import com.example.cesare.leagueoflegendscoaching.Security;
+import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;

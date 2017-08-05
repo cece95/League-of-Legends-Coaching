@@ -3,8 +3,8 @@ package com.example.cesare.leagueoflegendscoaching.Operations;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.cesare.leagueoflegendscoaching.Params.CoachParams;
-import com.example.cesare.leagueoflegendscoaching.Security;
+import com.example.cesare.leagueoflegendscoaching.Classes.Security;
+import com.example.cesare.leagueoflegendscoaching.Operations.Params.CoachParams;
 
 import org.json.JSONException;
 import org.json.JSONObject;

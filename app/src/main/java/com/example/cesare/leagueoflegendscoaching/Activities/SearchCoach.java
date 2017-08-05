@@ -11,8 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.ChampionsMap;
+import com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton;
 import com.example.cesare.leagueoflegendscoaching.R;
-import com.example.cesare.leagueoflegendscoaching.ToggleImageButton;
 import com.example.cesare.leagueoflegendscoaching.Types.Elo;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 

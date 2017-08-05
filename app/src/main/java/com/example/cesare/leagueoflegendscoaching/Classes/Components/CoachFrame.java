@@ -1,4 +1,4 @@
-package com.example.cesare.leagueoflegendscoaching.Classes;
+package com.example.cesare.leagueoflegendscoaching.Classes.Components;
 
 import android.util.Log;
 import android.view.View;
@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.DetailsListener;
 import com.example.cesare.leagueoflegendscoaching.R;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;
