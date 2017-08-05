@@ -38,7 +38,8 @@
             android:label="@string/title_activity_search_coach" />
         <activity android:name=".Activities.CoachesList" />
         <activity android:name=".Activities.CoachDetails" />
-        <activity android:name=".Activities.WeekSchedule"></activity>
+        <activity android:name=".Activities.WeekSchedule" />
+        <activity android:name=".Activities.DaySchedule"></activity>
     </application>
 
 </manifest>

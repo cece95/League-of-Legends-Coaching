@@ -63,7 +63,8 @@ public class CoachRegistration extends Activity {
         calendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent weekSchedule = new Intent(CoachRegistration.this, WeekSchedule.class);
+                startActivity(weekSchedule);
             }
         });
 

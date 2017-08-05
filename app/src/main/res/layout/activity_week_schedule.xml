@@ -16,6 +16,7 @@
             android:id="@+id/registerSchedule_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
             tools:layout_editor_absoluteY="0dp"
             tools:layout_editor_absoluteX="8dp">
 
@@ -28,14 +29,14 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <ScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -46,20 +47,159 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:textSize="@dimen/label"
                         android:text="@string/monday"
-                        android:textSize="@dimen/label"/>
+                        android:layout_weight="1"/>
 
                     <Button
+                        android:id="@+id/changeScheduleMonday"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
-                        android:textSize="@dimen/label"/>
-                </LinearLayout>
-            </ScrollView>
+                        android:layout_weight="1"/>
 
-        </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/tuesday"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/changeSchedulTuesday"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/change_schedule"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/wednesday"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/changeScheduleWednesday"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/change_schedule"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/thursday"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/changeScheduleThursday"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/change_schedule"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/friday"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/changeScheduleFriday"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/change_schedule"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/saturday"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/changeScheduleSaturday"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/change_schedule"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/sunday"
+                        android:layout_weight="1"/>
+
+                    <Button
+                        android:id="@+id/changeScheduleSunday"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/label"
+                        android:text="@string/change_schedule"
+                        android:layout_weight="1"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
     </LinearLayout>
 
 

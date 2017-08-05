@@ -48,6 +48,33 @@
     <string name="sunday">Sunday</string>
     <string name="change_schedule">Change Schedule</string>
 
+    <!--daySchedule-->
+    <string name="zero_to_one">00 - 01</string>
+    <string name="one_to_two">01 - 02</string>
+    <string name="two_to_three">02 - 03</string>
+    <string name="three_to_four">03 - 04</string>
+    <string name="four_to_five">04 - 05</string>
+    <string name="five_to_six">05 - 06</string>
+    <string name="six_to_seven">06 - 07</string>
+    <string name="seven_to_eight">07 - 08</string>
+    <string name="eight_to_nine">08 - 09</string>
+    <string name="nine_to_ten">09 - 10</string>
+    <string name="ten_to_eleven">10 - 11</string>
+    <string name="eleven_to_twelve">11 - 12</string>
+    <string name="twelve_to_thirteen">12 - 13</string>
+    <string name="thirteen_to_fourteen">13 - 14</string>
+    <string name="fourteen_to_fifteen">14 - 15</string>
+    <string name="fifteen_to_sixteen">15 - 16</string>
+    <string name="sixteen_to_seventeen">16 - 17</string>
+    <string name="seventeen_to_eighteen">17 - 18</string>
+    <string name="eighteen_to_nineteen">18 - 19</string>
+    <string name="nineteen_to_twenty">19 - 20</string>
+    <string name="twenty_to_twentyone">20 - 21</string>
+    <string name="twentyone_to_twentytwo">21 - 22</string>
+    <string name="twentytwo_to_twentythree">22 - 23</string>
+    <string name="twentythree_to_twentyfour">23 - 24</string>
+
+
     <!--coachArea-->
     <string name="coachArea">COACH AREA</string>
     <string name="appointments">APPOINTMENTS</string>
