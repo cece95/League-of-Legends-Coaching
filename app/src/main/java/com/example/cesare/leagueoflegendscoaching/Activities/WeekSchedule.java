@@ -19,7 +19,7 @@ public class WeekSchedule extends Activity {
         mondayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WeekSchedule.this, MondaySchedule.class);
+                Intent intent = new Intent(WeekSchedule.this, DaySchedule.class);
                 intent.putExtra("dayId", 0);
                 startActivity(intent);
             }
@@ -29,7 +29,7 @@ public class WeekSchedule extends Activity {
         tuesdayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WeekSchedule.this, TuesdaySchedule.class);
+                Intent intent = new Intent(WeekSchedule.this, DaySchedule.class);
                 intent.putExtra("dayId", 1);
                 startActivity(intent);
             }
@@ -39,7 +39,7 @@ public class WeekSchedule extends Activity {
         wednesdayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WeekSchedule.this, WednesdaySchedule.class);
+                Intent intent = new Intent(WeekSchedule.this, DaySchedule.class);
                 intent.putExtra("dayId", 2);
                 startActivity(intent);
             }
@@ -49,7 +49,7 @@ public class WeekSchedule extends Activity {
         thursdayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WeekSchedule.this, ThursdaySchedule.class);
+                Intent intent = new Intent(WeekSchedule.this, DaySchedule.class);
                 intent.putExtra("dayId", 3);
                 startActivity(intent);
             }
@@ -59,7 +59,7 @@ public class WeekSchedule extends Activity {
         fridayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WeekSchedule.this, FridaySchedule.class);
+                Intent intent = new Intent(WeekSchedule.this, DaySchedule.class);
                 intent.putExtra("dayId", 4);
                 startActivity(intent);
             }
@@ -69,7 +69,7 @@ public class WeekSchedule extends Activity {
         saturdayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WeekSchedule.this, SaturdaySchedule.class);
+                Intent intent = new Intent(WeekSchedule.this, DaySchedule.class);
                 intent.putExtra("dayId", 5);
                 startActivity(intent);
             }
@@ -79,9 +79,10 @@ public class WeekSchedule extends Activity {
         sundayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WeekSchedule.this, SundaySchedule.class);
+                Intent intent = new Intent(WeekSchedule.this, DaySchedule.class);
                 intent.putExtra("dayId", 6);
                 startActivity(intent);
+                finish();
             }
         });
 

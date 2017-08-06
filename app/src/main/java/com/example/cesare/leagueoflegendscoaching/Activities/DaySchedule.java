@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.ToggleButton;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.Schedule;
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -27,7 +28,6 @@ public class DaySchedule extends Activity {
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getHours();
                 Schedule s = Schedule.getIstance();
                 s.setDay(dayId, getHours());
                 Intent intent = new Intent(DaySchedule.this, WeekSchedule.class);
@@ -44,8 +44,8 @@ public class DaySchedule extends Activity {
         for (int i = 0; i < parent.getChildCount(); i++) {
                 LinearLayout layoutChild = (LinearLayout) parent.getChildAt(i);
                 View v = layoutChild.getChildAt(0);
-                if (v instanceof RadioButton){
-                    hours[i] = ((RadioButton) v).isChecked();
+                if (v instanceof ToggleButton){
+                    hours[i] = ((ToggleButton) v).isChecked();
                 }
             }
         return  hours;

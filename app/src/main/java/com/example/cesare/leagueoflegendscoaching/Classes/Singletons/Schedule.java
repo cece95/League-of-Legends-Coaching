@@ -1,5 +1,8 @@
 package com.example.cesare.leagueoflegendscoaching.Classes.Singletons;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 /**
  * Created by cesare on 04/08/2017.
  */
@@ -36,7 +39,15 @@ public class Schedule {
         schedule[d] = day;
     }
 
-    public boolean[][] getSchedule() {
-        return schedule;
+    public JSONArray getSchedule() throws JSONException {
+        JSONArray res = new JSONArray();
+        for (int i=0; i<days; i++){
+            JSONArray day = new JSONArray();
+            for (int j=0; j<hours; j++){
+                day.put(schedule[i][j]);
+            }
+            res.put(day);
+        }
+        return res;
     }
 }
