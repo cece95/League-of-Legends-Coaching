@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Security;
+import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.Schedule;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.CoachParams;
 
 import org.json.JSONException;
@@ -80,6 +81,7 @@ public class CoachOperation extends AsyncTask<CoachParams, Integer, Integer> {
                 jsonParam.put("role2", params[0].getRole2());
                 jsonParam.put("cost", params[0].getCost());
                 jsonParam.put("upgrade", params[0].getUpgrade());
+                jsonParam.put("schedule", Schedule.getIstance().getSchedule());
 
                 Log.d("JSON", "Json: "+jsonParam);
 

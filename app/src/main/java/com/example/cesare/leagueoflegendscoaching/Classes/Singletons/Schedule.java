@@ -35,4 +35,8 @@ public class Schedule {
     public void setDay(int d, boolean[] day){
         schedule[d] = day;
     }
+
+    public boolean[][] getSchedule() {
+        return schedule;
+    }
 }
