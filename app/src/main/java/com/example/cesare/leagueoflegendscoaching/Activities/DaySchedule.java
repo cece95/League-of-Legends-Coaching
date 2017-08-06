@@ -53,13 +53,12 @@ public class DaySchedule extends Activity {
 
     private void loadDay(boolean[] day){
         LinearLayout parent = (LinearLayout) findViewById(R.id.parentLayout);
-        boolean[] hours = new boolean[24];
 
         for (int i = 0; i < parent.getChildCount(); i++) {
             LinearLayout layoutChild = (LinearLayout) parent.getChildAt(i);
             View v = layoutChild.getChildAt(0);
             if (v instanceof RadioButton) {
-                ((RadioButton) v).setChecked(hours[i]);
+                ((RadioButton) v).setChecked(day[i]);
             }
         }
     }
