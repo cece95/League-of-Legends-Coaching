@@ -19,11 +19,73 @@ public class WeekSchedule extends Activity {
         mondayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WeekSchedule.this, DaySchedule.class);
+                Intent intent = new Intent(WeekSchedule.this, MondaySchedule.class);
                 intent.putExtra("dayId", 0);
                 startActivity(intent);
             }
         });
+
+        final Button tuesdayButton = (Button) findViewById(R.id.changeScheduleTuesday);
+        tuesdayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WeekSchedule.this, TuesdaySchedule.class);
+                intent.putExtra("dayId", 1);
+                startActivity(intent);
+            }
+        });
+
+        final Button wednesdayButton = (Button) findViewById(R.id.changeScheduleWednesday);
+        wednesdayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WeekSchedule.this, WednesdaySchedule.class);
+                intent.putExtra("dayId", 2);
+                startActivity(intent);
+            }
+        });
+
+        final Button thursdayButton = (Button) findViewById(R.id.changeScheduleThursday);
+        thursdayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WeekSchedule.this, ThursdaySchedule.class);
+                intent.putExtra("dayId", 3);
+                startActivity(intent);
+            }
+        });
+
+        final Button fridayButton = (Button) findViewById(R.id.changeScheduleFriday);
+        fridayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WeekSchedule.this, FridaySchedule.class);
+                intent.putExtra("dayId", 4);
+                startActivity(intent);
+            }
+        });
+
+        final Button saturdayButton = (Button) findViewById(R.id.changeScheduleSaturday);
+        saturdayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WeekSchedule.this, SaturdaySchedule.class);
+                intent.putExtra("dayId", 5);
+                startActivity(intent);
+            }
+        });
+
+        final Button sundayButton = (Button) findViewById(R.id.changeScheduleSunday);
+        sundayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WeekSchedule.this, SundaySchedule.class);
+                intent.putExtra("dayId", 6);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
 

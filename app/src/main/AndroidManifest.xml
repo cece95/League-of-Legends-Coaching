@@ -40,6 +40,13 @@
         <activity android:name=".Activities.CoachDetails" />
         <activity android:name=".Activities.WeekSchedule" />
         <activity android:name=".Activities.DaySchedule" />
+        <activity android:name=".Activities.MondaySchedule" />
+        <activity android:name=".Activities.TuesdaySchedule" />
+        <activity android:name=".Activities.ThursdaySchedule" />
+        <activity android:name=".Activities.WednesdaySchedule" />
+        <activity android:name=".Activities.FridaySchedule" />
+        <activity android:name=".Activities.SaturdaySchedule" />
+        <activity android:name=".Activities.SundaySchedule"></activity>
     </application>
 
 </manifest>
