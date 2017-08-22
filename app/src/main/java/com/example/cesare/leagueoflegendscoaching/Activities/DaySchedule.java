@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.ToggleButton;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.Schedule;
@@ -57,8 +56,8 @@ public class DaySchedule extends Activity {
         for (int i = 0; i < parent.getChildCount(); i++) {
             LinearLayout layoutChild = (LinearLayout) parent.getChildAt(i);
             View v = layoutChild.getChildAt(0);
-            if (v instanceof RadioButton) {
-                ((RadioButton) v).setChecked(day[i]);
+            if (v instanceof ToggleButton) {
+                ((ToggleButton) v).setChecked(day[i]);
             }
         }
     }

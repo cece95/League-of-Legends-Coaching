@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:inflatedId="@+id/coachDetailsLayout"
             android:layout="@layout/single_coach_frame"
-            android:layout_below="@+id/coach_reservation"/>
+            android:layout_below="@+id/coach_reservation_text"/>
 
         <LinearLayout
             android:orientation="vertical"
@@ -43,7 +43,6 @@
                 android:layout_height="match_parent"
                 android:text="@string/bookingCalendar"
                 android:textSize="@dimen/label"
-                android:layout_below="@+id/coachDetailsLayout"
                 android:layout_marginBottom="@dimen/margin"/>
 
             <RelativeLayout
