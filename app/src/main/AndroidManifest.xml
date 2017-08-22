@@ -40,6 +40,7 @@
         <activity android:name=".Activities.CoachDetails" />
         <activity android:name=".Activities.WeekSchedule" />
         <activity android:name=".Activities.DaySchedule" />
+        <activity android:name=".Activities.CoachReservation"></activity>
     </application>
 
 </manifest>

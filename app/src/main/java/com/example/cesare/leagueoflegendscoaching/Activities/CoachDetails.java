@@ -28,8 +28,10 @@ public class CoachDetails extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach_details);
         Intent intent = this.getIntent();
+        final String jsonString = intent.getStringExtra("info");
+
         try {
-            JSONObject json = new JSONObject(intent.getStringExtra("info"));
+            JSONObject json = new JSONObject(jsonString);
             Log.d("INFO", json.toString());
 
             //coachFrame
@@ -61,6 +63,15 @@ public class CoachDetails extends ListActivity {
                 });
 
                 //bookButton
+                Button bookButton = (Button) findViewById(R.id.bookButton);
+                bookButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(CoachDetails.this, CoachReservation.class);
+                        intent.putExtra("json", jsonString);
+                        startActivity(intent);
+                    }
+                });
 
             }
         } catch (JSONException e) {

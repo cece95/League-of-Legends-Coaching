@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cesare.leagueoflegendscoaching.Activities.CoachDetails">
+
+    <RelativeLayout
+        android:layout_width="368dp"
+        android:layout_height="503dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:id="@+id/relative_coachDetails">
+
+        <TextView
+            android:id="@+id/coach_reservation_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="@dimen/title_text"
+            android:text="@string/coachReservation"
+            android:layout_marginBottom="@dimen/margin"/>
+
+        <ViewStub
+            android:id="@+id/stub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inflatedId="@+id/coachDetailsLayout"
+            android:layout="@layout/single_coach_frame"
+            android:layout_below="@+id/coach_reservation"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/coach_reservation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/coachDetailsLayout"
+            android:layout_marginBottom="@dimen/margin">
+
+            <TextView
+                android:id="@+id/booking_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/bookingCalendar"
+                android:textSize="@dimen/label"
+                android:layout_below="@+id/coachDetailsLayout"
+                android:layout_marginBottom="@dimen/margin"/>
+
+            <RelativeLayout
+                android:id="@+id/schedule_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/schedule_ImageButton"
+                    android:layout_width="87dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+
+                    android:background="@android:color/background_light"
+                    android:src="@mipmap/ic_date_range_black_48dp"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/expected_cost_layout"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:text="@string/expectedCost"
+                    android:textSize="@dimen/label"
+                    android:layout_marginBottom="@dimen/margin"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="@dimen/label"
+                    android:layout_marginBottom="@dimen/margin"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/book_button"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/coach_reservation"
+            android:layout_marginTop="@dimen/margin"
+            android:text="@string/book"
+            android:textSize="@dimen/button_text" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
