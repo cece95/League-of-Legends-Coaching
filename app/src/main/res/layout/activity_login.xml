@@ -22,9 +22,9 @@
             android:layout_marginTop="18dp"
             android:text="@string/login"
             android:textAlignment="center"
-            android:textSize="@dimen/title_text"
             tools:layout_editor_absoluteX="163dp"
-            tools:layout_editor_absoluteY="38dp" />
+            tools:layout_editor_absoluteY="38dp"
+            style="@style/TitleStyle"/>
 
         <LinearLayout
             android:id="@+id/linear_login"
@@ -44,7 +44,7 @@
                 android:paddingRight="@dimen/padding"
                 android:paddingTop="@dimen/padding"
                 android:text="@string/inGame"
-                android:textSize="@dimen/label" />
+                style="@style/LabelStyle"/>
 
             <EditText
                 android:id="@+id/user_input"
@@ -52,7 +52,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
-                android:padding="@dimen/padding" />
+                android:layout_margin="@dimen/margin"
+                android:background="@drawable/custom_edit_text"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/passwordLogin_label"
@@ -61,14 +63,17 @@
                 android:padding="@dimen/padding"
 
                 android:text="@string/password"
-                android:textSize="@dimen/label" />
+                style="@style/LabelStyle"/>
 
             <EditText
                 android:id="@+id/passwordLogin_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:layout_margin="@dimen/margin"
+                android:background="@drawable/custom_edit_text"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
@@ -80,7 +85,9 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/linear_login"
             android:text="@string/login"
-            android:textSize="@dimen/button_text" />
+            android:layout_margin="@dimen/margin"
+            android:background="@drawable/custom_button"
+            style="@style/ButtonStyle"/>
 
 
     </RelativeLayout>

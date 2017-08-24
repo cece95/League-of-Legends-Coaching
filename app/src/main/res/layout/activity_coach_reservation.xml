@@ -30,71 +30,86 @@
             android:layout_below="@+id/coach_reservation_text"/>
 
         <LinearLayout
-            android:orientation="vertical"
-            android:id="@+id/coach_reservation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/coachDetailsLayout"
-            android:layout_marginBottom="@dimen/margin">
+            android:orientation="vertical"
+            android:layout_below="@+id/coachDetailsLayout">
 
-            <TextView
-                android:id="@+id/booking_details"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/bookingCalendar"
-                android:textSize="@dimen/label"
-                android:layout_marginBottom="@dimen/margin"/>
+                android:layout_height="wrap_content">
 
-            <RelativeLayout
-                android:id="@+id/schedule_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <ImageButton
-                    android:id="@+id/schedule_ImageButton"
-                    android:layout_width="87dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/coach_reservation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/coachDetailsLayout"
+                        android:layout_marginBottom="@dimen/margin">
 
-                    android:background="@android:color/background_light"
-                    android:src="@mipmap/ic_date_range_black_48dp"/>
-            </RelativeLayout>
+                        <TextView
+                            android:id="@+id/booking_details"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/bookingCalendar"
+                            android:textSize="@dimen/label"
+                            android:layout_marginBottom="@dimen/margin"/>
 
-            <LinearLayout
-                android:id="@+id/expected_cost_layout"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="3">
+                        <DatePicker
+                            android:id="@+id/date_picker"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:datePickerMode="calendar">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:layout_height="wrap_content"
-                    android:text="@string/expectedCost"
-                    android:textSize="@dimen/label"
-                    android:layout_marginBottom="@dimen/margin"/>
+                        </DatePicker>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textSize="@dimen/label"
-                    android:layout_marginBottom="@dimen/margin"/>
+                        <LinearLayout
+                            android:id="@+id/expected_cost_layout"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="3">
 
-            </LinearLayout>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="2"
+                                android:layout_height="wrap_content"
+                                android:text="@string/expectedCost"
+                                android:textSize="@dimen/label"
+                                android:layout_marginBottom="@dimen/margin"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textSize="@dimen/label"
+                                android:layout_marginBottom="@dimen/margin"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/book_button"
+                        android:layout_width="@dimen/button_width"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/coach_reservation"
+                        android:layout_marginTop="@dimen/margin"
+                        android:text="@string/book"
+                        android:textSize="@dimen/button_text" />
+                </LinearLayout>
+
+            </ScrollView>
+
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/book_button"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/coach_reservation"
-            android:layout_marginTop="@dimen/margin"
-            android:text="@string/book"
-            android:textSize="@dimen/button_text" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -7,5 +7,18 @@
 
     <color name="white">#ffffff</color>
     <color name="green">#00ff00</color>
+    
+    <!-- Button Colors -->
+    <color name="button_border">#0496AA</color>
+    <color name="button_background">#1f2e41</color>
+    <color name="button_text">#95C7C7</color>
 
+    <!-- Background Color -->
+    <color name="background">#010A13</color>
+
+    <!-- Title Color -->
+    <color name="title">#DBB454</color>
+
+    <!-- Label Color -->
+    <color name="label">#7D9B8C</color>
 </resources>

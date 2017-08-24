@@ -22,9 +22,9 @@
             android:layout_marginTop="18dp"
             android:text="@string/sign_up"
             android:textAlignment="center"
-            android:textSize="@dimen/title_text"
             tools:layout_editor_absoluteX="163dp"
-            tools:layout_editor_absoluteY="38dp" />
+            tools:layout_editor_absoluteY="38dp"
+            style="@style/TitleStyle"/>
 
         <LinearLayout
             android:id="@+id/linear_login"
@@ -43,14 +43,17 @@
                 android:padding="@dimen/padding"
 
                 android:text="@string/inGame"
-                android:textSize="@dimen/label" />
+                style="@style/LabelStyle"/>
 
             <EditText
                 android:id="@+id/inGame_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text" />
+                android:inputType="text"
+                android:layout_margin="@dimen/margin"
+                android:background="@drawable/custom_edit_text"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/password_label"
@@ -59,14 +62,17 @@
                 android:padding="@dimen/padding"
 
                 android:text="@string/password"
-                android:textSize="@dimen/label" />
+                style="@style/LabelStyle" />
 
             <EditText
                 android:id="@+id/password_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:layout_margin="@dimen/margin"
+                android:background="@drawable/custom_edit_text"
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/repeatPassword_label"
@@ -75,14 +81,17 @@
                 android:padding="@dimen/padding"
 
                 android:text="@string/repeatPassword"
-                android:textSize="@dimen/label" />
+                style="@style/LabelStyle" />
 
             <EditText
                 android:id="@+id/repeatPassword_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:layout_margin="@dimen/margin"
+                android:background="@drawable/custom_edit_text"
+                android:textColor="@color/white"/>
 
             <CheckBox
                 android:id="@+id/coach_checkBox"
@@ -90,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding"
                 android:text="@string/checkCoach"
-                android:textSize="@dimen/label" />
+                style="@style/LabelStyle" />
 
 
         </LinearLayout>
@@ -103,7 +112,8 @@
             android:layout_below="@id/linear_login"
             android:layout_marginTop="@dimen/margin"
             android:text="@string/sign_up"
-            android:textSize="@dimen/button_text" />
+            android:background="@drawable/custom_button"
+            style="@style/ButtonStyle" />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

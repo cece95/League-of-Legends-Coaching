@@ -101,7 +101,7 @@
     <!--coachReservation-->
     <string name="coachReservation">COACH RESERVATION</string>
     <string name="bookingCalendar">BOOKING CALENDAR</string>
-    <string name="expectedCost">EXPECTED COST</string>
+    <string name="expectedCost">Expected Cost</string>
 
     <!--eloSpinner-->
     <string-array name="elo_list">

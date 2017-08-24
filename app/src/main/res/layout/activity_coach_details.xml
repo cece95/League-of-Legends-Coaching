@@ -17,9 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textSize="@dimen/title_text"
             android:text="@string/coachDetails"
-            android:layout_marginBottom="@dimen/margin"/>
+            android:layout_marginBottom="@dimen/margin"
+            style="@style/TitleStyle" />
 
         <ViewStub
             android:id="@+id/stub"
@@ -42,9 +42,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/championsDetails"
-            android:textSize="@dimen/label"
             android:layout_below="@+id/coachDetailsLayout"
-            android:layout_marginBottom="@dimen/margin"/>
+            android:layout_marginBottom="@dimen/margin"
+            style="@style/LabelStyle" />
 
         <ListView
             android:id="@android:id/list"
@@ -66,8 +66,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/opgg"
                     android:textAlignment="center"
-                    android:textSize="@dimen/label"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button"
+                    style="@style/ButtonStyle"/>
 
                 <Button
                     android:id="@+id/bookButton"
@@ -76,7 +77,9 @@
                     android:text="@string/book"
                     android:textAlignment="center"
                     android:textSize="@dimen/label"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button"
+                    style="@style/ButtonStyle"/>
 
         </LinearLayout>
 

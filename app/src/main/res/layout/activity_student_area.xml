@@ -31,10 +31,10 @@
             android:layout_height="wrap_content"
             android:text="@string/studentArea"
             android:textAlignment="center"
-            android:textSize="@dimen/title_text"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="17dp" />
+            android:layout_marginTop="17dp"
+            style="@style/TitleStyle"/>
 
         <TextView
             android:id="@+id/welcomeMessage"
@@ -44,17 +44,19 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="27dp"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            style="@style/LabelStyle"/>
 
         <Button
             android:id="@+id/findCoach_button"
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:text="@string/findCoach"
-            android:textSize="@dimen/button_text"
             android:layout_marginTop="50dp"
             android:layout_below="@+id/welcomeMessage"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/custom_button"
+            style="@style/ButtonStyle"/>
 
         <Button
             android:id="@+id/booking_button"
@@ -67,7 +69,9 @@
             android:layout_below="@+id/findCoach_button"
             android:layout_alignLeft="@+id/findCoach_button"
             android:layout_alignStart="@+id/findCoach_button"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="50dp"
+            android:background="@drawable/custom_button"
+            style="@style/ButtonStyle"/>
 
         <Button
             android:id="@+id/favoriteCoaches_button"
@@ -80,7 +84,9 @@
             android:layout_below="@+id/booking_button"
             android:layout_alignLeft="@+id/booking_button"
             android:layout_alignStart="@+id/booking_button"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="50dp"
+            android:background="@drawable/custom_button"
+            style="@style/ButtonStyle"/>
 
     </RelativeLayout>
 
