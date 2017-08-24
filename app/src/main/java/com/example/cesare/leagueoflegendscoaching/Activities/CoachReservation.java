@@ -1,6 +1,8 @@
 package com.example.cesare.leagueoflegendscoaching.Activities;
 
+import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.DatePicker;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.CoachFrame;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.HourToggleButton;
+import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.ScheduleParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.ScheduleOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -17,13 +20,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class CoachReservation extends ListActivity {
+public class CoachReservation extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +72,9 @@ public class CoachReservation extends ListActivity {
             @Override
             public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
                 //get day
-                GregorianCalendar date = new GregorianCalendar(year, month, dayOfMonth-1);
+                GregorianCalendar date = new GregorianCalendar(year, month, dayOfMonth);
                 int dayOfWeek = date.get(Calendar.DAY_OF_WEEK) - 1;
-                String dateId = date.toString();
+                String dateId = Security.format(date);
 
                 Boolean[] staticDay = new Boolean[24];
                 Boolean[] dinamicDay = new Boolean[24];
@@ -108,6 +112,11 @@ public class CoachReservation extends ListActivity {
                         hourList.add(tmp);
                     }
                 }
+                Intent intent = new Intent(CoachReservation.this, ReservationList.class);
+                intent.putExtra("lista", (Serializable) hourList);
+                intent.putExtra("date", dateId);
+                startActivity(intent);
+
             }
         });
 

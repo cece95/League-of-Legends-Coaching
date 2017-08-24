@@ -103,6 +103,9 @@
     <string name="bookingCalendar">BOOKING CALENDAR</string>
     <string name="expectedCost">Expected Cost</string>
 
+    <!--reservationList-->
+    <string name="reservationList">RESERVATION FOR THE DAY : </string>
+
     <!--eloSpinner-->
     <string-array name="elo_list">
         <item>Bronze</item>

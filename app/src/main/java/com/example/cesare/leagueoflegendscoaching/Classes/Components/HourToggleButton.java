@@ -6,11 +6,13 @@ import android.widget.ToggleButton;
 
 import com.example.cesare.leagueoflegendscoaching.R;
 
+import java.io.Serializable;
+
 /**
  * Created by cesare on 24/08/2017.
  */
 
-public class HourToggleButton {
+public class HourToggleButton implements Serializable{
     int ora;
     int status;
 
@@ -30,7 +32,7 @@ public class HourToggleButton {
     public void create(View frame){
         System.out.println("creating frame "+ora+" "+status);
         ToggleButton tb = (ToggleButton) frame.findViewById(R.id.tb);
-        String text = null;
+        String text = "";
         if (this.ora < 9){
             text = "0"+ora+" - 0"+(ora+1);
         }
@@ -43,6 +45,7 @@ public class HourToggleButton {
 
         tb.setTextOn(text);
         tb.setTextOff(text);
+        tb.setChecked(false);
 
         if (this.status == 1){
             tb.setBackgroundResource(R.drawable.book_toggle_button);
