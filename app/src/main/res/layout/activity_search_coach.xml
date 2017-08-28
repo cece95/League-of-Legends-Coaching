@@ -7,7 +7,7 @@
 
     <ScrollView
         android:layout_width="368dp"
-        android:layout_height="503dp"
+        android:layout_height="551dp"
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp">
 
@@ -30,7 +30,8 @@
             android:textAlignment="center"
             android:textSize="@dimen/title_text"
             tools:layout_editor_absoluteX="163dp"
-            tools:layout_editor_absoluteY="38dp" />
+            tools:layout_editor_absoluteY="38dp"
+            style="@style/TitleStyle"/>
 
         <LinearLayout
             android:id="@+id/linear_registration"
@@ -53,19 +54,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingBottom="@dimen/padding"
-                    android:paddingLeft="@dimen/padding"
-                    android:paddingRight="@dimen/padding"
-                    android:paddingTop="@dimen/padding"
+                    android:padding="@dimen/padding"
                     android:text="@string/name"
-                    android:textSize="@dimen/label" />
+                    android:textSize="@dimen/label"
+                    style="@style/LabelStyle"/>
 
                 <EditText
                     android:id="@+id/name_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:layout_marginRight="@dimen/margin"
+                    android:background="@drawable/custom_edit_text"
+                    android:textColor="@color/white"
+                    android:textCursorDrawable="@color/white" />
 
             </LinearLayout>
 
@@ -80,18 +83,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingBottom="@dimen/padding"
-                    android:paddingLeft="@dimen/padding"
-                    android:paddingRight="@dimen/padding"
-                    android:paddingTop="@dimen/padding"
+                    android:padding="@dimen/padding"
                     android:text="@string/elo"
-                    android:textSize="@dimen/label" />
+                    android:textSize="@dimen/label"
+                    style="@style/LabelStyle"/>
 
                 <Spinner
                     android:id="@+id/elo_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_marginRight="@dimen/margin"
+                    android:background="@drawable/custom_spinner"
+                    style="@style/SpinnerStyle"/>
 
             </LinearLayout>
 
@@ -102,7 +106,8 @@
                 android:padding="@dimen/padding"
 
                 android:text="@string/language"
-                android:textSize="@dimen/label" />
+                android:textSize="@dimen/label"
+                style="@style/LabelStyle"/>
 
 
             <LinearLayout
@@ -172,18 +177,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingBottom="@dimen/padding"
-                    android:paddingLeft="@dimen/padding"
-                    android:paddingRight="@dimen/padding"
-                    android:paddingTop="@dimen/padding"
+                    android:padding="@dimen/padding"
                     android:text="@string/role"
-                    android:textSize="@dimen/label" />
+                    android:textSize="@dimen/label"
+                    style="@style/LabelStyle"/>
 
                 <Spinner
                     android:id="@+id/role_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_marginRight="@dimen/margin"
+                    android:background="@drawable/custom_spinner"
+                    style="@style/SpinnerStyle"/>
 
             </LinearLayout>
 
@@ -198,29 +204,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingBottom="@dimen/padding"
-                    android:paddingLeft="@dimen/padding"
-                    android:paddingRight="@dimen/padding"
-                    android:paddingTop="@dimen/padding"
+                    android:padding="@dimen/padding"
                     android:text="@string/champions"
-                    android:textSize="@dimen/label" />
+                    android:textSize="@dimen/label"
+                    style="@style/LabelStyle"/>
 
                 <Spinner
                     android:id="@+id/champions1_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/margin"
+                    android:background="@drawable/custom_spinner" />
 
                 <Spinner
                     android:id="@+id/champions2_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/margin"
+                    android:background="@drawable/custom_spinner"/>
                 <Spinner
                     android:id="@+id/champions3_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/margin"
+                    android:background="@drawable/custom_spinner"/>
 
             </LinearLayout>
 
@@ -238,7 +248,8 @@
 
                     android:padding="@dimen/padding"
                     android:text="@string/maxCost"
-                    android:textSize="@dimen/label" />
+                    android:textSize="@dimen/label"
+                    style="@style/LabelStyle"/>
 
                 <EditText
                     android:id="@+id/cost_input"
@@ -247,7 +258,11 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:text="0"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:layout_marginRight="@dimen/margin"
+                    android:background="@drawable/custom_edit_text"
+                    android:textColor="@color/white"
+                    android:textCursorDrawable="@color/white"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -258,9 +273,11 @@
             android:layout_height="@dimen/button_height"
             android:layout_alignParentRight="true"
             android:layout_below="@id/linear_registration"
-            android:layout_marginTop="@dimen/margin"
+            android:layout_margin="@dimen/margin"
             android:text="@string/findCoach"
-            android:textSize="@dimen/button_text" />
+            android:textSize="@dimen/button_text"
+            android:background="@drawable/custom_button"
+            style="@style/ButtonStyle"/>
 
     </RelativeLayout>
     </ScrollView>

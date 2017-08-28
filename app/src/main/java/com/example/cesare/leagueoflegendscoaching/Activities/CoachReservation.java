@@ -62,6 +62,7 @@ public class CoachReservation extends Activity {
 
         final JSONObject finalJson = json;
         final JSONObject finalReservations = reservations;
+        final String finalCoach = coach;
 
         //datepicker
         DatePicker datePicker = (DatePicker) findViewById(R.id.date_picker);
@@ -114,7 +115,9 @@ public class CoachReservation extends Activity {
                 }
                 Intent intent = new Intent(CoachReservation.this, ReservationList.class);
                 intent.putExtra("lista", (Serializable) hourList);
+                intent.putExtra("dinamic", dinamicDay);
                 intent.putExtra("date", dateId);
+                intent.putExtra("coach", finalCoach);
                 startActivity(intent);
 
             }

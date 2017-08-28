@@ -40,6 +40,9 @@ public class ReservationList extends ListActivity {
 
         Intent intent = getIntent();
         final ArrayList<HourToggleButton> myArrayList = (ArrayList<HourToggleButton>) intent.getSerializableExtra("lista");
+        final boolean[] arraybool = (boolean[]) intent.getSerializableExtra("dinamic");
+        final String coach = intent.getStringExtra("coach");
+
         setListAdapter(new HTBAdapter(this, R.layout.hour_toggle_button, myArrayList));
 
 
@@ -76,7 +79,10 @@ public class ReservationList extends ListActivity {
                 }
 
                 if (consecutive){
-
+                    // Salva prenotazione sul server
+                    for (int i = 0; i < array.length; i++) {
+                        arraybool[array[i]] = true;
+                    }
                 }
                 else{
                     Toast toast = Toast.makeText(ReservationList.this, "Select consecutive hours", Toast.LENGTH_SHORT);

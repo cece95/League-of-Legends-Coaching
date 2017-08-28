@@ -25,7 +25,8 @@
             android:textAlignment="center"
             android:textSize="@dimen/title_text"
             tools:layout_editor_absoluteX="163dp"
-            tools:layout_editor_absoluteY="38dp" />
+            tools:layout_editor_absoluteY="38dp"
+            style="@style/TitleStyle"/>
 
         <ListView
             android:id="@android:id/list"
