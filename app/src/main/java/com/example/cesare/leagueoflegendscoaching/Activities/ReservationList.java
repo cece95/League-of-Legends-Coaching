@@ -1,10 +1,8 @@
 package com.example.cesare.leagueoflegendscoaching.Activities;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -13,20 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters.CoachFrameAdapter;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters.HTBAdapter;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.HourToggleButton;
+import com.example.cesare.leagueoflegendscoaching.Operations.Params.ReserveParams;
+import com.example.cesare.leagueoflegendscoaching.Operations.ReserveOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
-import com.example.cesare.leagueoflegendscoaching.Types.Reservation;
-
-import org.joda.time.Duration;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.concurrent.ExecutionException;
 
 public class ReservationList extends ListActivity {
 
@@ -34,8 +26,6 @@ public class ReservationList extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation_list);
-
-        Set<Integer> selected = new HashSet<Integer>();
 
 
         Intent intent = getIntent();
@@ -46,7 +36,7 @@ public class ReservationList extends ListActivity {
         setListAdapter(new HTBAdapter(this, R.layout.hour_toggle_button, myArrayList));
 
 
-        String date = intent.getStringExtra("date");
+        final String date = intent.getStringExtra("date");
         TextView tv = (TextView) findViewById(R.id.reservationList_title);
 
         String text = (String) tv.getText();
@@ -58,8 +48,8 @@ public class ReservationList extends ListActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<Integer> buttons = new ArrayList<>();
-                for (int i = lsv.getChildCount() - 1 ; i>=0; i--) {
+                ArrayList<Integer> buttons = new ArrayList<Integer>();
+                for (int i = 0 ; i<lsv.getChildCount(); i++) {
                     LinearLayout ll = (LinearLayout) lsv.getChildAt(i);
                     ToggleButton tb = (ToggleButton) ll.getChildAt(0);
                     if (tb.isChecked()) {
@@ -67,21 +57,41 @@ public class ReservationList extends ListActivity {
                     }
                 }
 
-                Integer[] array = (Integer[]) buttons.toArray();
-                Arrays.sort(array);
+                System.out.println(buttons);
 
                 boolean consecutive = true;
 
-                for (int i = 0; i < array.length; i++) {
-                    if (array[i]+1 != array[i+1]) {
+                for (int i = 0; i < buttons.size() - 1; i++) {
+                    if (buttons.get(i) +1 != buttons.get(i + 1)) {
                         consecutive = false;
                     }
                 }
 
                 if (consecutive){
                     // Salva prenotazione sul server
-                    for (int i = 0; i < array.length; i++) {
-                        arraybool[array[i]] = true;
+                    for (int i = 0; i < buttons.size(); i++) {
+                        arraybool[buttons.get(i)] = true;
+                    }
+
+                    ReserveParams params = new ReserveParams(arraybool, ReservationList.this, buttons.get(0), buttons.get(buttons.size() - 1), coach, date);
+                    int reservation;
+
+                    try {
+                        reservation = new ReserveOperation().execute(params).get();
+                        if (reservation == 10){
+                            Intent intent = new Intent(ReservationList.this, StudentArea.class);
+                            startActivity(intent);
+                        }
+
+                        if (reservation == 11 || reservation == 12){
+                            Toast toast = Toast.makeText(ReservationList.this, "Database error", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
                     }
                 }
                 else{
@@ -91,7 +101,12 @@ public class ReservationList extends ListActivity {
             }
         });
 
-
-
+        Button back = (Button) findViewById(R.id.button_exit);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }

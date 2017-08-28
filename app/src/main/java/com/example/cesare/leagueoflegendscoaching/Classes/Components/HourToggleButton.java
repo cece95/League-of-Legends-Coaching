@@ -30,7 +30,6 @@ public class HourToggleButton implements Serializable{
     }
 
     public void create(View frame){
-        System.out.println("creating frame "+ora+" "+status);
         ToggleButton tb = (ToggleButton) frame.findViewById(R.id.tb);
         String text = "";
         if (this.ora < 9){
@@ -47,7 +46,10 @@ public class HourToggleButton implements Serializable{
         tb.setTextOff(text);
         tb.setChecked(false);
 
-        if (this.status == 1){
+        if (this.status == 0){
+            tb.setVisibility(View.GONE);
+        }
+        else if (this.status == 1){
             tb.setBackgroundResource(R.drawable.book_toggle_button);
         }
         else{

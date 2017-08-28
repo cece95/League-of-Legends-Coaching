@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,7 +20,9 @@
                 android:id="@+id/reservationList_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/reservationList"/>
+                android:text="@string/reservationList"
+                android:textSize="@dimen/label"
+                android:textAlignment="center"/>
 
             <ListView
                 android:id="@android:id/list"
@@ -41,13 +42,17 @@
                     android:id="@+id/button_exit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:text="@string/back"
+                    android:textSize="@dimen/label"/>
 
                 <Button
                     android:id="@+id/button_save"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:text="@string/book"
+                    android:textSize="@dimen/label"/>
 
             </LinearLayout>
         </LinearLayout>

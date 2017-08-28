@@ -4,12 +4,14 @@ import android.content.Context;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 
+import org.json.JSONArray;
+
 /**
  * Created by asus on 28/08/2017.
  */
 
 public class ReserveParams {
-    boolean[] array;
+    JSONArray array;
     Context context;
     int start;
     int end;
@@ -18,7 +20,10 @@ public class ReserveParams {
     String date;
 
     public ReserveParams(boolean[] a, Context c, int start, int end, String coach, String date) {
-        this.array = a;
+        this.array = new JSONArray();
+        for (int i = 0; i<a.length; i++){
+            array.put(a[i]);
+        }
         this.context = c;
         this.start = start;
         this.end = end+1;
@@ -27,7 +32,7 @@ public class ReserveParams {
         this.date = date;
     }
 
-    public boolean[] getArray() {
+    public JSONArray getArray() {
         return array;
     }
 

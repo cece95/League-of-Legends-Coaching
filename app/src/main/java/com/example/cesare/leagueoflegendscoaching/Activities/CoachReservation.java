@@ -1,7 +1,6 @@
 package com.example.cesare.leagueoflegendscoaching.Activities;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +23,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -77,16 +77,18 @@ public class CoachReservation extends Activity {
                 int dayOfWeek = date.get(Calendar.DAY_OF_WEEK) - 1;
                 String dateId = Security.format(date);
 
-                Boolean[] staticDay = new Boolean[24];
-                Boolean[] dinamicDay = new Boolean[24];
+                boolean[] staticDay = new boolean[24];
+                boolean[] dinamicDay = new boolean[24];
 
                 try {
                     JSONArray staticDayJson = finalJson.getJSONArray("schedule");
                     staticDay = getBooleanArray((JSONArray) staticDayJson.get(dayOfWeek));
 
-                    if (!finalReservations.has("status")) {
-                        Log.d("Empty", "Empty");
-                        JSONArray dinamicDayJson = finalReservations.getJSONArray(dateId);
+                    int status = finalReservations.getInt("status");
+
+                    if (status == 1) {
+                        Log.d("STATUS", "1");
+                        JSONObject dinamicDayJson = finalReservations.getJSONObject(dateId);
                         dinamicDay = getBooleanArray(dinamicDayJson);
                     }
                     else{
@@ -107,11 +109,9 @@ public class CoachReservation extends Activity {
 
                 List<HourToggleButton> hourList = new ArrayList<>();
                 for (int i = 0; i<24; i++){
-                    if (resultTable[i] > 0){
-                        Log.d("table "+i, Integer.toString(resultTable[i]));
-                        HourToggleButton tmp = new HourToggleButton(i, resultTable[i]);
-                        hourList.add(tmp);
-                    }
+                    Log.d("table "+i, Integer.toString(resultTable[i]));
+                    HourToggleButton tmp = new HourToggleButton(i, resultTable[i]);
+                    hourList.add(tmp);
                 }
                 Intent intent = new Intent(CoachReservation.this, ReservationList.class);
                 intent.putExtra("lista", (Serializable) hourList);
@@ -125,15 +125,37 @@ public class CoachReservation extends Activity {
 
     }
 
-    private Boolean[] getBooleanArray(JSONArray jsonArray) throws JSONException {
+    private boolean[] getBooleanArray(JSONObject jsonObject) throws JSONException {
+        if (jsonObject != null){
+            Iterator x = jsonObject.keys();
+            JSONArray jsonArray = new JSONArray();
+
+            while (x.hasNext()){
+                String key = (String) x.next();
+                jsonArray.put(jsonObject.get(key));
+            }
+
+            if (jsonArray != null) {
+                boolean[] booleanArray = new boolean[jsonArray.length()];
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    booleanArray[i] = jsonArray.getBoolean(i);
+                }
+                return booleanArray;
+            }
+        }
+            return null;
+    }
+
+    private boolean[] getBooleanArray(JSONArray jsonArray) throws JSONException {
         if (jsonArray != null) {
-            Boolean[] booleanArray = new Boolean[jsonArray.length()];
+            boolean[] booleanArray = new boolean[jsonArray.length()];
             for (int i = 0; i < jsonArray.length(); i++) {
                 booleanArray[i] = jsonArray.getBoolean(i);
             }
             return booleanArray;
-        } else
-            return null;
+        }
+    else
+        return null;
     }
 }
 

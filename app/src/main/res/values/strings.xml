@@ -104,7 +104,8 @@
     <string name="expectedCost">Expected Cost</string>
 
     <!--reservationList-->
-    <string name="reservationList">RESERVATION FOR THE DAY : </string>
+    <string name="reservationList">RESERVATION FOR THE DAY : \n</string>
+    <string name="back"> BACK </string>
 
     <!--eloSpinner-->
     <string-array name="elo_list">
