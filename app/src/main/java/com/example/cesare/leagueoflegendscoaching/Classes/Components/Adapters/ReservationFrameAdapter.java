@@ -9,30 +9,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-import com.example.cesare.leagueoflegendscoaching.Classes.Components.ChampionFrame;
+import com.example.cesare.leagueoflegendscoaching.Classes.Components.ReservationFrame;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 import java.util.List;
 
 /**
- * Created by cesare on 04/08/2017.
+ * Created by cesare on 29/08/2017.
  */
 
-public class ChampionFrameAdapter extends ArrayAdapter<ChampionFrame> {
-
+public class ReservationFrameAdapter extends ArrayAdapter<ReservationFrame> {
     private LayoutInflater frameInflater;
 
-    public ChampionFrameAdapter(@NonNull Context context, @LayoutRes int textViewResourceId, @NonNull List<ChampionFrame> frameList) {
-        super(context, textViewResourceId, frameList);
+    public ReservationFrameAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<ReservationFrame> objects) {
+        super(context, resource, objects);
         frameInflater = LayoutInflater.from(context);
     }
 
-    @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        ChampionFrame championFrame = getItem(position);
-        View frame = frameInflater.inflate(R.layout.champion_frame, null);
-        championFrame.createFrame(frame);
+        ReservationFrame reservationFrame = getItem(position);
+        View frame = frameInflater.inflate(R.layout.hour_toggle_button, null);
+        reservationFrame.createFrame(frame);
+
         return frame;
     }
 }
-

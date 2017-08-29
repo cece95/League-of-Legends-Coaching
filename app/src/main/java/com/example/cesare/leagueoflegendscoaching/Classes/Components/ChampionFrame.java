@@ -1,7 +1,6 @@
 package com.example.cesare.leagueoflegendscoaching.Classes.Components;
 
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,8 +26,7 @@ public class ChampionFrame {
         this.name = ChampionsMap.idToChamp.get(this.id);
     }
 
-    public View createFrame(LayoutInflater inflater){
-        View frame = inflater.inflate(R.layout.champion_frame, null);
+    public View createFrame(View frame){
 
         //championImage
         ImageView championImage = (ImageView) frame.findViewById(R.id.championImage);

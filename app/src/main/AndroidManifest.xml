@@ -41,7 +41,10 @@
         <activity android:name=".Activities.WeekSchedule" />
         <activity android:name=".Activities.DaySchedule" />
         <activity android:name=".Activities.CoachReservation" />
-        <activity android:name=".Activities.ReservationList"></activity>
+        <activity android:name=".Activities.ReservationList" />
+        <activity android:name=".Activities.Booking" />
+        <activity android:name=".Activities.Fragments.PastReservations" />
+        <activity android:name=".Activities.Fragments.ActiveReservations" />
     </application>
 
 </manifest>

@@ -45,6 +45,14 @@ public class StudentArea extends Activity {
             }
         });
 
+        Button booking = (Button) findViewById(R.id.booking_button);
+        booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudentArea.this, Booking.class);
+            }
+        });
+
         Button logout = (Button) findViewById(R.id.logout_button);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
