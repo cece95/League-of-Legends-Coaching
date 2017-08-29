@@ -19,7 +19,7 @@ public class ActiveReservations extends Fragment {
 
     private static final String TAG = "ACTIVE RESERVATIONS";
 
-    @// TODO: 29/08/2017 ottenere la lista delle prenotazioni attive
+    @// TODO: 29/08/2017 ottenere la lista delle prenotazioni attive - https://stackoverflow.com/questions/2592501/how-to-compare-dates-in-java
 
     @Nullable
     @Override
