@@ -44,5 +44,16 @@ public class StudentArea extends Activity {
                 startActivity(intent);
             }
         });
+
+        Button logout = (Button) findViewById(R.id.logout_button);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudentArea.this, Home.class);
+                LoggedUser.logout();
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

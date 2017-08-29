@@ -28,6 +28,10 @@ public class LoggedUser {
             return mInstance;
         }
 
+        public static void logout(){
+            mInstance = null;
+        }
+
     public String getIgn() {
         return ign;
     }

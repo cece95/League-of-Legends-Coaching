@@ -36,7 +36,7 @@
     <string name="findCoach">FIND COACH</string>
     <string name="booking">BOOKING</string>
     <string name="favoriteCoaches">FAVORITE COACHES</string>
-    <string name="switchCoach">Coach</string>
+    <string name="logout">LOGOUT</string>
 
     <!--schedule-->
     <string name="registerSchedule">REGISTER SCHEDULE</string>
@@ -74,14 +74,6 @@
     <string name="twentyone_to_twentytwo">21 - 22</string>
     <string name="twentytwo_to_twentythree">22 - 23</string>
     <string name="twentythree_to_twentyfour">23 - 24</string>
-
-    <string name="monday_schedule">MONDAY SCHEDULE</string>
-    <string name="tuesday_schedule">TUESDAY SCHEDULE</string>
-    <string name="wednesday_schedule">WEDNESDAY SCHEDULE</string>
-    <string name="thursday_schedule">THURSDAY SCHEDULE</string>
-    <string name="friday_schedule">FRIDAY SCHEDULE</string>
-    <string name="saturday_schedule">SATURDAY SCHEDULE</string>
-    <string name="sunday_schedule">SUNDAY SCHEDULE</string>
 
     <string name="save_day">SAVE</string>
 

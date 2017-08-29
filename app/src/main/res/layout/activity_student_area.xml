@@ -88,6 +88,19 @@
             android:background="@drawable/custom_button"
             style="@style/ButtonStyle"/>
 
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/logout"
+            android:textSize="@dimen/button_text"
+            android:layout_below="@+id/favoriteCoaches_button"
+            android:layout_alignLeft="@+id/favoriteCoaches_button"
+            android:layout_alignStart="@+id/favoriteCoaches_button"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/custom_button"
+            style="@style/ButtonStyle"/>
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
