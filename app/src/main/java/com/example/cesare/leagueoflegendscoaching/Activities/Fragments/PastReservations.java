@@ -19,7 +19,6 @@ public class PastReservations extends Fragment {
 
     private static final String TAG = "PAST RESERVATIONS";
 
-    @// TODO: 29/08/2017 reservation_frame.xml
 
     @Nullable
     @Override

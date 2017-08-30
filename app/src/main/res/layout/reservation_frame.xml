@@ -1,7 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:id="@+id/resFrame"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:weightSum="2">
+
+    <LinearLayout
+        android:id="@+id/name_role_frame"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/nameRes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/label"/>
+
+        <TextView
+            android:id="@+id/roleRes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/label"/>
+
+        <TextView
+            android:id="@+id/costRes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/label"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/day_hour_frame"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/dayRes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/label"/>
+
+        <TextView
+            android:id="@+id/hourRes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/label"/>
+
+        <Button
+            android:id="@+id/deleteRes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/delete"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -99,6 +99,9 @@
     <string name="reservationList">RESERVATION FOR THE DAY : \n</string>
     <string name="back"> BACK </string>
 
+    <!--reservation-->
+    <string name="delete">DELETE</string>
+
     <!--eloSpinner-->
     <string-array name="elo_list">
         <item>Bronze</item>
