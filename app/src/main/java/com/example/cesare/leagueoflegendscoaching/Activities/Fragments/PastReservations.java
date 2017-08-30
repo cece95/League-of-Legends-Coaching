@@ -19,7 +19,6 @@ public class PastReservations extends Fragment {
 
     private static final String TAG = "PAST RESERVATIONS";
 
-    @// TODO: 29/08/2017 Ottenere la lista prenotazioni passate
     @// TODO: 29/08/2017 reservation_frame.xml
 
     @Nullable
@@ -27,7 +26,7 @@ public class PastReservations extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.past_reservations_fragment, container, false);
         Activity activity = getActivity();
-        List<ReservationFrame> reservationFrameList = null;
+        List<ReservationFrame> reservationFrameList = (List<ReservationFrame>) getArguments().getSerializable("lista");
         if (activity != null){
             ArrayAdapter<ReservationFrame> adapter = new ArrayAdapter<ReservationFrame>(activity, R.layout.reservation_frame, reservationFrameList);
             ListView lv = (ListView) parent.findViewById(R.id.pastList);

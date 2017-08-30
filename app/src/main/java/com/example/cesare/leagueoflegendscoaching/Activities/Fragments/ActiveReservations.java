@@ -19,14 +19,12 @@ public class ActiveReservations extends Fragment {
 
     private static final String TAG = "ACTIVE RESERVATIONS";
 
-    @// TODO: 29/08/2017 ottenere la lista delle prenotazioni attive - https://stackoverflow.com/questions/2592501/how-to-compare-dates-in-java
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.past_reservations_fragment, container, false);
         Activity activity = getActivity();
-        List<ReservationFrame> reservationFrameList = null;
+        List<ReservationFrame> reservationFrameList = (List<ReservationFrame>) getArguments().getSerializable("lista");
         if (activity != null){
             ArrayAdapter<ReservationFrame> adapter = new ArrayAdapter<ReservationFrame>(activity, R.layout.reservation_frame, reservationFrameList);
             ListView lv = (ListView) parent.findViewById(R.id.activeList);

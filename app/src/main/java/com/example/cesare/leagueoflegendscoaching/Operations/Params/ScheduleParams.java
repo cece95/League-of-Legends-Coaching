@@ -7,19 +7,23 @@ import android.content.Context;
  */
 
 public class ScheduleParams {
-    String coach;
+    String user;
     Context context;
+    String requestType;
 
-    public ScheduleParams(String s, Context c){
-        this.coach = s;
+    public ScheduleParams(String s, Context c, String r){
+        this.user = s;
         this.context = c;
+        this.requestType = r;
     }
 
-    public String getCoach() {
-        return coach;
+    public String getUser() {
+        return user;
     }
 
     public Context getContext() {
         return context;
     }
+
+    public String getRequestType() { return requestType; }
 }

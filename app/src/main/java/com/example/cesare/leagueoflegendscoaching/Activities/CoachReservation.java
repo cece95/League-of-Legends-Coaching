@@ -50,7 +50,7 @@ public class CoachReservation extends Activity {
             e.printStackTrace();
         }
 
-        ScheduleParams params = new ScheduleParams(coach, CoachReservation.this);
+        ScheduleParams params = new ScheduleParams(coach, CoachReservation.this, "coach");
         JSONObject reservations = null;
         try {
             reservations = new ScheduleOperation().execute(params).get();

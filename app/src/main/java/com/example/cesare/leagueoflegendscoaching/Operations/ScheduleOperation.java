@@ -39,7 +39,14 @@ public class ScheduleOperation extends AsyncTask<ScheduleParams, Integer, JSONOb
             return result;
         }
 
-        String route = "getSchedule";
+        String requestType = params[0].getRequestType();
+        String route = null;
+        if (requestType == "coach") {
+            route = "getSchedule";
+        }
+        else if (requestType == "user"){
+            route = "getUserReservation";
+        }
         String complete_url = domain + route;
 
         URL url = null;
@@ -68,7 +75,7 @@ public class ScheduleOperation extends AsyncTask<ScheduleParams, Integer, JSONOb
 
                 JSONObject jsonParam = new JSONObject();
 
-                jsonParam.put("coach", params[0].getCoach());
+                jsonParam.put("user", params[0].getUser());
 
                 Log.d("JSON", "Json: "+jsonParam);
 
