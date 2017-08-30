@@ -3,6 +3,7 @@ package com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,5 +39,11 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
     @Override
     public int getCount() {
         return mFragmentList.size();
+    }
+
+    public void print(){
+        for (String title: mFragmentTitleList) {
+            Log.d("Title", title);
+        }
     }
 }

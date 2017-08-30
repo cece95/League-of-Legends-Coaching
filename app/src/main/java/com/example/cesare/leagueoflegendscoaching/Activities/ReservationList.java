@@ -3,6 +3,7 @@ package com.example.cesare.leagueoflegendscoaching.Activities;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -36,6 +37,8 @@ public class ReservationList extends ListActivity {
         final boolean[] arraybool = (boolean[]) intent.getSerializableExtra("dinamic");
         final String coachString = intent.getStringExtra("coach");
 
+        Log.d("CoachString", coachString);
+
         String coach = null;
         int cost = 0;
         String role1 = null;
@@ -43,10 +46,11 @@ public class ReservationList extends ListActivity {
 
         try {
             JSONObject json = new JSONObject(coachString);
-            coach = json.getString("coach");
+            coach = json.getString("ign");
             cost = json.getInt("cost");
             role1 = json.getString("role1");
             role2 = json.getString("role2");
+            Log.d("role1", role1);
         } catch (JSONException e) {
             e.printStackTrace();
         }

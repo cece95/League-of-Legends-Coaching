@@ -77,4 +77,10 @@ public class ReserveParams {
     public int getCost() {
         return cost;
     }
+
+    public void print(){
+        System.out.println("Reservation: "+this.date+" "+this.role1+" "+this.role2+" "+" "+this.cost);
+
+    }
 }
+

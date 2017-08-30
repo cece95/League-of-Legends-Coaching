@@ -9,9 +9,11 @@ import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -20,14 +22,17 @@ import java.util.Date;
 
 public class ReservationFrame implements Serializable{
     Date date;
+    String stringDate;
     String coach;
     int end;
     int start;
     String roles;
     int cost;
 
-    public ReservationFrame(String date, JSONObject json) throws JSONException {
-        this.date = new Date(date);
+    public ReservationFrame(String date, JSONObject json) throws JSONException, ParseException {
+        this.stringDate = date;
+        DateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+        this.date = formatter.parse(date);
         this.coach = json.getString("coach");
         this.start = json.getInt("start");
         this.end = json.getInt("end");
@@ -55,7 +60,7 @@ public class ReservationFrame implements Serializable{
         costTextView.setText("Cost: " + this.cost+"€");
 
         TextView dayTextView = (TextView) frame.findViewById(R.id.dayRes);
-        dayTextView.setText(date.getDay()+"/"+date.getMonth()+"/"+date.getYear());
+        dayTextView.setText(this.stringDate);
 
         TextView hourTextView = (TextView) frame.findViewById(R.id.hourRes);
         hourTextView.setText("Hours: " + this.start + " - " + this.end);

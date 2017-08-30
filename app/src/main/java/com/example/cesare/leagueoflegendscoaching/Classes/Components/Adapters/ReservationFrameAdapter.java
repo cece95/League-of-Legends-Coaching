@@ -28,7 +28,7 @@ public class ReservationFrameAdapter extends ArrayAdapter<ReservationFrame> {
 
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ReservationFrame reservationFrame = getItem(position);
-        View frame = frameInflater.inflate(R.layout.hour_toggle_button, null);
+        View frame = frameInflater.inflate(R.layout.reservation_frame, null);
         reservationFrame.createFrame(frame);
 
         return frame;
