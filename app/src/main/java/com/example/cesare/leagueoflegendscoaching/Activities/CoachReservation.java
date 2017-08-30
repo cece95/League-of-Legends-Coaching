@@ -62,7 +62,7 @@ public class CoachReservation extends Activity {
 
         final JSONObject finalJson = json;
         final JSONObject finalReservations = reservations;
-        final String finalCoach = coach;
+        final String finalCoach = jsonString;
 
         //datepicker
         DatePicker datePicker = (DatePicker) findViewById(R.id.date_picker);

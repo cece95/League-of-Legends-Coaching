@@ -18,8 +18,11 @@ public class ReserveParams {
     String user;
     String coach;
     String date;
+    String role1;
+    String role2;
+    int cost;
 
-    public ReserveParams(boolean[] a, Context c, int start, int end, String coach, String date) {
+    public ReserveParams(boolean[] a, Context c, int start, int end, String coach, String date, String role1, String role2, int cost) {
         this.array = new JSONArray();
         for (int i = 0; i<a.length; i++){
             array.put(a[i]);
@@ -30,6 +33,9 @@ public class ReserveParams {
         this.user = LoggedUser.getIstance(null, null, false).getIgn();
         this.coach = coach;
         this.date = date;
+        this.role1 = role1;
+        this.role2 = role2;
+        this.cost = cost;
     }
 
     public JSONArray getArray() {
@@ -59,4 +65,22 @@ public class ReserveParams {
     public String getDate() {
         return date;
     }
+
+    public String getRole1() {
+        return role1;
+    }
+
+    public String getRole2() {
+        return role2;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void print(){
+        System.out.println("Reservation: "+this.date+" "+this.role1+" "+this.role2+" "+" "+this.cost);
+
+    }
 }
+
