@@ -1,5 +1,6 @@
 package com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -31,7 +32,7 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
     private ArrayList<ReservationFrame> past;
     private ArrayList<ReservationFrame> active;
 
-    public SectionPageAdapter(FragmentManager fm, Context c) throws ExecutionException, InterruptedException, JSONException, ParseException {
+    public SectionPageAdapter(FragmentManager fm, Activity a, Context c) throws ExecutionException, InterruptedException, JSONException, ParseException {
         super(fm);
 
         String user = LoggedUser.getIstance(null, null, false).getIgn();
@@ -45,7 +46,7 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
 
         while (x.hasNext()){
             String date = (String) x.next();
-            ReservationFrame reservation = new ReservationFrame(date, json.getJSONObject(date));
+            ReservationFrame reservation = new ReservationFrame(date, json.getJSONObject(date), a);
             if (reservation.getDate().before(now)){
                 pastList.add(reservation);
             }

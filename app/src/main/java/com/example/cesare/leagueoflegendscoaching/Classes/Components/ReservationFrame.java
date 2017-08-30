@@ -1,21 +1,24 @@
 package com.example.cesare.leagueoflegendscoaching.Classes.Components;
 
+import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.cesare.leagueoflegendscoaching.Operations.DeleteOperation;
+import com.example.cesare.leagueoflegendscoaching.Operations.Params.DeleteParams;
 import com.example.cesare.leagueoflegendscoaching.R;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by cesare on 29/08/2017.
@@ -29,8 +32,9 @@ public class ReservationFrame implements Serializable{
     int start;
     String roles;
     int cost;
+    Activity activity;
 
-    public ReservationFrame(String date, JSONObject json) throws JSONException, ParseException {
+    public ReservationFrame(String date, JSONObject json, Activity a) throws JSONException, ParseException {
         DateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
         this.date = formatter.parse(date);
         this.dateString = date;
@@ -47,10 +51,10 @@ public class ReservationFrame implements Serializable{
         }
 
         this.cost = json.getInt("cost");
-
+        this.activity = a;
     }
 
-    public View createFrame(View frame){
+    public View createFrame(final View frame){
         TextView nameTextView = (TextView) frame.findViewById(R.id.nameRes);
         nameTextView.setText(coach);
 
@@ -70,7 +74,17 @@ public class ReservationFrame implements Serializable{
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TO DO DELETE RESERVATION
+                DeleteParams params = new DeleteParams(frame.getContext(), start, end, coach, dateString);
+                try {
+                    int result = new DeleteOperation().execute(params).get();
+                    activity.finish();
+                    activity.startActivity(activity.getIntent());
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
