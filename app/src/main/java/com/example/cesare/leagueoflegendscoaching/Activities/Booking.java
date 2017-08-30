@@ -1,8 +1,10 @@
 package com.example.cesare.leagueoflegendscoaching.Activities;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.example.cesare.leagueoflegendscoaching.Activities.Fragments.ActiveReservations;
 import com.example.cesare.leagueoflegendscoaching.Activities.Fragments.PastReservations;
@@ -17,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -33,6 +36,7 @@ public class Booking extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 
+
         mSectionPageAdapter = new SectionPageAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.container);
 
@@ -47,7 +51,7 @@ public class Booking extends AppCompatActivity{
             Iterator x = reservations.keys();
             while (x.hasNext()){
                 String date = (String) x.next();
-                ReservationFrame reservation = new ReservationFrame(date, reservations.getJSONObject("date"));
+                ReservationFrame reservation = new ReservationFrame(date, reservations.getJSONObject(date));
                 if (reservation.getDate().before(now)){
                     past.add(reservation);
                 }
@@ -61,9 +65,15 @@ public class Booking extends AppCompatActivity{
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
 
-        setupViewPager(mViewPager, past, active);
+        // setupViewPager(mViewPager, past, active);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.addTab(tabLayout.newTab().setText("CIAO"));
+        tabLayout.addTab(tabLayout.newTab().setText("PROVA"));
+
     }
 
     private void setupViewPager(ViewPager viewPager, List<ReservationFrame> past, List<ReservationFrame> active){
