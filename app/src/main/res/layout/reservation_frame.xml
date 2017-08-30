@@ -19,21 +19,24 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textSize="@dimen/label"/>
+            android:textSize="@dimen/label"
+            style="@style/TitleStyle"/>
 
         <TextView
             android:id="@+id/roleRes"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textSize="@dimen/label"/>
+            android:textSize="@dimen/label"
+            style="@style/TitleStyle"/>
 
         <TextView
             android:id="@+id/costRes"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textSize="@dimen/label"/>
+            android:textSize="@dimen/label"
+            style="@style/TitleStyle"/>
 
 
     </LinearLayout>
@@ -51,21 +54,25 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textSize="@dimen/label"/>
+            android:textSize="@dimen/label"
+            style="@style/TitleStyle"/>
 
         <TextView
             android:id="@+id/hourRes"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textSize="@dimen/label"/>
+            android:textSize="@dimen/label"
+            style="@style/TitleStyle"/>
 
         <Button
             android:id="@+id/deleteRes"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="@string/delete"/>
+            android:text="@string/delete"
+            android:background="@drawable/custom_button"
+            style="@style/ButtonStyle"/>
 
     </LinearLayout>
 

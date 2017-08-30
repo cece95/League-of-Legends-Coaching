@@ -22,7 +22,7 @@ public class ActiveReservations extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View parent = inflater.inflate(R.layout.past_reservations_fragment, container, false);
+        View parent = inflater.inflate(R.layout.active_reservations_fragment, container, false);
         Activity activity = getActivity();
         List<ReservationFrame> reservationFrameList = (List<ReservationFrame>) getArguments().getSerializable("lista");
         if (activity != null){

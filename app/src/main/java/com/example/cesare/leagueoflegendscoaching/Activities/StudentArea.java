@@ -50,6 +50,7 @@ public class StudentArea extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StudentArea.this, Booking.class);
+                startActivity(intent);
             }
         });
 
