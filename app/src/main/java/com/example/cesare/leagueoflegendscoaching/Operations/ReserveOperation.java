@@ -75,6 +75,9 @@ public class ReserveOperation extends AsyncTask<ReserveParams, Integer, Integer>
                 jsonParam.put("student", params[0].getUser());
                 jsonParam.put("coach", params[0].getCoach());
                 jsonParam.put("date", params[0].getDate());
+                jsonParam.put("role1", params[0].getRole1());
+                jsonParam.put("role2", params[0].getRole2());
+                jsonParam.put("cost", params[0].getCost());
 
                 Log.d("JSON", "Json: "+jsonParam);
 
