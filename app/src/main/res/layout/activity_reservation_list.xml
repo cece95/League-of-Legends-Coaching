@@ -22,7 +22,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/reservationList"
                 android:textSize="@dimen/label"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                style="@style/TitleStyle"/>
 
             <ListView
                 android:id="@android:id/list"
@@ -31,6 +32,17 @@
                 android:layout_below="@+id/reservationList_title"
                 android:choiceMode="singleChoice">
             </ListView>
+
+            <TextView
+                android:id="@+id/no_reservations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/notAvailable"
+                android:visibility="invisible"
+                android:layout_margin="@dimen/margin"
+                style="@style/LabelStyle"/>
+
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -44,7 +56,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/back"
-                    android:textSize="@dimen/label"/>
+                    android:textSize="@dimen/label"
+                    android:background="@drawable/custom_button"
+                    style="@style/ButtonStyle"/>
 
                 <Button
                     android:id="@+id/button_save"
@@ -52,7 +66,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/book"
-                    android:textSize="@dimen/label"/>
+                    android:textSize="@dimen/label"
+                    android:background="@drawable/custom_button"
+                    android:layout_marginRight="@dimen/margin"
+                    style="@style/ButtonStyle"/>
 
             </LinearLayout>
         </LinearLayout>

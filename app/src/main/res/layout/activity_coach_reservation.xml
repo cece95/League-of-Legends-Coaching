@@ -19,7 +19,8 @@
             android:textAlignment="center"
             android:textSize="@dimen/title_text"
             android:text="@string/coachReservation"
-            android:layout_marginBottom="@dimen/margin"/>
+            android:layout_marginBottom="@dimen/margin"
+            style="@style/TitleStyle"/>
 
         <ViewStub
             android:id="@+id/stub"
@@ -58,14 +59,14 @@
                             android:layout_height="match_parent"
                             android:text="@string/bookingCalendar"
                             android:textSize="@dimen/label"
-                            android:layout_marginBottom="@dimen/margin"/>
+                            android:layout_marginBottom="@dimen/margin"
+                            style="@style/TitleStyle"/>
 
                         <DatePicker
                             android:id="@+id/date_picker"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:datePickerMode="calendar">
-
                         </DatePicker>
 
                         <LinearLayout
@@ -75,35 +76,11 @@
                             android:layout_height="wrap_content"
                             android:weightSum="3">
 
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_weight="2"
-                                android:layout_height="wrap_content"
-                                android:text="@string/expectedCost"
-                                android:textSize="@dimen/label"
-                                android:layout_marginBottom="@dimen/margin"/>
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="wrap_content"
-                                android:text=""
-                                android:textSize="@dimen/label"
-                                android:layout_marginBottom="@dimen/margin"/>
-
                         </LinearLayout>
 
                     </LinearLayout>
 
-                    <Button
-                        android:id="@+id/book_button"
-                        android:layout_width="@dimen/button_width"
-                        android:layout_height="@dimen/button_height"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@id/coach_reservation"
-                        android:layout_marginTop="@dimen/margin"
-                        android:text="@string/book"
-                        android:textSize="@dimen/button_text" />
+
                 </LinearLayout>
 
             </ScrollView>

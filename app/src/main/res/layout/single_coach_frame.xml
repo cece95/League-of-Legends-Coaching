@@ -15,8 +15,7 @@
         <ImageView
             android:id="@+id/eloImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@mipmap/badge_silver"/>
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
@@ -39,16 +38,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="@dimen/label"
-                android:text="cece95x"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                style="@style/LabelStyle"/>
 
             <TextView
                 android:id="@+id/cost"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="@dimen/label"
-                android:text="Costo: 0€"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                style="@style/LabelStyle"/>
 
         </LinearLayout>
 
@@ -68,7 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textSize="@dimen/label"
-                    android:text="Roles: Top/Support"/>
+                    style="@style/LabelStyle"/>
             </LinearLayout>
 
         </LinearLayout>

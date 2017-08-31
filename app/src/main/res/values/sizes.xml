@@ -7,6 +7,9 @@
     <dimen name="button_width">200sp</dimen>
     <dimen name="button_height">70sp</dimen>
 
+    <dimen name="button_small_width">200sp</dimen>
+    <dimen name="button_small_height">40sp</dimen>
+
     <dimen name="padding">8sp</dimen>
     <dimen name="margin">10sp</dimen>
 

@@ -43,6 +43,13 @@ public class ReservationList extends ListActivity {
 
 
         Log.d("CoachString", coachString);
+        if(!isNotEmpty(myArrayList)){
+            Button saveButton = (Button) findViewById(R.id.button_save);
+            saveButton.setVisibility(View.GONE);
+
+            TextView tw = (TextView) findViewById(R.id.no_reservations);
+            tw.setVisibility(View.VISIBLE);
+        }
 
         String coach = null;
         int cost = 0;
@@ -143,5 +150,16 @@ public class ReservationList extends ListActivity {
                 onBackPressed();
             }
         });
+    }
+
+    public boolean isNotEmpty(ArrayList<HourToggleButton> list) {
+        boolean result = false;
+        for (int i = 0; i < list.size(); i++) {
+            HourToggleButton htb = list.get(i);
+            if (htb.getStatus() == 1) {
+                result = true;
+            }
+        }
+        return result;
     }
 }

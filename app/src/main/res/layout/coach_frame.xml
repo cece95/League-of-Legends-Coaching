@@ -96,7 +96,9 @@
                         android:layout_height="match_parent"
                         android:text="@string/details"
                         android:textSize="@dimen/label"
-                        android:background="@drawable/custom_button"
+                        android:layout_marginRight="@dimen/margin"
+                        android:layout_marginBottom="@dimen/margin"
+                        android:background="@drawable/custom_button_small"
                         style="@style/ButtonStyle"/>
                 </LinearLayout>
 

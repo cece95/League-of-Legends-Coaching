@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <stroke
+                android:width="4dp"
+                android:color="@color/button_border"/>
+
+            <padding
+                android:left="@dimen/padding"
+                android:right="@dimen/padding"
+                android:bottom="@dimen/padding"
+                android:top="@dimen/padding" />
+
+            <size
+                android:width="@dimen/button_small_width"
+                android:height="@dimen/button_small_height" />
+
+            <solid
+                android:color="@color/button_background"/>
+
+        </shape>
+    </item>
+</selector>

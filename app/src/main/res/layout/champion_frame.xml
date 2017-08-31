@@ -30,7 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="@dimen/label"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            style="@style/LabelStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -44,14 +45,16 @@
                 android:layout_height="match_parent"
                 android:textSize="@dimen/label"
                 android:textAlignment="center"
-                android:text="@string/n_games" />
+                android:text="@string/n_games"
+                style="@style/LabelStyle"/>
 
             <TextView
                 android:id="@+id/n_games"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="@dimen/label"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                style="@style/LabelStyle"/>
     </LinearLayout>
 
 </LinearLayout>

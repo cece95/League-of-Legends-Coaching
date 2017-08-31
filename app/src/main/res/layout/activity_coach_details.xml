@@ -44,7 +44,7 @@
             android:text="@string/championsDetails"
             android:layout_below="@+id/coachDetailsLayout"
             android:layout_marginBottom="@dimen/margin"
-            style="@style/LabelStyle" />
+            style="@style/TitleStyle" />
 
         <ListView
             android:id="@android:id/list"
@@ -78,6 +78,7 @@
                     android:textAlignment="center"
                     android:textSize="@dimen/label"
                     android:layout_weight="1"
+                    android:layout_marginRight="@dimen/margin"
                     android:background="@drawable/custom_button"
                     style="@style/ButtonStyle"/>
 
