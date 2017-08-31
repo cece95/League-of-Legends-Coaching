@@ -25,8 +25,7 @@ public class CoachArea extends Activity {
         welcome.setText("Welcome " + loggedUser.getIgn());
 
         RelativeLayout finestra = (RelativeLayout) findViewById(R.id.relative_coachArea);
-        if (loggedUser.isCoach()) {
-            finestra.setOnTouchListener(new SwipeListener(CoachArea.this) {
+        finestra.setOnTouchListener(new SwipeListener(CoachArea.this) {
                 @Override
                 public void onSwipeRight() {
                     Intent coachArea = new Intent(CoachArea.this, StudentArea.class);
@@ -34,7 +33,7 @@ public class CoachArea extends Activity {
                     finish();
                 }
             });
-        }
+
 
         Button logout = (Button) findViewById(R.id.logout_button);
         logout.setOnClickListener(new View.OnClickListener() {

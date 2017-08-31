@@ -19,22 +19,27 @@ public class StudentArea extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_area);
 
-        LoggedUser loggedUser = LoggedUser.getIstance(null, null, false);
+        final LoggedUser loggedUser = LoggedUser.getIstance(null, null, false);
 
         final TextView welcome = (TextView) findViewById(R.id.welcomeMessage);
         welcome.setText("Welcome "+loggedUser.getIgn());
 
         RelativeLayout finestra = (RelativeLayout) findViewById(R.id.relative_studentArea);
-        if (loggedUser.isCoach()){
+
             finestra.setOnTouchListener(new SwipeListener(StudentArea.this){
                 @Override
                 public void onSwipeLeft() {
-                    Intent coachArea = new Intent(StudentArea.this, CoachArea.class);
-                    startActivity(coachArea);
-                    finish();
+                    if (loggedUser.isCoach()) {
+                        Intent coachArea = new Intent(StudentArea.this, CoachArea.class);
+                        startActivity(coachArea);
+                        finish();
+                    }
+                    else{
+
+                    }
                 }
             });
-        }
+
 
         Button findCoach = (Button) findViewById(R.id.findCoach_button);
         findCoach.setOnClickListener(new View.OnClickListener() {

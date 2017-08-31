@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cesare.leagueoflegendscoaching.Activities.CoachUpgrade">
+
+    <RelativeLayout
+        android:id="@+id/relative_coachUpgrade"
+        android:layout_height="551dp"
+        android:layout_width="368dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <Button
+            android:id="@+id/upgrade_button"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/upgrade"
+            android:background="@drawable/custom_button"
+            style="@style/ButtonStyle"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+
+    
+</android.support.constraint.ConstraintLayout>

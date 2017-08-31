@@ -44,10 +44,10 @@
         <activity android:name=".Activities.ReservationList" />
         <activity
             android:name=".Activities.Booking"
-            android:theme="@style/AppThemeCompat"/>
-
+            android:theme="@style/AppThemeCompat" />
         <activity android:name=".Activities.Fragments.PastReservations" />
         <activity android:name=".Activities.Fragments.ActiveReservations" />
+        <activity android:name=".Activities.CoachUpgrade"></activity>
     </application>
 
 </manifest>

@@ -102,6 +102,9 @@
     <!--reservation-->
     <string name="delete">DELETE</string>
 
+    <!--upgrade-->
+    <string name="upgrade">UPGRADE TO COACH</string>
+
     <!--eloSpinner-->
     <string-array name="elo_list">
         <item>Bronze</item>
