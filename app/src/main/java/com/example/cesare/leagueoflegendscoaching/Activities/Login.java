@@ -3,12 +3,18 @@ package com.example.cesare.leagueoflegendscoaching.Activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.UserParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.UserOperation;
@@ -48,8 +54,7 @@ public class Login extends Activity {
         String password = passwordLogin_input.getText().toString();
 
         if (ign.isEmpty() || password.isEmpty()){
-            Toast toast = Toast.makeText(context, "Compila tutti i campi", Toast.LENGTH_SHORT);
-            toast.show();
+            Security.createToast("Fill In All Fields", this);
             return null;
         }
 
@@ -72,8 +77,7 @@ public class Login extends Activity {
             break;
 
             case 21:{
-                Toast toast = Toast.makeText(context, "Incorrect username/password", Toast.LENGTH_SHORT);
-                toast.show();
+                Security.createToast("Incorrect Username/Password", this);
                 risIntent = null;
             }
             break;
@@ -85,11 +89,13 @@ public class Login extends Activity {
             break;
 
             case 404:{
-                Toast toast = Toast.makeText(context, "No Internet Connection", Toast.LENGTH_SHORT);
-                toast.show();
+                Security.createToast("No Internet Connection", this);
                 risIntent = null;
             }
         }
         return risIntent;
     }
+
 }
+
+

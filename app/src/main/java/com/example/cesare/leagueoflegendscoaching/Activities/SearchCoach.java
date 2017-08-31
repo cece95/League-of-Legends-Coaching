@@ -37,16 +37,15 @@ public class SearchCoach extends Activity {
         ToggleImageButton eng_flag = (ToggleImageButton) findViewById(R.id.flag_UnitedKingdom_ImageButton);
         eng_flag.setChecked(true);
 
+
         // Create elo spinner
         Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.elo_list, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        eloSpinner.setAdapter(adapter);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.elo_list, R.layout.simple_spinner_item);
+        eloSpinner.setAdapter(adapter1);
 
         //create roles spinner
         Spinner role1Spinner = (Spinner) findViewById(R.id.role_spinner);
-        ArrayAdapter<CharSequence> r1Adapter = ArrayAdapter.createFromResource(this, R.array.role1_list, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> r1Adapter = ArrayAdapter.createFromResource(this, R.array.role1_list, R.layout.simple_spinner_item);
         role1Spinner.setAdapter(r1Adapter);
 
         // create a spinner for champions
@@ -62,18 +61,15 @@ public class SearchCoach extends Activity {
             Collections.sort(spinnerList);
 
             Spinner champion1Spinner = (Spinner) findViewById(R.id.champions1_spinner);
-            ArrayAdapter<String> c1Adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerList);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            ArrayAdapter<String> c1Adapter = new ArrayAdapter<>(this, R.layout.simple_spinner_item, spinnerList);
             champion1Spinner.setAdapter(c1Adapter);
 
             Spinner champion2Spinner = (Spinner) findViewById(R.id.champions2_spinner);
             ArrayAdapter<String> c2Adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerList);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             champion2Spinner.setAdapter(c2Adapter);
 
             Spinner champion3Spinner = (Spinner) findViewById(R.id.champions3_spinner);
             ArrayAdapter<String> c3Adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerList);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             champion3Spinner.setAdapter(c3Adapter);
 
         } catch (JSONException e) {

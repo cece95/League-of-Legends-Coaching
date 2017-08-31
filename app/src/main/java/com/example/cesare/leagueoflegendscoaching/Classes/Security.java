@@ -4,9 +4,18 @@ package com.example.cesare.leagueoflegendscoaching.Classes;
  * Created by cesare on 24/05/2017.
  */
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.cesare.leagueoflegendscoaching.R;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -48,5 +57,18 @@ public class Security {
         fmt.setCalendar(calendar);
         String dateFormatted = fmt.format(calendar.getTime());
         return dateFormatted;
+    }
+
+    public static void createToast(String message, Activity a) {
+        LayoutInflater inflater = a.getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast, (ViewGroup) a.findViewById(R.id.custom_toast_container));
+
+        TextView text = (TextView) layout.findViewById(R.id.text);
+        text.setText(message);
+
+        Toast toast = new Toast(a.getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
     }
     }

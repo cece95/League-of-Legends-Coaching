@@ -72,6 +72,7 @@
 
             </LinearLayout>
 
+
             <LinearLayout
                 android:id="@+id/elo_layout"
                 android:layout_width="match_parent"
@@ -94,8 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginRight="@dimen/margin"
-                    android:background="@drawable/custom_spinner"
-                    style="@style/SpinnerStyle"/>
+                    android:background="@drawable/custom_spinner" />
 
             </LinearLayout>
 
@@ -188,8 +188,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginRight="@dimen/margin"
-                    android:background="@drawable/custom_spinner"
-                    style="@style/SpinnerStyle"/>
+                    android:background="@drawable/custom_spinner" />
 
             </LinearLayout>
 
