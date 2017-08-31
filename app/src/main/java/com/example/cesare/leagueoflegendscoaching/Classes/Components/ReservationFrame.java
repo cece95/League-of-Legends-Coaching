@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.example.cesare.leagueoflegendscoaching.Operations.DeleteOperation;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.DeleteParams;
 import com.example.cesare.leagueoflegendscoaching.R;
-import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,8 +29,6 @@ public class ReservationFrame implements Serializable{
     String coach;
     int end;
     int start;
-    String roles;
-    int cost;
     Activity activity;
     String key;
 
@@ -39,19 +36,9 @@ public class ReservationFrame implements Serializable{
         DateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
         this.date = formatter.parse(date);
         this.dateString = date;
-        this.coach = json.getString("coach");
+        this.coach = json.getString("user");
         this.start = json.getInt("start");
         this.end = json.getInt("end");
-        Role role1 = Role.valueOf(json.getString("role1"));
-        Role role2 = Role.valueOf( json.getString("role2"));
-        if (role2 == Role.None) {
-            this.roles = "Role: " + String.valueOf(role1);
-        }
-        else {
-            this.roles = "Roles: " + String.valueOf(role1) + "/" + String.valueOf(role2);
-        }
-
-        this.cost = json.getInt("cost");
         this.activity = a;
         this.key = key;
     }
@@ -61,10 +48,16 @@ public class ReservationFrame implements Serializable{
         nameTextView.setText(coach);
 
         TextView roleTextView = (TextView) frame.findViewById(R.id.roleRes);
-        roleTextView.setText(roles);
-
         TextView costTextView = (TextView) frame.findViewById(R.id.costRes);
-        costTextView.setText("Cost: " + this.cost+"€");
+
+        if (this instanceof ReservationFrameUser){
+            roleTextView.setText(((ReservationFrameUser) this).roles);
+            costTextView.setText("Cost: " + ((ReservationFrameUser) this).cost+"€");
+        }
+        else{
+            roleTextView.setVisibility(View.GONE);
+            costTextView.setVisibility(View.GONE);
+        }
 
         TextView dayTextView = (TextView) frame.findViewById(R.id.dayRes);
         dayTextView.setText(dateString);

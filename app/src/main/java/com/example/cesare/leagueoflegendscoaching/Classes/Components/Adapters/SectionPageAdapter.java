@@ -11,6 +11,7 @@ import android.util.Log;
 import com.example.cesare.leagueoflegendscoaching.Activities.Fragments.ActiveReservations;
 import com.example.cesare.leagueoflegendscoaching.Activities.Fragments.PastReservations;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.ReservationFrame;
+import com.example.cesare.leagueoflegendscoaching.Classes.Components.ReservationFrameUser;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.ScheduleParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.ScheduleOperation;
@@ -42,6 +43,7 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
 
         if(type == "user") {
 
+            Log.d("USERJSON", json.toString());
             Iterator x = json.keys();
             Date now = new Date();
             ArrayList<ReservationFrame> pastList = new ArrayList<>();
@@ -49,12 +51,14 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
 
             while (x.hasNext()) {
                 String date = (String) x.next();
+                Log.d("Date", date);
                 JSONObject reservationsArray = json.getJSONObject(date);
                 Iterator y = reservationsArray.keys();
 
                 while (y.hasNext()) {
                     String key = (String) y.next();
-                    ReservationFrame reservation = new ReservationFrame(date, key, reservationsArray.getJSONObject(key), a);
+                    Log.d("KEY", key);
+                    ReservationFrame reservation = new ReservationFrameUser(date, key, reservationsArray.getJSONObject(key), a);
                     if (reservation.getDate().before(now)) {
                         pastList.add(reservation);
                     } else {
@@ -67,18 +71,21 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
         }
         else if (type == "coachR"){
             Iterator x = json.keys();
+            Log.d("JSON", json.toString());
             Date now = new Date();
             ArrayList<ReservationFrame> pastList = new ArrayList<>();
             ArrayList<ReservationFrame> activeList = new ArrayList<>();
 
             while (x.hasNext()) {
                 String date = (String) x.next();
+                Log.d("DATE", date);
                 if (date != "status") {
                     JSONObject reservationsArray = json.getJSONObject(date);
                     Iterator y = reservationsArray.keys();
 
                     while (y.hasNext()) {
                         String key = (String) y.next();
+                        Log.d("KEY", key);
                         if (key != "array") {
                             ReservationFrame reservation = new ReservationFrame(date, key, reservationsArray.getJSONObject(key), a);
                             if (reservation.getDate().before(now)) {
