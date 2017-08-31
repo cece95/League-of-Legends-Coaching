@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters.CoachFrameAdapter;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.CoachFrame;
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.SearchParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.SearchOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -23,10 +24,14 @@ import java.util.concurrent.ExecutionException;
 
 public class CoachesList extends ListActivity {
 
+    private ShakeDetector shaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coaches_list);
+        shaker = new ShakeDetector(this);
+
         Intent intent = this.getIntent();
         SearchParams sParams = new SearchParams(
                 intent.getStringExtra("nameCoach"),

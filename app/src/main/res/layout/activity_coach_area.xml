@@ -32,7 +32,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="27dp"
             android:textAlignment="center"
-            style="@style/LabelStyle" />
+            style="@style/LabelStyle"
+            android:layout_marginBottom="20dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -6,15 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 public class WeekSchedule extends Activity {
+
+    private ShakeDetector shaker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_schedule);
-        // test
+        shaker = new ShakeDetector(this);
+
         final Button mondayButton = (Button) findViewById(R.id.changeScheduleMonday);
         mondayButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -7,16 +7,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.SwipeListener;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 public class CoachUpgrade extends Activity {
 
+    private ShakeDetector shaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach_upgrade);
+        shaker = new ShakeDetector(this);
+
 
         RelativeLayout finestra = (RelativeLayout) findViewById(R.id.relative_coachUpgrade);
         finestra.setOnTouchListener(new SwipeListener(CoachUpgrade.this) {

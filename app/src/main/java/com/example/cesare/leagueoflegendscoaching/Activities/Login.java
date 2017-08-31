@@ -3,17 +3,13 @@ package com.example.cesare.leagueoflegendscoaching.Activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.UserParams;
@@ -26,10 +22,13 @@ import java.util.concurrent.ExecutionException;
 
 public class Login extends Activity {
 
+    private ShakeDetector shaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        shaker = new ShakeDetector(this);
 
         final Button signupButton = (Button) findViewById(R.id.loginSubmit_button);
         signupButton.setOnClickListener(new View.OnClickListener() {

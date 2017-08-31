@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton;
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.CoachOperation;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.CoachParams;
@@ -29,10 +30,13 @@ import java.util.concurrent.ExecutionException;
 
 public class CoachRegistration extends Activity {
 
+    private ShakeDetector shaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach_registration);
+        shaker = new ShakeDetector(this);
 
         // Create elo spinner
         Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);

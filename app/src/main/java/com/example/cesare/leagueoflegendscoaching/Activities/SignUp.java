@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.UserParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.UserOperation;
@@ -21,10 +22,13 @@ import java.util.concurrent.ExecutionException;
 
 public class SignUp extends Activity {
 
+    private ShakeDetector shaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        shaker = new ShakeDetector(this);
 
         final CheckBox coachCheckBox = (CheckBox) findViewById(R.id.coach_checkBox);
 

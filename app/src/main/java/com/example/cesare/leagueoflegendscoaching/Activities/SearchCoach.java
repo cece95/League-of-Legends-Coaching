@@ -12,6 +12,7 @@ import android.widget.Spinner;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.ChampionsMap;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton;
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.R;
 import com.example.cesare.leagueoflegendscoaching.Types.Elo;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
@@ -28,10 +29,13 @@ import static com.example.cesare.leagueoflegendscoaching.Classes.ChampionsMap.sp
 
 public class SearchCoach extends Activity {
 
+    private ShakeDetector shaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_coach);
+        shaker = new ShakeDetector(this);
 
         //eng flag preChecked
         ToggleImageButton eng_flag = (ToggleImageButton) findViewById(R.id.flag_UnitedKingdom_ImageButton);

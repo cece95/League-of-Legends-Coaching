@@ -10,6 +10,7 @@ import android.widget.DatePicker;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.CoachFrame;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.HourToggleButton;
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.ScheduleParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.ScheduleOperation;
@@ -29,10 +30,14 @@ import java.util.concurrent.ExecutionException;
 
 public class CoachReservation extends Activity {
 
+    private ShakeDetector shaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach_reservation);
+        shaker = new ShakeDetector(this);
+
 
         String jsonString = getIntent().getStringExtra("json");
         JSONObject json = null;

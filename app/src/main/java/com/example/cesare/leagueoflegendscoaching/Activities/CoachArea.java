@@ -8,16 +8,20 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.SwipeListener;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 public class CoachArea extends Activity {
 
+    private ShakeDetector shaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach_area);
+        shaker = new ShakeDetector(this);
 
         LoggedUser loggedUser = LoggedUser.getIstance(null, null, false);
 

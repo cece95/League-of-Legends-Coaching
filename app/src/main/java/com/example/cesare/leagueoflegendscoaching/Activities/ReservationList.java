@@ -14,6 +14,7 @@ import android.widget.ToggleButton;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters.HTBAdapter;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.HourToggleButton;
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.ReserveParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.ReserveOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -26,16 +27,20 @@ import java.util.concurrent.ExecutionException;
 
 public class ReservationList extends ListActivity {
 
+    private ShakeDetector shaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation_list);
-
+        shaker = new ShakeDetector(this);
 
         Intent intent = getIntent();
         final ArrayList<HourToggleButton> myArrayList = (ArrayList<HourToggleButton>) intent.getSerializableExtra("lista");
         final boolean[] arraybool = (boolean[]) intent.getSerializableExtra("dinamic");
         final String coachString = intent.getStringExtra("coach");
+
+
 
         Log.d("CoachString", coachString);
 

@@ -12,6 +12,7 @@ import android.widget.Button;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters.ChampionFrameAdapter;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.ChampionFrame;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.CoachFrame;
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 import org.json.JSONArray;
@@ -23,10 +24,14 @@ import java.util.List;
 
 public class CoachDetails extends ListActivity {
 
+    private ShakeDetector shaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coach_details);
+        shaker = new ShakeDetector(this);
+
         Intent intent = this.getIntent();
         final String jsonString = intent.getStringExtra("info");
 

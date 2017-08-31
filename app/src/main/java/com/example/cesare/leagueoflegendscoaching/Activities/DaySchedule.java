@@ -8,15 +8,19 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ToggleButton;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.Schedule;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 public class DaySchedule extends Activity {
 
+    private ShakeDetector shaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_schedule);
+        shaker = new ShakeDetector(this);
 
         Intent intent = getIntent();
         final int dayId = intent.getIntExtra("dayId", 0);
