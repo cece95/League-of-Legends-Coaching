@@ -35,7 +35,9 @@ public class StudentArea extends Activity {
                         finish();
                     }
                     else{
-
+                        Intent upgrade = new Intent(StudentArea.this, CoachUpgrade.class);
+                        startActivity(upgrade);
+                        finish();
                     }
                 }
             });
