@@ -27,6 +27,8 @@ public class ActiveReservations extends ListFragment {
         View parent = inflater.inflate(R.layout.active_reservations_fragment, container, false);
         Activity activity = getActivity();
         List<ReservationFrame> reservationFrameList = (List<ReservationFrame>) getArguments().getSerializable("lista");
+
+
         if (activity != null){
             ListAdapter adapter = new ReservationFrameAdapter(activity, R.layout.reservation_frame, reservationFrameList);
             setListAdapter(adapter);
