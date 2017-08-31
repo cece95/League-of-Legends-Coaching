@@ -47,7 +47,10 @@
             android:theme="@style/AppThemeCompat" />
         <activity android:name=".Activities.Fragments.PastReservations" />
         <activity android:name=".Activities.Fragments.ActiveReservations" />
-        <activity android:name=".Activities.CoachUpgrade"></activity>
+        <activity android:name=".Activities.CoachUpgrade" />
+        <activity
+            android:name=".Activities.Appointments"
+            android:theme="@style/AppThemeCompat" />
     </application>
 
 </manifest>

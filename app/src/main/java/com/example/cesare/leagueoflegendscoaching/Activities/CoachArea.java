@@ -38,6 +38,15 @@ public class CoachArea extends Activity {
                 }
             });
 
+        Button appointmentsButton = (Button) findViewById(R.id.apppointments_button);
+        appointmentsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CoachArea.this, Appointments.class);
+                startActivity(intent);
+            }
+        });
+
 
         Button logout = (Button) findViewById(R.id.logout_button);
         logout.setOnClickListener(new View.OnClickListener() {

@@ -14,7 +14,7 @@ import org.json.JSONException;
 import java.text.ParseException;
 import java.util.concurrent.ExecutionException;
 
-public class Booking extends AppCompatActivity {
+public class Appointments extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     SectionPageAdapter viewPagerAdapter;
@@ -23,12 +23,12 @@ public class Booking extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking);
+        setContentView(R.layout.activity_appointments);
         shaker = new ShakeDetector(this);
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         try {
-            viewPagerAdapter = new SectionPageAdapter(getSupportFragmentManager(), this, this, "user");
+            viewPagerAdapter = new SectionPageAdapter(getSupportFragmentManager(), this, this, "coachR");
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
