@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.ReservationFrame;
+import com.example.cesare.leagueoflegendscoaching.Classes.Components.ReservationFrameUser;
 import com.example.cesare.leagueoflegendscoaching.R;
 
 import java.util.List;
@@ -28,9 +29,15 @@ public class ReservationFrameAdapter extends ArrayAdapter<ReservationFrame> {
 
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ReservationFrame reservationFrame = getItem(position);
-        View frame = frameInflater.inflate(R.layout.reservation_frame, null);
-        reservationFrame.createFrame(frame);
-
+        View frame = null;
+        if (reservationFrame instanceof ReservationFrameUser){
+            frame = frameInflater.inflate(R.layout.reservation_frame_user, null);
+            reservationFrame.createFrame(frame);
+        }
+        else {
+            frame = frameInflater.inflate(R.layout.reservation_frame, null);
+            reservationFrame.createFrame(frame);
+        }
         return frame;
     }
 }

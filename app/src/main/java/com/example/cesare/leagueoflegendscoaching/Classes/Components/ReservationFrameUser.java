@@ -1,13 +1,20 @@
 package com.example.cesare.leagueoflegendscoaching.Classes.Components;
 
 import android.app.Activity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.cesare.leagueoflegendscoaching.Operations.DeleteOperation;
+import com.example.cesare.leagueoflegendscoaching.Operations.Params.DeleteParams;
+import com.example.cesare.leagueoflegendscoaching.R;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.ParseException;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by cesare on 31/08/2017.
@@ -29,5 +36,44 @@ public class ReservationFrameUser extends ReservationFrame {
             this.roles = "Roles: " + String.valueOf(role1) + "/" + String.valueOf(role2);
         }
         this.cost = json.getInt("cost");
+    }
+
+    @Override
+    public View createFrame(final View frame) {
+        TextView nameTextView = (TextView) frame.findViewById(R.id.nameRes);
+        nameTextView.setText(coach);
+
+        TextView roleTextView = (TextView) frame.findViewById(R.id.roleRes);
+        TextView costTextView = (TextView) frame.findViewById(R.id.costRes);
+
+        roleTextView.setText(this.roles);
+        costTextView.setText("Cost: " + this.cost+"€");
+
+
+        TextView dayTextView = (TextView) frame.findViewById(R.id.dayRes);
+        dayTextView.setText(dateString);
+
+        TextView hourTextView = (TextView) frame.findViewById(R.id.hourRes);
+        hourTextView.setText("Hours: " + this.start + " - " + this.end);
+
+        Button delete = (Button) frame.findViewById(R.id.deleteRes);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DeleteParams params = new DeleteParams(frame.getContext(), start, end, coach, dateString, key);
+                try {
+                    int result = new DeleteOperation().execute(params).get();
+                    activity.finish();
+                    activity.startActivity(activity.getIntent());
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        return frame;
     }
 }

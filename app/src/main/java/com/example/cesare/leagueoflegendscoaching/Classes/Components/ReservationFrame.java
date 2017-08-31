@@ -47,18 +47,6 @@ public class ReservationFrame implements Serializable{
         TextView nameTextView = (TextView) frame.findViewById(R.id.nameRes);
         nameTextView.setText(coach);
 
-        TextView roleTextView = (TextView) frame.findViewById(R.id.roleRes);
-        TextView costTextView = (TextView) frame.findViewById(R.id.costRes);
-
-        if (this instanceof ReservationFrameUser){
-            roleTextView.setText(((ReservationFrameUser) this).roles);
-            costTextView.setText("Cost: " + ((ReservationFrameUser) this).cost+"€");
-        }
-        else{
-            roleTextView.setVisibility(View.GONE);
-            costTextView.setVisibility(View.GONE);
-        }
-
         TextView dayTextView = (TextView) frame.findViewById(R.id.dayRes);
         dayTextView.setText(dateString);
 

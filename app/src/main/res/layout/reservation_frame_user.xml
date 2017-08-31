@@ -11,16 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:weightSum="2">
-
-        <TextView
-            android:id="@+id/student"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:textSize="@dimen/label"
-            android:text="STUDENT"
-            style="@style/TitleStyle"/>
+        android:weightSum="3">
 
         <TextView
             android:id="@+id/nameRes"
@@ -29,6 +20,23 @@
             android:layout_weight="1"
             android:textSize="@dimen/label"
             style="@style/TitleStyle"/>
+
+        <TextView
+            android:id="@+id/roleRes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/label"
+            style="@style/TitleStyle"/>
+
+        <TextView
+            android:id="@+id/costRes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="@dimen/label"
+            style="@style/TitleStyle"/>
+
 
     </LinearLayout>
 

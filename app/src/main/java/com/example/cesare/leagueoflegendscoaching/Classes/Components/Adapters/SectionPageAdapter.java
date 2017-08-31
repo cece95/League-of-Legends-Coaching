@@ -31,8 +31,8 @@ import java.util.concurrent.ExecutionException;
 
 public class SectionPageAdapter extends FragmentPagerAdapter{
 
-    private ArrayList<ReservationFrame> past;
-    private ArrayList<ReservationFrame> active;
+    private ArrayList<ReservationFrame> past = new ArrayList<>();
+    private ArrayList<ReservationFrame> active = new ArrayList<>();
 
     public SectionPageAdapter(FragmentManager fm, Activity a, Context c, String type) throws ExecutionException, InterruptedException, JSONException, ParseException {
         super(fm);
@@ -52,22 +52,26 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
             while (x.hasNext()) {
                 String date = (String) x.next();
                 Log.d("Date", date);
-                JSONObject reservationsArray = json.getJSONObject(date);
-                Iterator y = reservationsArray.keys();
+                if (date != "status") {
+                    JSONObject reservationsArray = json.getJSONObject(date);
+                    Iterator y = reservationsArray.keys();
 
-                while (y.hasNext()) {
-                    String key = (String) y.next();
-                    Log.d("KEY", key);
-                    ReservationFrame reservation = new ReservationFrameUser(date, key, reservationsArray.getJSONObject(key), a);
-                    if (reservation.getDate().before(now)) {
-                        pastList.add(reservation);
-                    } else {
-                        activeList.add(reservation);
+                    while (y.hasNext()) {
+                        String key = (String) y.next();
+                        Log.d("KEY", key);
+                        if (key != "array") {
+                            ReservationFrame reservation = new ReservationFrameUser(date, key, reservationsArray.getJSONObject(key), a);
+                            if (reservation.getDate().before(now)) {
+                                pastList.add(reservation);
+                            } else {
+                                activeList.add(reservation);
+                            }
+                        }
                     }
                 }
+                this.past = pastList;
+                this.active = activeList;
             }
-            this.past = pastList;
-            this.active = activeList;
         }
         else if (type == "coachR"){
             Iterator x = json.keys();
@@ -79,14 +83,15 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
             while (x.hasNext()) {
                 String date = (String) x.next();
                 Log.d("DATE", date);
-                if (date != "status") {
+                if (!date.equals("status")) {
                     JSONObject reservationsArray = json.getJSONObject(date);
                     Iterator y = reservationsArray.keys();
 
                     while (y.hasNext()) {
                         String key = (String) y.next();
                         Log.d("KEY", key);
-                        if (key != "array") {
+                        if (!key.equals("array")) {
+                            Log.d("CHECK", "entro");
                             ReservationFrame reservation = new ReservationFrame(date, key, reservationsArray.getJSONObject(key), a);
                             if (reservation.getDate().before(now)) {
                                 pastList.add(reservation);
@@ -98,6 +103,13 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
                 }
                 this.past = pastList;
                 this.active = activeList;
+
+                if (this.past == null){
+                    this.past = new ArrayList<>();
+                }
+                if(this.active == null){
+                    this.active = new ArrayList<>();
+                }
             }
             Log.d("STATUS", "SectionPageAdapter");
         }

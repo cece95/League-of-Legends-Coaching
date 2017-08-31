@@ -28,6 +28,9 @@ public class PastReservations extends ListFragment {
         View parent = inflater.inflate(R.layout.past_reservations_fragment, container, false);
         Activity activity = getActivity();
         List<ReservationFrame> reservationFrameList = (List<ReservationFrame>) getArguments().getSerializable("lista");
+        if (reservationFrameList == null){
+            Log.d("NULL", "NULL");
+        }
         if (activity != null){
             Log.d("STATUS", "ListCreation");
             ListAdapter adapter = new ReservationFrameAdapter(activity, R.layout.reservation_frame, reservationFrameList);
