@@ -34,30 +34,55 @@
             android:textAlignment="center"
             style="@style/LabelStyle" />
 
-        <Button
-            android:id="@+id/apppointments_button"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
-            android:text="@string/appointments"
-            android:textSize="@dimen/button_text"
-            android:layout_above="@+id/modify_button"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="51dp"
-            android:background="@drawable/custom_button"
-            style="@style/ButtonStyle"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="3"
+            android:layout_below="@+id/welcomeMessage"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/modify_button"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
-            android:text="@string/modify"
-            android:textSize="@dimen/button_text"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/apppointments_button"
-            android:layout_alignStart="@+id/apppointments_button"
-            android:layout_marginBottom="162dp"
-            android:background="@drawable/custom_button"
-            style="@style/ButtonStyle" />
+            <Button
+                android:id="@+id/apppointments_button"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:text="@string/appointments"
+                android:textSize="@dimen/button_text"
+                android:layout_above="@+id/modify_button"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="51dp"
+                android:background="@drawable/custom_button"
+                style="@style/ButtonStyle"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/modify_button"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:text="@string/modify"
+                android:textSize="@dimen/button_text"
+                android:layout_alignParentBottom="true"
+                android:layout_alignLeft="@+id/apppointments_button"
+                android:layout_alignStart="@+id/apppointments_button"
+                android:background="@drawable/custom_button"
+                style="@style/ButtonStyle"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/logout_button"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
+                android:text="@string/logout"
+                android:textSize="@dimen/button_text"
+                android:layout_below="@+id/favoriteCoaches_button"
+                android:layout_alignLeft="@+id/favoriteCoaches_button"
+                android:layout_alignStart="@+id/favoriteCoaches_button"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/custom_button"
+                style="@style/ButtonStyle"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
