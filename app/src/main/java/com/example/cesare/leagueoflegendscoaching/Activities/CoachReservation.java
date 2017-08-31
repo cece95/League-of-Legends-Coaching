@@ -50,7 +50,7 @@ public class CoachReservation extends Activity {
             e.printStackTrace();
         }
 
-        ScheduleParams params = new ScheduleParams(coach, CoachReservation.this, "coach");
+        ScheduleParams params = new ScheduleParams(coach, CoachReservation.this, "coachS");
         JSONObject reservations = null;
         try {
             reservations = new ScheduleOperation().execute(params).get();
@@ -88,7 +88,7 @@ public class CoachReservation extends Activity {
 
                     if (status == 1) {
                         Log.d("STATUS", "1");
-                        JSONObject dinamicDayJson = finalReservations.getJSONObject(dateId);
+                        JSONObject dinamicDayJson = finalReservations.getJSONObject(dateId).getJSONObject("array");
                         dinamicDay = getBooleanArray(dinamicDayJson);
                     }
                     else{

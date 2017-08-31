@@ -15,14 +15,16 @@ public class DeleteParams {
     String user;
     String coach;
     String date;
+    String key;
 
-    public DeleteParams(Context c, int start, int end, String coach, String date){
+    public DeleteParams(Context c, int start, int end, String coach, String date, String key){
         this.context = c;
         this.start = start;
         this.end = end;
         this.user = LoggedUser.getIstance(null, null, false).getIgn();
         this.coach = coach;
         this.date = date;
+        this.key = key;
     }
 
     public Context getContext() {
@@ -48,4 +50,6 @@ public class DeleteParams {
     public String getDate() {
         return date;
     }
+
+    public String getKey() {return key; }
 }

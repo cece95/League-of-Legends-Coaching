@@ -33,8 +33,9 @@ public class ReservationFrame implements Serializable{
     String roles;
     int cost;
     Activity activity;
+    String key;
 
-    public ReservationFrame(String date, JSONObject json, Activity a) throws JSONException, ParseException {
+    public ReservationFrame(String date, String key, JSONObject json, Activity a) throws JSONException, ParseException {
         DateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
         this.date = formatter.parse(date);
         this.dateString = date;
@@ -52,6 +53,7 @@ public class ReservationFrame implements Serializable{
 
         this.cost = json.getInt("cost");
         this.activity = a;
+        this.key = key;
     }
 
     public View createFrame(final View frame){
@@ -74,7 +76,7 @@ public class ReservationFrame implements Serializable{
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DeleteParams params = new DeleteParams(frame.getContext(), start, end, coach, dateString);
+                DeleteParams params = new DeleteParams(frame.getContext(), start, end, coach, dateString, key);
                 try {
                     int result = new DeleteOperation().execute(params).get();
                     activity.finish();

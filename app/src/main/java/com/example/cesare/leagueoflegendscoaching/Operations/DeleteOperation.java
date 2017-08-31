@@ -72,6 +72,7 @@ public class DeleteOperation extends AsyncTask<DeleteParams, Integer, Integer> {
                 jsonParam.put("student", params[0].getUser());
                 jsonParam.put("coach", params[0].getCoach());
                 jsonParam.put("date", params[0].getDate());
+                jsonParam.put("key", params[0].getKey());
                 Log.d("JSON", "Json: "+jsonParam);
 
                 OutputStreamWriter out = new OutputStreamWriter(urlConnection.getOutputStream());

@@ -46,12 +46,18 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
 
         while (x.hasNext()){
             String date = (String) x.next();
-            ReservationFrame reservation = new ReservationFrame(date, json.getJSONObject(date), a);
+            JSONObject reservationsArray = json.getJSONObject(date);
+            Iterator y = reservationsArray.keys();
+
+            while(y.hasNext()){
+            String key = (String) y.next();
+            ReservationFrame reservation = new ReservationFrame(date, key, reservationsArray.getJSONObject(key), a);
             if (reservation.getDate().before(now)){
                 pastList.add(reservation);
             }
             else{
                 activeList.add(reservation);
+            }
             }
         }
         this.past = pastList;

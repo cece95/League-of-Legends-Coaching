@@ -41,11 +41,14 @@ public class ScheduleOperation extends AsyncTask<ScheduleParams, Integer, JSONOb
 
         String requestType = params[0].getRequestType();
         String route = null;
-        if (requestType == "coach") {
+        if (requestType == "coachS") {
             route = "getSchedule";
         }
         else if (requestType == "user"){
             route = "getUserReservation";
+        }
+        else if (requestType == "coachR"){
+            route = "getCoachReservation";
         }
         String complete_url = domain + route;
 
