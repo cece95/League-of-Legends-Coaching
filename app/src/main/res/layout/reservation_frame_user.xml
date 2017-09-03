@@ -19,7 +19,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textSize="@dimen/label"
-            style="@style/TitleStyle"/>
+            style="@style/LabelStyle"/>
 
         <TextView
             android:id="@+id/roleRes"
@@ -27,7 +27,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textSize="@dimen/label"
-            style="@style/TitleStyle"/>
+            style="@style/LabelStyle"/>
 
         <TextView
             android:id="@+id/costRes"
@@ -35,7 +35,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textSize="@dimen/label"
-            style="@style/TitleStyle"/>
+            style="@style/LabelStyle"/>
 
 
     </LinearLayout>
@@ -54,7 +54,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textSize="@dimen/label"
-            style="@style/TitleStyle"/>
+            style="@style/LabelStyle"/>
 
         <TextView
             android:id="@+id/hourRes"
@@ -62,7 +62,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textSize="@dimen/label"
-            style="@style/TitleStyle"/>
+            style="@style/LabelStyle"/>
 
         <Button
             android:id="@+id/deleteRes"

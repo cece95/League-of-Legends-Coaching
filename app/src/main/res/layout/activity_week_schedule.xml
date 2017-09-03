@@ -223,17 +223,19 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin">
 
             <Button
                 android:id="@+id/back_button"
                 android:layout_width="@dimen/button_width"
-                android:layout_height="@dimen/button_width"
+                android:layout_height="@dimen/button_height"
                 android:text="@string/back"
                 android:textSize="@dimen/label"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/custom_button_small"
-                style="@style/ButtonStyle"/>
+                style="@style/ButtonStyle"
+                android:gravity="center_horizontal"/>
 
         </LinearLayout>
 

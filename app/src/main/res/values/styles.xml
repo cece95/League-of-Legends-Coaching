@@ -21,10 +21,10 @@
         <item name="android:textSize">@dimen/label</item>
     </style>
 
-    <style name="AppThemeCompat" parent="Theme.AppCompat.Light">
-        <!--<item name="android:background">@color/background</item>
+    <style name="AppThemeCompat" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@color/background</item>
         <item name="android:windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>-->
+        <item name="android:windowNoTitle">true</item>
     </style>
 
     <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">

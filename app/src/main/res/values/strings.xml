@@ -17,7 +17,7 @@
     <string name="elo">Elo</string>
     <string name="language">Language</string>
     <string name="roles">Roles</string>
-    <string name="cost">Cost</string>
+    <string name="cost">Cost/hr</string>
     <string name="schedule">Schedule</string>
     <string name="coach_signup">SIGN UP AS COACH</string>
 

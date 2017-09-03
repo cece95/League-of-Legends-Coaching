@@ -92,7 +92,8 @@
                 android:layout_marginTop="50dp"
                 android:background="@drawable/custom_button"
                 style="@style/ButtonStyle"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:visibility="gone"/>
 
             <Button
                 android:id="@+id/logout_button"

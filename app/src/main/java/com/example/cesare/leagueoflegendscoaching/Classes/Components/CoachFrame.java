@@ -50,7 +50,7 @@ public class CoachFrame {
         TextView name = (TextView) frame.findViewById(R.id.name);
         name.setText(this.name);
         TextView cost = (TextView) frame.findViewById(R.id.cost);
-        cost.setText("Cost: "+this.cost+"€");
+        cost.setText("Cost/hr: "+this.cost+"€");
 
         //rolesDetails
         TextView roles = (TextView) frame.findViewById(R.id.roles);

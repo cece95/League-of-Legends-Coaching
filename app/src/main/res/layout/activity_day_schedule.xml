@@ -18,15 +18,15 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
             tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="8dp"
-            style="@style/TitleStyle">
+            tools:layout_editor_absoluteX="8dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/title_text"
                 android:text="@string/registerSchedule"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                style="@style/TitleStyle"/>
 
         </LinearLayout>
 
@@ -444,7 +444,5 @@
             </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
