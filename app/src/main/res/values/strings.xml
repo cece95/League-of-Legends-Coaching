@@ -50,6 +50,7 @@
     <string name="change_schedule">Change Schedule</string>
 
     <!--daySchedule-->
+    <string name="gmt">All the hours are GMT+1</string>
     <string name="zero_to_one">00 - 01</string>
     <string name="one_to_two">01 - 02</string>
     <string name="two_to_three">02 - 03</string>

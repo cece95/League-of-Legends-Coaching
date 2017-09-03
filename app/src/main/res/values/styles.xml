@@ -2,7 +2,6 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="android:background">@color/background</item>
         <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
     </style>
@@ -23,9 +22,9 @@
     </style>
 
     <style name="AppThemeCompat" parent="Theme.AppCompat.Light">
-        <item name="android:background">@color/background</item>
+        <!--<item name="android:background">@color/background</item>
         <item name="android:windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>-->
     </style>
 
     <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">

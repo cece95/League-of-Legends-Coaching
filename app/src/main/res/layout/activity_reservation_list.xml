@@ -25,6 +25,13 @@
                 android:textAlignment="center"
                 style="@style/TitleStyle"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/label"
+                    android:text="@string/gmt"
+                    style="@style/LabelStyle"/>
+
             <ListView
                 android:id="@android:id/list"
                 android:layout_width="match_parent"

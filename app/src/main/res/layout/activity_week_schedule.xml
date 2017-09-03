@@ -25,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/title_text"
                 android:text="@string/registerSchedule"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                style="@style/TitleStyle"/>
 
         </LinearLayout>
 
@@ -49,7 +50,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/monday"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/LabelStyle"/>
 
                     <Button
                         android:id="@+id/changeScheduleMonday"
@@ -57,7 +59,9 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/ButtonStyle"
+                        android:background="@drawable/custom_button_small"/>
 
                 </LinearLayout>
 
@@ -72,7 +76,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/tuesday"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/LabelStyle"/>
 
                     <Button
                         android:id="@+id/changeScheduleTuesday"
@@ -80,7 +85,9 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/ButtonStyle"
+                        android:background="@drawable/custom_button_small"/>
 
                 </LinearLayout>
 
@@ -95,7 +102,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/wednesday"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/LabelStyle"/>
 
                     <Button
                         android:id="@+id/changeScheduleWednesday"
@@ -103,7 +111,9 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/ButtonStyle"
+                        android:background="@drawable/custom_button_small"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -117,7 +127,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/thursday"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/LabelStyle"/>
 
                     <Button
                         android:id="@+id/changeScheduleThursday"
@@ -125,7 +136,9 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/ButtonStyle"
+                        android:background="@drawable/custom_button_small"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -139,7 +152,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/friday"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/LabelStyle"/>
 
                     <Button
                         android:id="@+id/changeScheduleFriday"
@@ -147,7 +161,9 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/ButtonStyle"
+                        android:background="@drawable/custom_button_small"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -161,7 +177,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/saturday"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/LabelStyle"/>
 
                     <Button
                         android:id="@+id/changeScheduleSaturday"
@@ -169,7 +186,9 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/ButtonStyle"
+                        android:background="@drawable/custom_button_small"/>
 
                 </LinearLayout>
 
@@ -184,7 +203,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/sunday"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/LabelStyle"/>
 
                     <Button
                         android:id="@+id/changeScheduleSunday"
@@ -192,12 +212,30 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1"
+                        style="@style/ButtonStyle"
+                        android:background="@drawable/custom_button_small"/>
 
                 </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="@dimen/button_width"
+                android:text="@string/back"
+                android:textSize="@dimen/label"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/custom_button_small"
+                style="@style/ButtonStyle"/>
+
+        </LinearLayout>
 
 
     </LinearLayout>
