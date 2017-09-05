@@ -1,5 +1,0 @@
-Problemi con Enum:
-	-Convertire stringa in enum: Classe.valueOf("stringa")
-
-Problemi Edittext
-	-Cerco di estrarre un valore numerico da un edittext vuoto: nell'XML 'android:text="0"' così da avere un valore di default	
