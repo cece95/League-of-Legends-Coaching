@@ -47,6 +47,14 @@ public class CoachArea extends Activity {
             }
         });
 
+        Button modifyButton = (Button) findViewById(R.id.modify_button);
+        modifyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CoachArea.this, UpdateInfo.class);
+                startActivity(intent);
+            }
+        });
 
         Button logout = (Button) findViewById(R.id.logout_button);
         logout.setOnClickListener(new View.OnClickListener() {

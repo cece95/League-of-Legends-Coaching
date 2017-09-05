@@ -28,18 +28,15 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
 import java.util.concurrent.ExecutionException;
 
-public class CoachRegistration extends Activity {
+public class UpdateInfo extends Activity {
 
     private ShakeDetector shaker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coach_registration);
+        setContentView(R.layout.activity_update_info);
         shaker = new ShakeDetector(this);
-
-        ToggleImageButton eng_flag = (ToggleImageButton) findViewById(R.id.flag_UnitedKingdom_ImageButton);
-        eng_flag.setChecked(true);
 
         // Create elo spinner
         Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);
@@ -61,17 +58,17 @@ public class CoachRegistration extends Activity {
         calendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent weekSchedule = new Intent(CoachRegistration.this, WeekSchedule.class);
+                Intent weekSchedule = new Intent(UpdateInfo.this, WeekSchedule.class);
                 startActivity(weekSchedule);
             }
         });
 
         //Set signupListener
-        Button signupCoach = (Button) findViewById(R.id.signupCoachSubmit_button);
+        Button signupCoach = (Button) findViewById(R.id.upgrade_submit_button);
         signupCoach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent coachSignup = createIntent(CoachRegistration.this, getIntent());
+                Intent coachSignup = createIntent(UpdateInfo.this);
                 if (coachSignup != null){
                     startActivity(coachSignup);
                     finish();
@@ -81,7 +78,7 @@ public class CoachRegistration extends Activity {
 
     }
 
-    private Intent createIntent(Context context, Intent intent){
+    private Intent createIntent(Context context){
         Intent risIntent = null;
 
         CoachParams coachParams = null;
@@ -171,8 +168,8 @@ public class CoachRegistration extends Activity {
     }
 
     private CoachParams getParams() throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        Intent intent = getIntent();
-        Context context = CoachRegistration.this;
+        Context context = UpdateInfo.this;
+        LoggedUser user = LoggedUser.getIstance(null, null, false);
 
         //Ottengo i campi
         Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);
@@ -181,16 +178,16 @@ public class CoachRegistration extends Activity {
         EditText cost_input = (EditText) findViewById(R.id.cost_input);
 
         //ottengo i parametri
-        String ign = intent.getStringExtra("ign");
-        String password = intent.getStringExtra("password");
-        boolean upgrade = intent.getBooleanExtra("upgrade", false);
+        String ign = user.getIgn();
+        String password = user.getPassword();
+        boolean upgrade = true;
         int elo = (Elo.valueOf((String) eloSpinner.getSelectedItem())).EloToInt();
         HashSet<Language> languages = checkLanguages();
         Role role1 = Role.valueOf((String) role1Spinner.getSelectedItem());
         Role role2 = Role.valueOf((String) role2Spinner.getSelectedItem());
         int cost = Integer.parseInt(cost_input.getText().toString());
 
-        CoachParams coachParams = new CoachParams(ign, password, context, "register", elo, languages, role1, role2, cost, upgrade);
+        CoachParams coachParams = new CoachParams(ign, password, context, "updateInfo", elo, languages, role1, role2, cost, upgrade);
 
         return coachParams;
     }

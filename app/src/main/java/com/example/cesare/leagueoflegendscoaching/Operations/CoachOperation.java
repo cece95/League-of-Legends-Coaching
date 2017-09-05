@@ -44,6 +44,9 @@ public class CoachOperation extends AsyncTask<CoachParams, Integer, Integer> {
         if (requestType == "register") {
             route = "coachRegistration/";
         }
+        else if(requestType == "updateInfo"){
+            route = "updateInfo/";
+        }
 
         String complete_url = domain + route;
 
