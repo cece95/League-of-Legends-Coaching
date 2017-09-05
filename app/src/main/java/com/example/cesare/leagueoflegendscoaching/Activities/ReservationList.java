@@ -9,12 +9,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters.HTBAdapter;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.HourToggleButton;
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
+import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.ReserveParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.ReserveOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -126,8 +126,7 @@ public class ReservationList extends ListActivity {
                         }
 
                         if (reservation == 11 || reservation == 12){
-                            Toast toast = Toast.makeText(ReservationList.this, "Database error", Toast.LENGTH_SHORT);
-                            toast.show();
+                            Security.createToast("Database error", ReservationList.this);
                         }
 
                     } catch (InterruptedException e) {
@@ -137,8 +136,7 @@ public class ReservationList extends ListActivity {
                     }
                 }
                 else{
-                    Toast toast = Toast.makeText(ReservationList.this, "Select consecutive hours", Toast.LENGTH_SHORT);
-                    toast.show();
+                    Security.createToast("Select consecutive hours", ReservationList.this);
                 }
             }
         });

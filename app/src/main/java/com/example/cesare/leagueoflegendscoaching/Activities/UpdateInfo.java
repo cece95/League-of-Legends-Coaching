@@ -11,10 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton;
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
+import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.CoachOperation;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.CoachParams;
@@ -86,8 +86,7 @@ public class UpdateInfo extends Activity {
         try {
             coachParams = getParams();
             if (coachParams.languages.isEmpty()){
-                Toast toast = Toast.makeText(context, "Select at least one language", Toast.LENGTH_SHORT);
-                toast.show();
+                Security.createToast("Select at least one language", this);
                 return null;
             }
 
@@ -95,8 +94,7 @@ public class UpdateInfo extends Activity {
 
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InterruptedException |  ExecutionException e) {
             e.printStackTrace();
-            Toast toast = Toast.makeText(context, "Registration Error", Toast.LENGTH_SHORT);
-            toast.show();
+            Security.createToast("Registration Error", this);
             return null;
         }
 
@@ -110,29 +108,25 @@ public class UpdateInfo extends Activity {
             break;
 
             case 11: {
-                Toast toast = Toast.makeText(context, "User already in database", Toast.LENGTH_SHORT);
-                toast.show();
+                Security.createToast("User already in database", this);
                 risIntent = null;
             }
             break;
 
             case 12: {
-                Toast toast = Toast.makeText(context, "Database Error", Toast.LENGTH_SHORT);
-                toast.show();
+                Security.createToast("Database Error", this);
                 risIntent = null;
             }
             break;
 
             case 13: {
-                Toast toast = Toast.makeText(context, "Username not valid", Toast.LENGTH_SHORT);
-                toast.show();
+                Security.createToast("Username not valid", this);
                 risIntent = null;
             }
             break;
 
             case 404: {
-                Toast toast = Toast.makeText(context, "No Internet Connection", Toast.LENGTH_SHORT);
-                toast.show();
+                Security.createToast("No Internet Connection", this);
                 risIntent = null;
             }
         }

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.Classes.Security;
@@ -63,8 +62,7 @@ public class Login extends Activity {
             params = new UserParams(ign, password, context, "login");
             login = new UserOperation().execute(params).get();
         } catch (InterruptedException | ExecutionException | NoSuchAlgorithmException | UnsupportedEncodingException e) {
-            Toast toast = Toast.makeText(context, "Login Error", Toast.LENGTH_SHORT);
-            toast.show();
+            Security.createToast("Login Error", this);
             return null;
         }
 
