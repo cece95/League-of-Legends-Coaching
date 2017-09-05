@@ -15,13 +15,15 @@ public class UserParams {
     String ign;
     String password;
     String requestType;
+    String token;
     Context context;
 
-    public UserParams(String ign, String password, Context context, String requestType) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public UserParams(String ign, String password, Context context, String requestType, String token) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         this.ign = ign;
         this.password = Security.SHA1(password);
         this.context = context;
         this.requestType = requestType;
+        this.token = token;
     }
 
     public String getIgn() {
@@ -39,4 +41,8 @@ public class UserParams {
     public Context getContext() {
         return context;
     }
+
+    public String getToken() {return token; }
+
+
 }
