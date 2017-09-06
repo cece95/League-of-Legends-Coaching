@@ -41,6 +41,7 @@
         <item name="android:dayOfWeekTextAppearance" tools:targetApi="21"> @color/green </item>
         <item name="android:colorAccent" tools:targetApi="21"> @color/green </item>
         <item name="android:headerMonthTextAppearance" tools:targetApi="21">@color/green</item>
+        <item name="android:textColorPrimary">@color/green</item>
     </style>
 
 
