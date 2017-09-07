@@ -21,7 +21,7 @@ public class DeleteParams {
         this.context = c;
         this.start = start;
         this.end = end;
-        this.user = LoggedUser.getIstance(null, null, false).getIgn();
+        this.user = LoggedUser.getIstance(null, null, false, context).getIgn();
         this.coach = coach;
         this.date = date;
         this.key = key;

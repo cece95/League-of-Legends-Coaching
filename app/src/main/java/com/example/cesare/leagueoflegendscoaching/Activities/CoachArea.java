@@ -23,7 +23,7 @@ public class CoachArea extends Activity {
         setContentView(R.layout.activity_coach_area);
         shaker = new ShakeDetector(this);
 
-        LoggedUser loggedUser = LoggedUser.getIstance(null, null, false);
+        LoggedUser loggedUser = LoggedUser.getIstance(null, null, false, this);
 
         final TextView welcome = (TextView) findViewById(R.id.welcomeMessage);
         welcome.setText("Welcome " + loggedUser.getIgn());
@@ -61,7 +61,7 @@ public class CoachArea extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CoachArea.this, Home.class);
-                LoggedUser.logout();
+                LoggedUser.logout(v.getContext());
                 startActivity(intent);
                 finish();
             }

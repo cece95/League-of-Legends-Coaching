@@ -23,7 +23,7 @@ public class StudentArea extends Activity {
         setContentView(R.layout.activity_student_area);
         shaker = new ShakeDetector(this);
 
-        final LoggedUser loggedUser = LoggedUser.getIstance(null, null, false);
+        final LoggedUser loggedUser = LoggedUser.getIstance(null, null, false, this);
 
         final TextView welcome = (TextView) findViewById(R.id.welcomeMessage);
         welcome.setText("Welcome "+loggedUser.getIgn());
@@ -70,7 +70,7 @@ public class StudentArea extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StudentArea.this, Home.class);
-                LoggedUser.logout();
+                LoggedUser.logout(v.getContext());
                 startActivity(intent);
                 finish();
             }

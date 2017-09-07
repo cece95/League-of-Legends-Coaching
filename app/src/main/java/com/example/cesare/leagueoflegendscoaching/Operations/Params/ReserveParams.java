@@ -30,7 +30,7 @@ public class ReserveParams {
         this.context = c;
         this.start = start;
         this.end = end+1;
-        this.user = LoggedUser.getIstance(null, null, false).getIgn();
+        this.user = LoggedUser.getIstance(null, null, false, context).getIgn();
         this.coach = coach;
         this.date = date;
         this.role1 = role1;

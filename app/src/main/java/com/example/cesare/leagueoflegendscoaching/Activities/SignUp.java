@@ -97,7 +97,7 @@ public class SignUp extends Activity {
                 case 10:
                 case 20:{
                     risIntent = new Intent(context, StudentArea.class);
-                    LoggedUser.getIstance(params.getIgn(), params.getPassword(), false);
+                    LoggedUser.getIstance(params.getIgn(), params.getPassword(), false, context);
                 }
                 break;
 
