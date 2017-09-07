@@ -44,6 +44,8 @@ public class UserOperation extends AsyncTask<UserParams, Integer, Integer>{
             route = "userRegistration/";
         } else if (requestType == "login"){
             route = "userLogin/";
+        } else if (requestType == "token"){
+            route = "saveToken/";
         }
 
         String complete_url = domain + route;
@@ -76,6 +78,7 @@ public class UserOperation extends AsyncTask<UserParams, Integer, Integer>{
                 JSONObject jsonParam = new JSONObject();
                 jsonParam.put("ign", params[0].getIgn());
                 jsonParam.put("password", params[0].getPassword());
+                jsonParam.put("token", params[0].getToken());
 
                 Log.d("JSON", "Json: "+jsonParam);
 

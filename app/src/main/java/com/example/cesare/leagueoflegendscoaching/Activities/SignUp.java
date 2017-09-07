@@ -15,6 +15,7 @@ import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.UserParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.UserOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -76,21 +77,27 @@ public class SignUp extends Activity {
                 return risIntent;
             }
 
+            String token = FirebaseInstanceId.getInstance().getToken();
             //altrimenti completo la registrazione
             int registration;
             UserParams params;
             try {
-                params = new UserParams(ign, password, context, "register");
+                params = new UserParams(ign, password, context, "register", token);
                 registration = new UserOperation().execute(params).get();
+                if (registration == 10 && token != null){
+                    params = new UserParams(ign, password, context, "token", token);
+                    registration = registration + new UserOperation().execute(params).get();
+                }
             } catch (InterruptedException | ExecutionException | NoSuchAlgorithmException | UnsupportedEncodingException e) {
                 Security.createToast("Registration Error", this);
                 return null;
             }
 
             switch (registration){
-                case 10:{
+                case 10:
+                case 20:{
                     risIntent = new Intent(context, StudentArea.class);
-                    LoggedUser l = LoggedUser.getIstance(params.getIgn(), params.getPassword(), false);
+                    LoggedUser.getIstance(params.getIgn(), params.getPassword(), false);
                 }
                 break;
 
@@ -108,6 +115,12 @@ public class SignUp extends Activity {
 
                 case 13: {
                     Security.createToast("Username not valid", this);
+                    risIntent = null;
+                }
+                break;
+
+                case 21:{
+                    Security.createToast("Error saving device's token", this);
                     risIntent = null;
                 }
                 break;

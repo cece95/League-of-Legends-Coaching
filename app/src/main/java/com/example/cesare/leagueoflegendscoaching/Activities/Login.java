@@ -59,7 +59,7 @@ public class Login extends Activity {
         int login = 0;
         UserParams params;
         try{
-            params = new UserParams(ign, password, context, "login");
+            params = new UserParams(ign, password, context, "login", null);
             login = new UserOperation().execute(params).get();
         } catch (InterruptedException | ExecutionException | NoSuchAlgorithmException | UnsupportedEncodingException e) {
             Security.createToast("Login Error", this);

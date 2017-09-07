@@ -11,6 +11,8 @@ public class LoggedUser {
         private String password;
         private boolean isCoach;
 
+        public static String token;
+
         private LoggedUser(String ign, String password, boolean isCoach){
             this.ign = ign;
             this.password = password;
