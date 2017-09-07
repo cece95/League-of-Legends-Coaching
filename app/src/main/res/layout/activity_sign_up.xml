@@ -52,8 +52,7 @@
                 android:ems="10"
                 android:inputType="text"
                 android:layout_margin="@dimen/margin"
-                android:background="@drawable/not_selected_edit_text"
-                android:textColor="@color/white"/>
+                style="@style/inputStyle"/>
 
             <TextView
                 android:id="@+id/password_label"
@@ -71,8 +70,7 @@
                 android:ems="10"
                 android:inputType="textPassword"
                 android:layout_margin="@dimen/margin"
-                android:background="@drawable/not_selected_edit_text"
-                android:textColor="@color/white"/>
+                style="@style/inputStyle"/>
 
             <TextView
                 android:id="@+id/repeatPassword_label"
@@ -90,8 +88,7 @@
                 android:ems="10"
                 android:inputType="textPassword"
                 android:layout_margin="@dimen/margin"
-                android:background="@drawable/not_selected_edit_text"
-                android:textColor="@color/white"/>
+                style="@style/inputStyle"/>
 
             <CheckBox
                 android:id="@+id/coach_checkBox"
