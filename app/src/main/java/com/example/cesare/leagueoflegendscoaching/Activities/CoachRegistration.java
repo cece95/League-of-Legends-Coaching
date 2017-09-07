@@ -18,10 +18,13 @@ import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.CoachOperation;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.CoachParams;
+import com.example.cesare.leagueoflegendscoaching.Operations.Params.UserParams;
+import com.example.cesare.leagueoflegendscoaching.Operations.UserOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
 import com.example.cesare.leagueoflegendscoaching.Types.Elo;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -105,6 +108,18 @@ public class CoachRegistration extends Activity {
         //procedo alla registrazione
         switch (coachRegistration) {
             case 10: {
+                try {
+                    UserParams params = new UserParams(coachParams.getIgn(), coachParams.getPassword(), context, "token", coachParams.getToken());
+                    new UserOperation().execute(params).get();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
                 risIntent = new Intent(context, CoachArea.class);
                 LoggedUser l = LoggedUser.getIstance(coachParams.getIgn(), coachParams.getPassword(), true);
             }
@@ -167,6 +182,7 @@ public class CoachRegistration extends Activity {
     private CoachParams getParams() throws UnsupportedEncodingException, NoSuchAlgorithmException {
         Intent intent = getIntent();
         Context context = CoachRegistration.this;
+        String token = FirebaseInstanceId.getInstance().getToken();
 
         //Ottengo i campi
         Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);
@@ -184,7 +200,7 @@ public class CoachRegistration extends Activity {
         Role role2 = Role.valueOf((String) role2Spinner.getSelectedItem());
         int cost = Integer.parseInt(cost_input.getText().toString());
 
-        CoachParams coachParams = new CoachParams(ign, password, context, "register", elo, languages, role1, role2, cost, upgrade);
+        CoachParams coachParams = new CoachParams(ign, password, context, "register",token, elo, languages, role1, role2, cost, upgrade);
 
         return coachParams;
     }

@@ -181,7 +181,7 @@ public class UpdateInfo extends Activity {
         Role role2 = Role.valueOf((String) role2Spinner.getSelectedItem());
         int cost = Integer.parseInt(cost_input.getText().toString());
 
-        CoachParams coachParams = new CoachParams(ign, password, context, "updateInfo", elo, languages, role1, role2, cost, upgrade);
+        CoachParams coachParams = new CoachParams(ign, password, context, "updateInfo", null, elo, languages, role1, role2, cost, upgrade);
 
         return coachParams;
     }

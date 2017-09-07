@@ -79,7 +79,7 @@ public class CoachReservation extends Activity {
             public void onDateChanged(DatePicker datePicker, int year, int month, int dayOfMonth) {
                 //get day
                 GregorianCalendar date = new GregorianCalendar(year, month, dayOfMonth);
-                int dayOfWeek = date.get(Calendar.DAY_OF_WEEK) - 1;
+                int dayOfWeek = date.get(Calendar.DAY_OF_WEEK);
                 String dateId = Security.format(date);
 
                 boolean[] staticDay = new boolean[24];

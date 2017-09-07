@@ -24,8 +24,8 @@ public class CoachParams extends UserParams implements Serializable{
     int cost;
     boolean upgrade;
 
-    public CoachParams(String ign, String password, Context context, String requestType, int elo, HashSet<Language> languages, Role role1, Role role2, int cost, boolean upgrade) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        super(ign, password, context, requestType, null);
+    public CoachParams(String ign, String password, Context context, String requestType, String token,int elo, HashSet<Language> languages, Role role1, Role role2, int cost, boolean upgrade) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        super(ign, password, context, requestType, token);
         this.elo = elo;
         this.languages = languages;
         this.role1 = role1;
