@@ -107,6 +107,7 @@
     <!--upgrade-->
     <string name="upgrade">UPGRADE TO COACH</string>
     <string name="updateInfo">UPDATE INFORMATIONS</string>
+    <string name ="modifyInformations">MODIFY INFORMATIONS</string>
 
     <!--eloSpinner-->
     <string-array name="elo_list">

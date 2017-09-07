@@ -118,6 +118,7 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = null;
+        Log.d("position", Integer.toString(position));
         if (position == 0)
         {
             fragment = new ActiveReservations();
