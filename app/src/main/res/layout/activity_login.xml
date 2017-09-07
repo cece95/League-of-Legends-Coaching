@@ -50,9 +50,7 @@
                 android:ems="10"
                 android:inputType="text"
                 android:layout_margin="@dimen/margin"
-                android:background="@drawable/custom_edit_text"
-                android:textColor="@color/white"
-                android:textCursorDrawable="@color/white"/>
+                style="@style/inputStyle" />
 
             <TextView
                 android:id="@+id/passwordLogin_label"
@@ -70,9 +68,7 @@
                 android:ems="10"
                 android:inputType="textPassword"
                 android:layout_margin="@dimen/margin"
-                android:background="@drawable/custom_edit_text"
-                android:textColor="@color/white"
-                android:textCursorDrawable="@color/white"/>
+                style="@style/inputStyle"/>
 
         </LinearLayout>
 
