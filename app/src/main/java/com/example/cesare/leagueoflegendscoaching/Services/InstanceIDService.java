@@ -33,7 +33,7 @@ public class InstanceIDService extends FirebaseInstanceIdService {
     }
 
     public void registerToken(String token) throws UnsupportedEncodingException, NoSuchAlgorithmException, ExecutionException, InterruptedException {
-        LoggedUser user = LoggedUser.getIstance(null, null, false);
+        LoggedUser user = LoggedUser.getIstance(null, null, false, this);
         if (user != null){
             UserParams params = new UserParams(user.getIgn(), user.getPassword(), getApplicationContext(), "token", token);
             new UserOperation().execute(params).get();

@@ -69,7 +69,7 @@ public class Login extends Activity {
         switch (login){
             case 20: {
                 risIntent = new Intent(context, StudentArea.class);
-                LoggedUser l = LoggedUser.getIstance(params.getIgn(), params.getPassword(), false);
+                LoggedUser l = LoggedUser.getIstance(params.getIgn(), params.getPassword(), false, context);
             }
             break;
 
@@ -81,7 +81,7 @@ public class Login extends Activity {
 
             case 22:{
                 risIntent = new Intent(context, CoachArea.class);
-                LoggedUser l = LoggedUser.getIstance(params.getIgn(), params.getPassword(), true);
+                LoggedUser l = LoggedUser.getIstance(params.getIgn(), params.getPassword(), true, context);
             }
             break;
 

@@ -121,7 +121,7 @@ public class CoachRegistration extends Activity {
                     e.printStackTrace();
                 }
                 risIntent = new Intent(context, CoachArea.class);
-                LoggedUser l = LoggedUser.getIstance(coachParams.getIgn(), coachParams.getPassword(), true);
+                LoggedUser l = LoggedUser.getIstance(coachParams.getIgn(), coachParams.getPassword(), true, context);
             }
             break;
 

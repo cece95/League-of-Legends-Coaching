@@ -103,7 +103,7 @@ public class UpdateInfo extends Activity {
         switch (coachRegistration) {
             case 10: {
                 risIntent = new Intent(context, CoachArea.class);
-                LoggedUser l = LoggedUser.getIstance(coachParams.getIgn(), coachParams.getPassword(), true);
+                LoggedUser l = LoggedUser.getIstance(coachParams.getIgn(), coachParams.getPassword(), true, context);
             }
             break;
 
@@ -163,7 +163,7 @@ public class UpdateInfo extends Activity {
 
     private CoachParams getParams() throws UnsupportedEncodingException, NoSuchAlgorithmException {
         Context context = UpdateInfo.this;
-        LoggedUser user = LoggedUser.getIstance(null, null, false);
+        LoggedUser user = LoggedUser.getIstance(null, null, false, context);
 
         //Ottengo i campi
         Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);

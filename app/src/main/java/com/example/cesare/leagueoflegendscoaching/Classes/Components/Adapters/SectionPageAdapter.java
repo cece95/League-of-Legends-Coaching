@@ -37,7 +37,7 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
     public SectionPageAdapter(FragmentManager fm, Activity a, Context c, String type) throws ExecutionException, InterruptedException, JSONException, ParseException {
         super(fm);
 
-        String user = LoggedUser.getIstance(null, null, false).getIgn();
+        String user = LoggedUser.getIstance(null, null, false, c).getIgn();
         ScheduleParams params = new ScheduleParams(user, c, type);
         JSONObject json = new ScheduleOperation().execute(params).get();
 

@@ -24,6 +24,8 @@ import java.util.GregorianCalendar;
 
 public class Security {
 
+    public static String PACKAGE_NAME;
+
     private static String convertToHex(byte[] data) {
         StringBuilder buf = new StringBuilder();
         for (byte b : data) {
@@ -70,4 +72,4 @@ public class Security {
         toast.setView(layout);
         toast.show();
     }
-    }
+}

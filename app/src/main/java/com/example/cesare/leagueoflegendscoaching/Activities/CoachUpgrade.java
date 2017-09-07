@@ -37,7 +37,7 @@ public class CoachUpgrade extends Activity {
         upgrade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LoggedUser user = LoggedUser.getIstance(null, null, false);
+                LoggedUser user = LoggedUser.getIstance(null, null, false, v.getContext());
                 Intent intent = new Intent(CoachUpgrade.this, CoachRegistration.class);
                 intent.putExtra("ign", user.getIgn());
                 intent.putExtra("password", user.getPassword());
