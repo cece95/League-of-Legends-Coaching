@@ -193,9 +193,7 @@
                         android:ems="10"
                         android:text="0"
                         android:inputType="number"
-                        android:background="@drawable/not_selected_edit_text"
-                        android:textColor="@color/white"
-                        android:textCursorDrawable="@color/white"/>
+                        style="@style/inputStyle"/>
                 </LinearLayout>
 
                 <TextView
