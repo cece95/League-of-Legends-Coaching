@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "662711680925",
+    "firebase_url": "https://leagueoflegendscoaching-2645c.firebaseio.com",
+    "project_id": "leagueoflegendscoaching-2645c",
+    "storage_bucket": "leagueoflegendscoaching-2645c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662711680925:android:e66364005cffd144",
+        "android_client_info": {
+          "package_name": "com.example.cesare.leagueoflegendscoaching"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "662711680925-pjt7ve1usc4hm7ijbq6f1lbu0jsbjuef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cesare.leagueoflegendscoaching",
+            "certificate_hash": "a1dbe7e928fee3017072faae03cb86e3a01630e9"
+          }
+        },
+        {
+          "client_id": "662711680925-nm20jptaigo1t2dakltfkh4tlo4q7grv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjlnL8jN5i8ogXIX8rZ_Ok8mDB1o9AFjc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "662711680925-nm20jptaigo1t2dakltfkh4tlo4q7grv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
