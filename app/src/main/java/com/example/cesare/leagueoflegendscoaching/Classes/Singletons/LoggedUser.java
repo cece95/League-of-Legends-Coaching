@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Locale;
 
 /**
  * Created by cesare on 05/08/2017.
@@ -23,19 +24,21 @@ public class LoggedUser {
     private String ign;
     private String password;
     private boolean isCoach;
+    private String language;
 
-    public static String token;
 
     public LoggedUser(String ign, String password, boolean isCoach) {
         this.ign = ign;
         this.password = password;
         this.isCoach = isCoach;
+        this.language = Locale.getDefault().getLanguage();
     }
 
     public LoggedUser(JSONObject obj) throws JSONException {
         this.ign = obj.getString("ign");
         this.password = obj.getString("password");
         this.isCoach = obj.getBoolean("isCoach");
+        this.language = obj.getString("language");
     }
 
     public static LoggedUser getIstance(String ign, String password, boolean isCoach, Context c) {
@@ -47,7 +50,7 @@ public class LoggedUser {
                 } else {
                     return null;
                 }
-            }else {
+            } else {
                 mInstance = new LoggedUser(ign, password, isCoach);
                 saveUser(mInstance, c);
             }
@@ -93,6 +96,7 @@ public class LoggedUser {
             json.put("ign", user.getIgn());
             json.put("password", user.getPassword());
             json.put("isCoach", user.isCoach());
+            json.put("language", user.getLanguage());
 
             String jsonString = json.toString();
             Log.d("SAVING USER", jsonString);
@@ -133,5 +137,9 @@ public class LoggedUser {
             e.printStackTrace();
         }
         return res;
+    }
+
+    public String getLanguage() {
+        return language;
     }
 }

@@ -33,7 +33,7 @@ public class PastReservations extends ListFragment {
         }
         if (activity != null){
             Log.d("STATUS", "ListCreation");
-            ListAdapter adapter = new ReservationFrameAdapter(activity, R.layout.reservation_frame, reservationFrameList);
+            ListAdapter adapter = new ReservationFrameAdapter(activity, R.layout.reservation_frame, reservationFrameList, true);
             Log.d("STATUS", "ListCreated");
             setListAdapter(adapter);
             Log.d("STATUS", "AdapterSet");

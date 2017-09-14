@@ -66,16 +66,7 @@ public class ReserveOperation extends AsyncTask<ReserveParams, Integer, Integer>
 
                 urlConnection.connect();
 
-                JSONObject jsonParam = new JSONObject();
-                jsonParam.put("schedule", params[0].getArray());
-                jsonParam.put("start", params[0].getStart());
-                jsonParam.put("end", params[0].getEnd());
-                jsonParam.put("student", params[0].getUser());
-                jsonParam.put("coach", params[0].getCoach());
-                jsonParam.put("date", params[0].getDate());
-                jsonParam.put("role1", params[0].getRole1());
-                jsonParam.put("role2", params[0].getRole2());
-                jsonParam.put("cost", params[0].getCost());
+                JSONObject jsonParam = params[0].prepareToSend();
 
                 Log.d("JSON", "Json: "+jsonParam);
                 params[0].print();

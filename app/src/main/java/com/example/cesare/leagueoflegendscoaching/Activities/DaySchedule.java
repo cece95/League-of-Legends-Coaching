@@ -33,8 +33,7 @@ public class DaySchedule extends Activity {
             public void onClick(View v) {
                 Schedule s = Schedule.getIstance();
                 s.setDay(dayId, getHours());
-                Intent intent = new Intent(DaySchedule.this, WeekSchedule.class);
-                startActivity(intent);
+                onBackPressed();
                 finish();
             }
         });

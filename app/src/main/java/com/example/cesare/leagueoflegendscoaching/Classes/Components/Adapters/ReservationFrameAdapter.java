@@ -21,10 +21,12 @@ import java.util.List;
 
 public class ReservationFrameAdapter extends ArrayAdapter<ReservationFrame> {
     private LayoutInflater frameInflater;
+    private boolean past;
 
-    public ReservationFrameAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<ReservationFrame> objects) {
+    public ReservationFrameAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<ReservationFrame> objects, boolean past) {
         super(context, resource, objects);
         frameInflater = LayoutInflater.from(context);
+        this.past = past;
     }
 
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -32,7 +34,7 @@ public class ReservationFrameAdapter extends ArrayAdapter<ReservationFrame> {
         View frame = null;
         if (reservationFrame instanceof ReservationFrameUser){
             frame = frameInflater.inflate(R.layout.reservation_frame_user, null);
-            reservationFrame.createFrame(frame);
+            ((ReservationFrameUser) reservationFrame).createFrame(frame, past);
         }
         else {
             frame = frameInflater.inflate(R.layout.reservation_frame, null);

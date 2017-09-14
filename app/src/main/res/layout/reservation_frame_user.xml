@@ -73,6 +73,16 @@
             android:background="@drawable/custom_button_small"
             style="@style/ButtonStyle"/>
 
+        <Button
+            android:id="@+id/rateButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/rate"
+            android:background="@drawable/custom_button_small"
+            android:visibility="gone"
+            style="@style/ButtonStyle"/>
+
     </LinearLayout>
 
 

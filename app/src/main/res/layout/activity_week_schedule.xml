@@ -60,6 +60,7 @@
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
                         android:layout_weight="1"
+                        android:layout_marginRight="@dimen/margin"
                         style="@style/ButtonStyle"
                         android:background="@drawable/custom_button_small"/>
 
@@ -86,6 +87,7 @@
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
                         android:layout_weight="1"
+                        android:layout_marginRight="@dimen/margin"
                         style="@style/ButtonStyle"
                         android:background="@drawable/custom_button_small"/>
 
@@ -112,6 +114,7 @@
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
                         android:layout_weight="1"
+                        android:layout_marginRight="@dimen/margin"
                         style="@style/ButtonStyle"
                         android:background="@drawable/custom_button_small"/>
 
@@ -137,6 +140,7 @@
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
                         android:layout_weight="1"
+                        android:layout_marginRight="@dimen/margin"
                         style="@style/ButtonStyle"
                         android:background="@drawable/custom_button_small"/>
 
@@ -162,6 +166,7 @@
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
                         android:layout_weight="1"
+                        android:layout_marginRight="@dimen/margin"
                         style="@style/ButtonStyle"
                         android:background="@drawable/custom_button_small"/>
 
@@ -187,6 +192,7 @@
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
                         android:layout_weight="1"
+                        android:layout_marginRight="@dimen/margin"
                         style="@style/ButtonStyle"
                         android:background="@drawable/custom_button_small"/>
 
@@ -213,6 +219,7 @@
                         android:textSize="@dimen/label"
                         android:text="@string/change_schedule"
                         android:layout_weight="1"
+                        android:layout_marginRight="@dimen/margin"
                         style="@style/ButtonStyle"
                         android:background="@drawable/custom_button_small"/>
 
@@ -234,8 +241,7 @@
                 android:textSize="@dimen/label"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/custom_button_small"
-                style="@style/ButtonStyle"
-                android:gravity="center_horizontal"/>
+                style="@style/ButtonStyle" />
 
         </LinearLayout>
 

@@ -2,10 +2,13 @@ package com.example.cesare.leagueoflegendscoaching.Operations.Params;
 
 import android.content.Context;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.Schedule;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
@@ -32,6 +35,22 @@ public class CoachParams extends UserParams implements Serializable{
         this.role2 = role2;
         this.cost = cost;
         this.upgrade = upgrade;
+    }
+
+    public JSONObject prepareToSend() throws JSONException {
+        JSONObject jsonParam = new JSONObject();
+
+        jsonParam.put("ign", ign);
+        jsonParam.put("password", password);
+        jsonParam.put("elo", elo);
+        jsonParam.put("languages", getLanguages());
+        jsonParam.put("role1", role1);
+        jsonParam.put("role2", role2);
+        jsonParam.put("cost", cost);
+        jsonParam.put("upgrade", upgrade);
+        jsonParam.put("schedule", Schedule.getIstance().getSchedule());
+
+        return jsonParam;
     }
 
     public int getElo() {

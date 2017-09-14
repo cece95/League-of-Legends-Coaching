@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.RateListener;
+import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.DeleteOperation;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.DeleteParams;
 import com.example.cesare.leagueoflegendscoaching.R;
@@ -38,8 +40,7 @@ public class ReservationFrameUser extends ReservationFrame {
         this.cost = json.getInt("cost");
     }
 
-    @Override
-    public View createFrame(final View frame) {
+    public View createFrame(final View frame, final boolean past) {
         TextView nameTextView = (TextView) frame.findViewById(R.id.nameRes);
         nameTextView.setText(coach);
 
@@ -57,22 +58,32 @@ public class ReservationFrameUser extends ReservationFrame {
         hourTextView.setText("Hours: " + this.start + " - " + this.end);
 
         Button delete = (Button) frame.findViewById(R.id.deleteRes);
-        delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DeleteParams params = new DeleteParams(frame.getContext(), start, end, coach, dateString, key);
-                try {
-                    int result = new DeleteOperation().execute(params).get();
-                    activity.finish();
-                    activity.startActivity(activity.getIntent());
+        Button rate = (Button) frame.findViewById(R.id.rateButton);
+        if (past){
+            delete.setVisibility(View.GONE);
+            rate.setVisibility(View.VISIBLE);
 
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
+            rate.setOnClickListener(new RateListener(new LoggedUser(null, null, false).getIgn(), coach, frame));
+        }
+        else{
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    DeleteParams params = new DeleteParams(frame.getContext(), start, end, coach, dateString, key);
+                    try {
+                        int result = new DeleteOperation().execute(params).get();
+                        activity.finish();
+                        activity.startActivity(activity.getIntent());
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-        });
+            });
+        }
+
 
         return frame;
     }

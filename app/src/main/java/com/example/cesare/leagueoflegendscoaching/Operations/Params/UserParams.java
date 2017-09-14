@@ -4,6 +4,9 @@ import android.content.Context;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
@@ -24,6 +27,16 @@ public class UserParams {
         this.context = context;
         this.requestType = requestType;
         this.token = token;
+    }
+
+    public JSONObject prepareToSend() throws JSONException {
+        JSONObject jsonParam = new JSONObject();
+
+        jsonParam.put("ign", ign);
+        jsonParam.put("password", password);
+        jsonParam.put("token", token);
+
+        return  jsonParam;
     }
 
     public String getIgn() {

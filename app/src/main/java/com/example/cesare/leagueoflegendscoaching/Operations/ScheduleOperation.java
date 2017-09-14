@@ -76,9 +76,7 @@ public class ScheduleOperation extends AsyncTask<ScheduleParams, Integer, JSONOb
 
                 urlConnection.connect();
 
-                JSONObject jsonParam = new JSONObject();
-
-                jsonParam.put("user", params[0].getUser());
+                JSONObject jsonParam = params[0].prepareToSend();
 
                 Log.d("JSON", "Json: "+jsonParam);
 

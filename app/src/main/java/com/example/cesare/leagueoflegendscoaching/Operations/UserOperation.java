@@ -76,9 +76,6 @@ public class UserOperation extends AsyncTask<UserParams, Integer, Integer>{
                 urlConnection.connect();
 
                 JSONObject jsonParam = new JSONObject();
-                jsonParam.put("ign", params[0].getIgn());
-                jsonParam.put("password", params[0].getPassword());
-                jsonParam.put("token", params[0].getToken());
 
                 Log.d("JSON", "Json: "+jsonParam);
 

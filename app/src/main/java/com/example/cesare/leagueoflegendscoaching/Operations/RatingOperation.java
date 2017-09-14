@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Security;
-import com.example.cesare.leagueoflegendscoaching.Operations.Params.CoachParams;
+import com.example.cesare.leagueoflegendscoaching.Operations.Params.RatingParams;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,15 +19,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Created by cesare on 05/06/2017.
+ * Created by cesare on 14/09/2017.
  */
 
-public class CoachOperation extends AsyncTask<CoachParams, Integer, Integer> {
-    //Domain url
+public class RatingOperation extends AsyncTask<RatingParams, Integer, Integer> {
     final static String domain = "https://league-of-legends-coaching.herokuapp.com/";
 
     @Override
-    protected Integer doInBackground(CoachParams... params) {
+    protected Integer doInBackground(RatingParams... params) {
         int control = 0;
 
         if(!Security.isNetworkAvailable(params[0].getContext())){
@@ -40,11 +39,11 @@ public class CoachOperation extends AsyncTask<CoachParams, Integer, Integer> {
         //request url creation
         String route = null;
         String requestType = params[0].getRequestType();
-        if (requestType == "register") {
-            route = "coachRegistration/";
+        if (requestType == "GET") {
+            route = "getRating/";
         }
-        else if(requestType == "updateInfo"){
-            route = "updateInfo/";
+        else if(requestType == "SET"){
+            route = "saveRating/";
         }
 
         String complete_url = domain + route;
@@ -56,11 +55,9 @@ public class CoachOperation extends AsyncTask<CoachParams, Integer, Integer> {
         try {
             url = new URL(complete_url);
         } catch (MalformedURLException e) {
-            control = 3;
+            control = 8;
             e.printStackTrace();
         }
-
-        Log.d("SHA1", "Sha1 password: "+params[0].getPassword());
 
         if (url != null) {
             try {
@@ -75,7 +72,6 @@ public class CoachOperation extends AsyncTask<CoachParams, Integer, Integer> {
                 urlConnection.connect();
 
                 JSONObject jsonParam = params[0].prepareToSend();
-
 
                 Log.d("JSON", "Json: "+jsonParam);
 
@@ -105,13 +101,13 @@ public class CoachOperation extends AsyncTask<CoachParams, Integer, Integer> {
 
                 }
             } catch (UnsupportedEncodingException e) {
-                control = 4;
+                control = 9;
                 e.printStackTrace();
             } catch (IOException e) {
-                control = 5;
+                control = 10;
                 e.printStackTrace();
             } catch (JSONException e) {
-                control = 6;
+                control = 11;
                 e.printStackTrace();
             }
         }
@@ -119,3 +115,4 @@ public class CoachOperation extends AsyncTask<CoachParams, Integer, Integer> {
         return control;
     }
 }
+

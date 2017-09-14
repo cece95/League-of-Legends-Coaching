@@ -67,17 +67,7 @@ public class SearchOperation  extends AsyncTask<SearchParams, Integer, JSONArray
 
                 urlConnection.connect();
 
-                JSONObject jsonParam = new JSONObject();
-
-                jsonParam.put("nameCoach", params[0].getNameCoach());
-                jsonParam.put("elo", params[0].getElo());
-                jsonParam.put("role", params[0].getRole());
-                jsonParam.put("idChampion1", params[0].getIdChampion1());
-                jsonParam.put("idChampion2", params[0].getIdChampion2());
-                jsonParam.put("idChampion3", params[0].getIdChampion3());
-                jsonParam.put("cost", params[0].getCost());
-                jsonParam.put("languages", params[0].getLanguages());
-
+                JSONObject jsonParam = params[0].prepareToSend();
 
                 Log.d("JSON", "Json: "+jsonParam);
 

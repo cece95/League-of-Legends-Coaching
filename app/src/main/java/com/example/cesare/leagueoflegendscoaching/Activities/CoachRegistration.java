@@ -29,6 +29,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 public class CoachRegistration extends Activity {
@@ -41,8 +42,8 @@ public class CoachRegistration extends Activity {
         setContentView(R.layout.activity_coach_registration);
         shaker = new ShakeDetector(this);
 
-        ToggleImageButton eng_flag = (ToggleImageButton) findViewById(R.id.flag_UnitedKingdom_ImageButton);
-        eng_flag.setChecked(true);
+        ToggleImageButton selected_flag = getLocalLanguage();
+        selected_flag.setChecked(true);
 
         // Create elo spinner
         Spinner eloSpinner = (Spinner) findViewById(R.id.elo_spinner);
@@ -203,6 +204,23 @@ public class CoachRegistration extends Activity {
         CoachParams coachParams = new CoachParams(ign, password, context, "register",token, elo, languages, role1, role2, cost, upgrade);
 
         return coachParams;
+    }
+
+    private ToggleImageButton getLocalLanguage(){
+        String localLanguage = Locale.getDefault().getLanguage();
+        ToggleImageButton res;
+        switch (localLanguage){
+            case "it":  res = (ToggleImageButton) findViewById(R.id.flag_Italy_ImageButton);
+                break;
+            case "fr": res = (ToggleImageButton) findViewById(R.id.flag_France_ImageButton);
+                break;
+            case "de": res = (ToggleImageButton) findViewById(R.id.flag_Germany_ImageButton);
+                break;
+            case "es": res = (ToggleImageButton) findViewById(R.id.flag_Spain_ImageButton);
+                break;
+            default: res = (ToggleImageButton) findViewById(R.id.flag_UnitedKingdom_ImageButton);
+        }
+        return res;
     }
 
     @Override

@@ -30,7 +30,7 @@ public class ActiveReservations extends ListFragment {
 
 
         if (activity != null){
-            ListAdapter adapter = new ReservationFrameAdapter(activity, R.layout.reservation_frame, reservationFrameList);
+            ListAdapter adapter = new ReservationFrameAdapter(activity, R.layout.reservation_frame, reservationFrameList, false);
             setListAdapter(adapter);
         }
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/confirmRating"
+        android:layout_width="@dimen/button_small_width"
+        android:layout_height="@dimen/button_small_height"
+        android:text="@string/rate"
+        android:textSize="@dimen/button_text"/>
+</LinearLayout>

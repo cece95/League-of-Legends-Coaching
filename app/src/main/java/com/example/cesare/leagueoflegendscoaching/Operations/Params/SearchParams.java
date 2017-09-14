@@ -5,6 +5,9 @@ import android.content.Context;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashSet;
 
 /**
@@ -28,11 +31,25 @@ public class SearchParams {
         this.role = role;
         this.idChampion1 = idChampion1;
         this.idChampion2 = idChampion2;
-
         this.idChampion3 = idChampion3;
         this.cost = cost;
         this.languages = languages;
         this.context = context;
+    }
+
+    public JSONObject prepareToSend() throws JSONException {
+        JSONObject jsonParam = new JSONObject();
+
+        jsonParam.put("nameCoach", nameCoach);
+        jsonParam.put("elo", elo);
+        jsonParam.put("role", role);
+        jsonParam.put("idChampion1", idChampion1);
+        jsonParam.put("idChampion2", idChampion2);
+        jsonParam.put("idChampion3", idChampion3);
+        jsonParam.put("cost", cost);
+        jsonParam.put("languages", languages);
+
+        return jsonParam;
     }
 
     public String getNameCoach() {

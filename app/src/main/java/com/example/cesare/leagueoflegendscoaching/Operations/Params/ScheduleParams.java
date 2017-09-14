@@ -2,6 +2,9 @@ package com.example.cesare.leagueoflegendscoaching.Operations.Params;
 
 import android.content.Context;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by cesare on 24/08/2017.
  */
@@ -15,6 +18,14 @@ public class ScheduleParams {
         this.user = s;
         this.context = c;
         this.requestType = r;
+    }
+
+    public JSONObject prepareToSend() throws JSONException {
+        JSONObject jsonParam = new JSONObject();
+
+        jsonParam.put("user", user);
+
+        return jsonParam;
     }
 
     public String getUser() {

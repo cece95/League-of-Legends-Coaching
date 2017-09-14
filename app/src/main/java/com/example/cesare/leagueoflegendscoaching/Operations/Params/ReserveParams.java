@@ -5,6 +5,8 @@ import android.content.Context;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by asus on 28/08/2017.
@@ -36,6 +38,22 @@ public class ReserveParams {
         this.role1 = role1;
         this.role2 = role2;
         this.cost = cost;
+    }
+
+    public JSONObject prepareToSend() throws JSONException {
+        JSONObject jsonParam = new JSONObject();
+
+        jsonParam.put("schedule", array);
+        jsonParam.put("start", start);
+        jsonParam.put("end", end);
+        jsonParam.put("student", user);
+        jsonParam.put("coach", coach);
+        jsonParam.put("date", date);
+        jsonParam.put("role1", role1);
+        jsonParam.put("role2", role2);
+        jsonParam.put("cost", cost);
+
+        return  jsonParam;
     }
 
     public JSONArray getArray() {
