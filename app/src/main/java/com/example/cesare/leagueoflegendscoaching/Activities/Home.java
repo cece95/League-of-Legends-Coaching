@@ -3,12 +3,10 @@ package com.example.cesare.leagueoflegendscoaching.Activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
-import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.R;
 
@@ -20,8 +18,6 @@ public class Home extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        Log.d("CREATE", "HOME");
 
         LoggedUser loggedUser = LoggedUser.getIstance(null, null, false, this);
         if (loggedUser != null) {
@@ -35,7 +31,7 @@ public class Home extends Activity{
             finish();
         }
 
-        Security.PACKAGE_NAME = getApplicationContext().getPackageName();
+
 
         //add listener for login button
         final Button loginButton = (Button) findViewById(R.id.login_button);

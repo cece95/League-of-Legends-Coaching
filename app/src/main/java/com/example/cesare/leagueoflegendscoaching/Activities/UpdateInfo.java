@@ -14,11 +14,11 @@ import android.widget.Spinner;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton;
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
-import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.CoachOperation;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.CoachParams;
 import com.example.cesare.leagueoflegendscoaching.R;
+import com.example.cesare.leagueoflegendscoaching.Services.Security;
 import com.example.cesare.leagueoflegendscoaching.Types.Elo;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;
@@ -81,7 +81,7 @@ public class UpdateInfo extends Activity {
     private Intent createIntent(Context context){
         Intent risIntent = null;
 
-        CoachParams coachParams = null;
+        CoachParams coachParams;
         int coachRegistration;
         try {
             coachParams = getParams();
@@ -174,16 +174,13 @@ public class UpdateInfo extends Activity {
         //ottengo i parametri
         String ign = user.getIgn();
         String password = user.getPassword();
-        boolean upgrade = true;
         int elo = (Elo.valueOf((String) eloSpinner.getSelectedItem())).EloToInt();
         HashSet<Language> languages = checkLanguages();
         Role role1 = Role.valueOf((String) role1Spinner.getSelectedItem());
         Role role2 = Role.valueOf((String) role2Spinner.getSelectedItem());
         int cost = Integer.parseInt(cost_input.getText().toString());
 
-        CoachParams coachParams = new CoachParams(ign, password, context, "updateInfo", null, elo, languages, role1, role2, cost, upgrade);
-
-        return coachParams;
+        return new CoachParams(ign, password, context, "updateInfo", null, elo, languages, role1, role2, cost, true);
     }
 
     @Override

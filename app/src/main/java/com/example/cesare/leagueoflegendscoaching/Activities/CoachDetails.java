@@ -4,7 +4,6 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.Button;
@@ -37,7 +36,6 @@ public class CoachDetails extends ListActivity {
 
         try {
             JSONObject json = new JSONObject(jsonString);
-            Log.d("INFO", json.toString());
 
             //coachFrame
             final CoachFrame coachFrame = new CoachFrame(json);

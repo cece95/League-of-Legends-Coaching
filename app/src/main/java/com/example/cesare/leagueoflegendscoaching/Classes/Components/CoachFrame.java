@@ -1,6 +1,5 @@
 package com.example.cesare.leagueoflegendscoaching.Classes.Components;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,18 +16,14 @@ import org.json.JSONObject;
 
 import java.util.HashSet;
 
-/**
- * Created by asus on 12/07/2017.
- */
-
 public class CoachFrame {
-    String name;
-    int elo;
-    Role role1;
-    Role role2;
-    int cost;
-    HashSet<Language> languages;
-    JSONObject extra;
+    private String name;
+    private int elo;
+    private Role role1;
+    private Role role2;
+    private int cost;
+    private HashSet<Language> languages;
+    private JSONObject extra;
 
 
     public CoachFrame(JSONObject json) throws JSONException {
@@ -100,10 +95,5 @@ public class CoachFrame {
 
     public String getName() {
         return name;
-    }
-
-    public void debug(){
-        Log.d("Costo", String.valueOf(this.cost));
-        Log.d("Roles", this.role1+"/"+this.role2);
     }
 }

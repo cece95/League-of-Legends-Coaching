@@ -2,7 +2,7 @@ package com.example.cesare.leagueoflegendscoaching.Operations.Params;
 
 import android.content.Context;
 
-import com.example.cesare.leagueoflegendscoaching.Classes.Security;
+import com.example.cesare.leagueoflegendscoaching.Services.Security;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,16 +10,12 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
-/**
- * Created by cesare on 24/05/2017.
- */
-
 public class UserParams {
     String ign;
     String password;
-    String requestType;
-    String token;
-    Context context;
+    private String requestType;
+    private String token;
+    private Context context;
 
     public UserParams(String ign, String password, Context context, String requestType, String token) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         this.ign = ign;

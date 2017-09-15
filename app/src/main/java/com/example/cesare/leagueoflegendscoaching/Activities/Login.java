@@ -9,11 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
-import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.UserParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.UserOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
+import com.example.cesare.leagueoflegendscoaching.Services.Security;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -56,7 +56,7 @@ public class Login extends Activity {
             return null;
         }
 
-        int login = 0;
+        int login;
         UserParams params;
         try{
             params = new UserParams(ign, password, context, "login", null);

@@ -29,15 +29,10 @@ public class Appointments extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         try {
             viewPagerAdapter = new SectionPageAdapter(getSupportFragmentManager(), this, this, "coachR");
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (ExecutionException  | InterruptedException | JSONException | ParseException e) {
             e.printStackTrace();
         }
+
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);

@@ -98,8 +98,5 @@ public class WeekSchedule extends Activity {
             }
         });
 
-
     }
-
-
 }

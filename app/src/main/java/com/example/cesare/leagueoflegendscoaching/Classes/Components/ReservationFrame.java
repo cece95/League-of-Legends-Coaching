@@ -19,12 +19,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
-/**
- * Created by cesare on 29/08/2017.
- */
-
 public class ReservationFrame implements Serializable{
-    Date date;
+    private Date date;
     String dateString;
     String coach;
     int end;
@@ -63,9 +59,7 @@ public class ReservationFrame implements Serializable{
                     activity.finish();
                     activity.startActivity(activity.getIntent());
 
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
+                } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
                 }
             }

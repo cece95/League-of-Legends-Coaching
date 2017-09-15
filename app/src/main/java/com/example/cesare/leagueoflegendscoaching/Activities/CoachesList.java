@@ -55,11 +55,7 @@ public class CoachesList extends ListActivity {
                 }
                 setListAdapter(new CoachFrameAdapter(this, R.layout.coach_frame, coachFrameList));
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
+        } catch (InterruptedException | ExecutionException | JSONException e) {
             e.printStackTrace();
         }
     }

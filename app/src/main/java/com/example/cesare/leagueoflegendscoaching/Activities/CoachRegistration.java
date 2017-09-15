@@ -14,13 +14,13 @@ import android.widget.Spinner;
 
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton;
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
-import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Classes.Singletons.LoggedUser;
 import com.example.cesare.leagueoflegendscoaching.Operations.CoachOperation;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.CoachParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.UserParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.UserOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
+import com.example.cesare.leagueoflegendscoaching.Services.Security;
 import com.example.cesare.leagueoflegendscoaching.Types.Elo;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 import com.example.cesare.leagueoflegendscoaching.Types.Role;
@@ -75,7 +75,7 @@ public class CoachRegistration extends Activity {
         signupCoach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent coachSignup = createIntent(CoachRegistration.this, getIntent());
+                Intent coachSignup = createIntent(CoachRegistration.this);
                 if (coachSignup != null){
                     startActivity(coachSignup);
                     finish();
@@ -85,10 +85,10 @@ public class CoachRegistration extends Activity {
 
     }
 
-    private Intent createIntent(Context context, Intent intent){
+    private Intent createIntent(Context context){
         Intent risIntent = null;
 
-        CoachParams coachParams = null;
+        CoachParams coachParams;
         int coachRegistration;
         try {
             coachParams = getParams();
@@ -112,15 +112,10 @@ public class CoachRegistration extends Activity {
                 try {
                     UserParams params = new UserParams(coachParams.getIgn(), coachParams.getPassword(), context, "token", coachParams.getToken());
                     new UserOperation().execute(params).get();
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
+                } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InterruptedException | ExecutionException e) {
                     e.printStackTrace();
                 }
+
                 risIntent = new Intent(context, CoachArea.class);
                 LoggedUser l = LoggedUser.getIstance(coachParams.getIgn(), coachParams.getPassword(), true, context);
             }
@@ -201,9 +196,7 @@ public class CoachRegistration extends Activity {
         Role role2 = Role.valueOf((String) role2Spinner.getSelectedItem());
         int cost = Integer.parseInt(cost_input.getText().toString());
 
-        CoachParams coachParams = new CoachParams(ign, password, context, "register",token, elo, languages, role1, role2, cost, upgrade);
-
-        return coachParams;
+        return new CoachParams(ign, password, context, "register",token, elo, languages, role1, role2, cost, upgrade);
     }
 
     private ToggleImageButton getLocalLanguage(){

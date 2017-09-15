@@ -1,8 +1,4 @@
-package com.example.cesare.leagueoflegendscoaching.Classes;
-
-/**
- * Created by cesare on 24/05/2017.
- */
+package com.example.cesare.leagueoflegendscoaching.Services;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,8 +19,6 @@ import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 public class Security {
-
-    public static String PACKAGE_NAME;
 
     private static String convertToHex(byte[] data) {
         StringBuilder buf = new StringBuilder();
@@ -56,8 +50,7 @@ public class Security {
     public static String format(GregorianCalendar calendar){
         SimpleDateFormat fmt = new SimpleDateFormat("dd-MMM-yyyy");
         fmt.setCalendar(calendar);
-        String dateFormatted = fmt.format(calendar.getTime());
-        return dateFormatted;
+        return fmt.format(calendar.getTime());
     }
 
     public static void createToast(String message, Activity a) {
@@ -72,4 +65,5 @@ public class Security {
         toast.setView(layout);
         toast.show();
     }
+
 }

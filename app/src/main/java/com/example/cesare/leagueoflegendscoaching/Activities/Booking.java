@@ -29,13 +29,7 @@ public class Booking extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         try {
             viewPagerAdapter = new SectionPageAdapter(getSupportFragmentManager(), this, this, "user");
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (ExecutionException | InterruptedException | JSONException | ParseException e) {
             e.printStackTrace();
         }
 

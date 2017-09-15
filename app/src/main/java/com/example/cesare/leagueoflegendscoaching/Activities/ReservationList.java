@@ -14,10 +14,10 @@ import android.widget.ToggleButton;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.Adapters.HTBAdapter;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.HourToggleButton;
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
-import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.ReserveParams;
 import com.example.cesare.leagueoflegendscoaching.Operations.ReserveOperation;
 import com.example.cesare.leagueoflegendscoaching.R;
+import com.example.cesare.leagueoflegendscoaching.Services.Security;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,8 +39,6 @@ public class ReservationList extends ListActivity {
         final ArrayList<HourToggleButton> myArrayList = (ArrayList<HourToggleButton>) intent.getSerializableExtra("lista");
         final boolean[] arraybool = (boolean[]) intent.getSerializableExtra("dinamic");
         final String coachString = intent.getStringExtra("coach");
-
-
 
         Log.d("CoachString", coachString);
         if(!isNotEmpty(myArrayList)){
@@ -88,7 +86,7 @@ public class ReservationList extends ListActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<Integer> buttons = new ArrayList<Integer>();
+                ArrayList<Integer> buttons = new ArrayList<>();
                 for (int i = 0 ; i<lsv.getChildCount(); i++) {
                     LinearLayout ll = (LinearLayout) lsv.getChildAt(i);
                     ToggleButton tb = (ToggleButton) ll.getChildAt(0);
@@ -113,8 +111,6 @@ public class ReservationList extends ListActivity {
                         arraybool[buttons.get(i)] = true;
                     }
 
-
-
                     ReserveParams params = new ReserveParams(arraybool, ReservationList.this, buttons.get(0), buttons.get(buttons.size() - 1), finalCoach, date, finalRole1, finalRole2, finalCost);
                     int reservation;
 
@@ -129,9 +125,7 @@ public class ReservationList extends ListActivity {
                             Security.createToast("Database error", ReservationList.this);
                         }
 
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
+                    } catch (InterruptedException | ExecutionException e) {
                         e.printStackTrace();
                     }
                 }

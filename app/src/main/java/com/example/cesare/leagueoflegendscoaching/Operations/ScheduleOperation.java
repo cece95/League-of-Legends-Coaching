@@ -1,26 +1,15 @@
 package com.example.cesare.leagueoflegendscoaching.Operations;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
-import com.example.cesare.leagueoflegendscoaching.Classes.Security;
 import com.example.cesare.leagueoflegendscoaching.Operations.Params.ScheduleParams;
+import com.example.cesare.leagueoflegendscoaching.Services.DAO;
+import com.example.cesare.leagueoflegendscoaching.Services.Security;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-/**
- * Created by cesare on 24/08/2017.
- */
 
 public class ScheduleOperation extends AsyncTask<ScheduleParams, Integer, JSONObject> {
     //Domain url
@@ -41,91 +30,32 @@ public class ScheduleOperation extends AsyncTask<ScheduleParams, Integer, JSONOb
 
         String requestType = params[0].getRequestType();
         String route = null;
-        if (requestType == "coachS") {
-            route = "getSchedule";
+        switch (requestType) {
+            case "coachS":
+                route = "getSchedule";
+                break;
+            case "user":
+                route = "getUserReservation";
+                break;
+            case "coachR":
+                route = "getCoachReservation";
+                break;
         }
-        else if (requestType == "user"){
-            route = "getUserReservation";
-        }
-        else if (requestType == "coachR"){
-            route = "getCoachReservation";
-        }
-        String complete_url = domain + route;
 
-        URL url = null;
+        JSONObject jsonParam;
         try {
-            url = new URL(complete_url);
-        } catch (MalformedURLException e) {
+            jsonParam = params[0].prepareToSend();
+            String res = DAO.doOperation(route, jsonParam);
+            result = new JSONObject(res);
+
+        } catch (JSONException | IOException e) {
             try {
-                result.put("code", 3);
+                result.put("code", 500);
             } catch (JSONException e1) {
                 e1.printStackTrace();
             }
-            e.printStackTrace();
         }
 
-        if (url != null) {
-            try {
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setDoOutput(true);
-                urlConnection.setRequestMethod("POST");
-                urlConnection.setUseCaches(false);
-                urlConnection.setConnectTimeout(10000);
-                urlConnection.setReadTimeout(10000);
-                urlConnection.setRequestProperty("Content-Type", "application/json");
-
-                urlConnection.connect();
-
-                JSONObject jsonParam = params[0].prepareToSend();
-
-                Log.d("JSON", "Json: "+jsonParam);
-
-                OutputStreamWriter out = new OutputStreamWriter(urlConnection.getOutputStream());
-                out.write(jsonParam.toString());
-                out.close();
-
-                int HttpResult = urlConnection.getResponseCode();
-                Log.d("RESPONSE CODE", Integer.toString(HttpResult));
-
-                if (HttpResult == HttpURLConnection.HTTP_OK) {
-                    StringBuilder sb = new StringBuilder();
-
-                    BufferedReader br = new BufferedReader(new InputStreamReader(
-                            urlConnection.getInputStream(), "utf-8"));
-                    String line = null;
-                    while ((line = br.readLine()) != null) {
-                        sb.append(line + "\n");
-                    }
-                    br.close();
-
-                    Log.d("RESPONSE", sb.toString());
-                    JSONObject jresult = new JSONObject(sb.toString());
-
-                    result = jresult;
-                }
-            } catch (UnsupportedEncodingException e) {
-                try {
-                    result.put("code", 4);
-                } catch (JSONException e1) {
-                    e1.printStackTrace();
-                }
-                e.printStackTrace();
-            } catch (IOException e) {
-                try {
-                    result.put("code", 5);
-                } catch (JSONException e1) {
-                    e1.printStackTrace();
-                }
-                e.printStackTrace();
-            } catch (JSONException e) {
-                try {
-                    result.put("code", 6);
-                } catch (JSONException e1) {
-                    e1.printStackTrace();
-                }
-                e.printStackTrace();
-            }
-        }
         return result;
     }
 }
