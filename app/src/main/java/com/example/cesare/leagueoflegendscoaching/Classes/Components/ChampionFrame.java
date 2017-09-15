@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.cesare.leagueoflegendscoaching.Classes.ChampionsMap;
 import com.example.cesare.leagueoflegendscoaching.R;
+import com.example.cesare.leagueoflegendscoaching.Services.DAO;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +23,7 @@ public class ChampionFrame {
     public ChampionFrame(JSONObject json) throws JSONException {
         this.id = json.getInt("id");
         this.n_games = json.getInt("n_games");
-        this.name = ChampionsMap.idToChamp.get(this.id);
+        this.name = DAO.idToChamp.get(this.id);
     }
 
     public View createFrame(View frame){

@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.cesare.leagueoflegendscoaching.Classes.ChampionsMap;
 import com.example.cesare.leagueoflegendscoaching.Classes.Components.ToggleImageButton;
 import com.example.cesare.leagueoflegendscoaching.Classes.Listeners.ShakeDetector;
 import com.example.cesare.leagueoflegendscoaching.R;
+import com.example.cesare.leagueoflegendscoaching.Services.DAO;
 import com.example.cesare.leagueoflegendscoaching.Types.Elo;
 import com.example.cesare.leagueoflegendscoaching.Types.Language;
 
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 
-import static com.example.cesare.leagueoflegendscoaching.Classes.ChampionsMap.spinnerMap;
+import static com.example.cesare.leagueoflegendscoaching.Services.DAO.spinnerMap;
 
 public class SearchCoach extends Activity {
 
@@ -54,12 +54,12 @@ public class SearchCoach extends Activity {
 
         // create a spinner for champions
         InputStream championsList = getResources().openRawResource(R.raw.champions);
-        JSONObject json = ChampionsMap.readJson(championsList);
+        JSONObject json = DAO.readJson(championsList);
 
 
         try {
-            spinnerMap = ChampionsMap.getChampionsMap(json);
-            ChampionsMap.idToChamp = ChampionsMap.getIdToChampMap(spinnerMap);
+            DAO.spinnerMap = DAO.getChampionsMap(json);
+            DAO.idToChamp = DAO.getIdToChampMap(spinnerMap);
 
             ArrayList<String> spinnerList = new ArrayList<String>(spinnerMap.keySet());
             Collections.sort(spinnerList);
