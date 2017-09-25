@@ -38,6 +38,9 @@ public class UserOperation extends AsyncTask<UserParams, Integer, Integer>{
             case "token":
                 route = "saveToken/";
                 break;
+            case "refresh":
+                route = "/refreshChampions";
+                break;
         }
 
         JSONObject jsonParam;

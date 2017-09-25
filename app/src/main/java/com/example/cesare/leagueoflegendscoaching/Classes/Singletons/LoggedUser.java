@@ -3,16 +3,21 @@ package com.example.cesare.leagueoflegendscoaching.Classes.Singletons;
 import android.content.Context;
 import android.util.Log;
 
+import com.example.cesare.leagueoflegendscoaching.Operations.Params.UserParams;
+import com.example.cesare.leagueoflegendscoaching.Operations.UserOperation;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by cesare on 05/08/2017.
@@ -109,7 +114,7 @@ public class LoggedUser {
         }
     }
 
-    public static LoggedUser rememberUser(Context c){
+    private static LoggedUser rememberUser(Context c){
         LoggedUser res = null;
         FileInputStream inputStream;
         String filename = "user.json";
@@ -124,19 +129,24 @@ public class LoggedUser {
                 sb.append(line).append('\n');
             }
 
-            JSONObject json = null;
+            JSONObject json;
             json = new JSONObject(sb.toString());
             Log.d("REMEMBER USER", sb.toString());
             res = new LoggedUser(json);
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
+            refreshChampions(res, c);
+
+        } catch (IOException | JSONException | InterruptedException | ExecutionException | NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
         return res;
+    }
+
+    private static void refreshChampions(LoggedUser user, Context c) throws UnsupportedEncodingException, NoSuchAlgorithmException, ExecutionException, InterruptedException {
+        if (user.isCoach()){
+            UserParams params = new UserParams(user.getIgn(), user.getPassword(), c, "refresh", "");
+            new UserOperation().execute(params).get();
+        }
     }
 
     public String getLanguage() {

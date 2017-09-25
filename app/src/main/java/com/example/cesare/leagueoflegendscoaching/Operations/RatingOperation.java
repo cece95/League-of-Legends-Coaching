@@ -13,7 +13,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 public class RatingOperation extends AsyncTask<RatingParams, Integer, Integer> {
-    final static String domain = "https://league-of-legends-coaching.herokuapp.com/";
 
     @Override
     protected Integer doInBackground(RatingParams... params) {
