@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/League-of-Legends-Coaching.iml" filepath="$PROJECT_DIR$/League-of-Legends-Coaching.iml" />
+      <module fileurl="file://C:\Users\cesare\AndroidStudioProjects\LeagueofLegendsCoaching\League-of-Legends-Coaching.iml" filepath="C:\Users\cesare\AndroidStudioProjects\LeagueofLegendsCoaching\League-of-Legends-Coaching.iml" />
       <module fileurl="file://$PROJECT_DIR$/LeagueofLegendsCoaching.iml" filepath="$PROJECT_DIR$/LeagueofLegendsCoaching.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
